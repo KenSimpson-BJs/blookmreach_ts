@@ -17,6 +17,7 @@ function App() {
   const mapping = {
     NewComponent,
     OpenHTML,
+    Card,
   };
   return (
     <div className="App">
