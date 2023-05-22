@@ -2,7 +2,7 @@
 import React from "react";
 
 // internal
-import { NewComponent } from "./components";
+import { NewComponent, Card } from "./components";
 
 // styles
 import logo from "./logo.svg";
@@ -30,6 +30,7 @@ function App() {
         cta="Kampf"
         link="https://www.google.com"
       ></NewComponent>
+      <Card title="Card" cta="Component" link="https://www.yahoo.com"></Card>
     </div>
   );
 }
