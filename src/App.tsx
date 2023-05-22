@@ -1,6 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// external
+import React from "react";
+
+// internal
+import { NewComponent } from "./components";
+
+// styles
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -19,6 +25,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <NewComponent
+        title="Mein"
+        cta="Kampf"
+        link="https://www.google.com"
+      ></NewComponent>
     </div>
   );
 }
