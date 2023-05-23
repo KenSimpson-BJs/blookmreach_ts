@@ -19,6 +19,7 @@ interface Card {
   background?: string;
   title?: string;
   content?: Content;
+  layout?: SelectionType;
   cta?: Cta;
   analytics?: Anchor;
   image?: Image;
@@ -36,6 +37,7 @@ export function Card({
     background,
     title,
     content,
+    layout,
     cta,
     image,
     analytics: link,
@@ -43,13 +45,14 @@ export function Card({
 
   const secondary: boolean = false;
   const rounded: boolean = true;
+  const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
   return (
     <Container>
       {link && (
         <Link
           link={link}
-          className={`d-flex flex-column text-decoration-none mt-2 ${
+          className={`d-flex flex-${flexDirection} text-decoration-none mt-2 ${
             styles.card
           }${rounded ? ` ${styles.rounded}` : ""}`}
           background={background ? background : "#fff"}
