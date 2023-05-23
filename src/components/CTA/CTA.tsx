@@ -6,9 +6,14 @@ interface CTA {
 }
 
 export function CTA(props: CTA): React.ReactElement | null {
-  const { cta, style } = props.cta ?? {};
-
-  console.log(style.selectionValues);
+  const {
+    cta,
+    style: {
+      selectionValues: {
+        [0]: { key: style },
+      },
+    },
+  } = props.cta ?? {};
 
   const returnStyle = (value: string) => {
     switch (value) {
@@ -21,5 +26,5 @@ export function CTA(props: CTA): React.ReactElement | null {
     }
   };
 
-  return <span className={returnStyle("primary")}>{cta}</span>;
+  return <span className={returnStyle(style)}>{cta}</span>;
 }
