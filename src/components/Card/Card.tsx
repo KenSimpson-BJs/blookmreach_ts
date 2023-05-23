@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "../Link";
 import {
   ContainerItem,
   Document,
@@ -8,12 +7,19 @@ import {
   Reference,
 } from "@bloomreach/spa-sdk";
 import { BrProps } from "@bloomreach/react-sdk";
+
+// internal
+import { Link } from "../Link";
+import { CTA } from "../CTA";
+
+// styles
 import styles from "./Card.module.scss";
 
 interface Card {
+  background?: string;
   title?: string;
   content?: Content;
-  cta?: string;
+  cta?: Cta;
   analytics?: Anchor;
   image?: Image;
 }
@@ -27,6 +33,7 @@ export function Card({
   }
 
   const {
+    background,
     title,
     content,
     cta,
@@ -34,18 +41,21 @@ export function Card({
     analytics: link,
   } = getContainerItemContent<Card>(component, page) ?? {};
 
-  const secondary = false;
+  const secondary: boolean = false;
+  const rounded: boolean = true;
 
   return (
-    <Container className={`${styles.thisAClass}`}>
-      {title && <h3 className="mb-2">{title}</h3>}
+    <Container>
       {link && (
         <Link
           link={link}
-          className="d-flex flex-column text-decoration-none mt-2"
+          className={`d-flex flex-column text-decoration-none mt-2 ${
+            styles.card
+          }${rounded ? ` ${styles.rounded}` : ""}`}
+          background={background ? background : "#fff"}
         >
           {image && (
-            <div className="card-img-cont">
+            <div className={styles["card-img-cont"]}>
               <picture>
                 {image.imageDesktop && (
                   <source
@@ -61,20 +71,12 @@ export function Card({
               </picture>
             </div>
           )}
-          <div className="card-text-cont">
+          <div className={`${styles["card-text-cont"]} py-3`}>
             {title && <h3 className="font-weight-bold">{title}</h3>}
             {content && (
               <p dangerouslySetInnerHTML={{ __html: content.value }}></p>
             )}
-            {cta && (
-              <span
-                className={`btn${
-                  secondary ? " btn-secondary" : " btn-primary"
-                }`}
-              >
-                {cta}
-              </span>
-            )}
+            {cta && <CTA cta={cta}></CTA>}
           </div>
         </Link>
       )}

@@ -31,11 +31,17 @@ interface Content {
 
 interface Anchor {
   hpPlacement: boolean;
+  newTab: boolean;
   href: string;
   data_gtm_position: string;
   data_gtm_id: string;
   data_gtm_name: string;
   data_gtm_creative: string;
+}
+
+interface Cta {
+  cta: string;
+  style: SelectionType;
 }
 
 interface Image {
