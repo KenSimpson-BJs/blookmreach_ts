@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import {
   ContainerItem,
   Document,
@@ -58,7 +58,13 @@ export function Card({
           background={background ? background : "#fff"}
         >
           {image && (
-            <div className={styles["card-img-cont"]}>
+            <div
+              className={`${styles["card-img-cont"]}${
+                flexDirection.includes("row")
+                  ? " col-7 d-flex flex-column align-items-center justify-content-center"
+                  : ""
+              }`}
+            >
               <picture>
                 {image.imageDesktop && (
                   <source
@@ -74,10 +80,16 @@ export function Card({
               </picture>
             </div>
           )}
-          <div className={`${styles["card-text-cont"]} py-3`}>
+          <div
+            className={`${styles["card-text-cont"]}${
+              flexDirection.includes("row")
+                ? " col-5 d-flex flex-column align-items-center justify-content-center"
+                : ""
+            } py-3`}
+          >
             {title && <h3 className="font-weight-bold">{title}</h3>}
             {content && (
-              <p dangerouslySetInnerHTML={{ __html: content.value }}></p>
+              <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
             )}
             {cta && <CTA cta={cta}></CTA>}
           </div>
