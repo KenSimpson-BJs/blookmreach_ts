@@ -29,6 +29,21 @@ interface Content {
   value: string;
 }
 
+interface Anchor {
+  hpPlacement: boolean;
+  href: string;
+  data_gtm_position: string;
+  data_gtm_id: string;
+  data_gtm_name: string;
+  data_gtm_creative: string;
+}
+
+interface Image {
+  imageMobile: string;
+  imageDesktop?: string;
+  alt: string;
+}
+
 interface BannerDocument {
   content: Content;
   cta?: string;

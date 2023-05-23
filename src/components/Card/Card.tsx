@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { Link } from "../Link";
 import {
   ContainerItem,
   Document,
@@ -13,7 +14,8 @@ interface Card {
   title?: string;
   content?: Content;
   cta?: string;
-  link?: Reference;
+  analytics?: Anchor;
+  image?: Image;
 }
 
 export function Card({
@@ -24,22 +26,57 @@ export function Card({
     return null;
   }
 
-  const { title, content, cta, link } =
-    getContainerItemContent<Card>(component, page) ?? {};
-  const document = link && page?.getContent<Document>(link);
+  const {
+    title,
+    content,
+    cta,
+    image,
+    analytics: link,
+  } = getContainerItemContent<Card>(component, page) ?? {};
+
+  const secondary = false;
 
   return (
     <Container className={`${styles.thisAClass}`}>
-      Hello World
       {title && <h3 className="mb-2">{title}</h3>}
-      {cta && (
-        <Button
-          href={document?.getUrl()}
-          variant="light"
-          className="text-primary mt-3"
+      {link && (
+        <Link
+          link={link}
+          className="d-flex flex-column text-decoration-none mt-2"
         >
-          {cta}
-        </Button>
+          {image && (
+            <div className="card-img-cont">
+              <picture>
+                {image.imageDesktop && (
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet={image.imageDesktop}
+                  />
+                )}
+                <img
+                  src={image.imageMobile}
+                  alt={image.alt}
+                  className="d-block w-100"
+                />
+              </picture>
+            </div>
+          )}
+          <div className="card-text-cont">
+            {title && <h3 className="font-weight-bold">{title}</h3>}
+            {content && (
+              <p dangerouslySetInnerHTML={{ __html: content.value }}></p>
+            )}
+            {cta && (
+              <span
+                className={`btn${
+                  secondary ? " btn-secondary" : " btn-primary"
+                }`}
+              >
+                {cta}
+              </span>
+            )}
+          </div>
+        </Link>
       )}
     </Container>
   );

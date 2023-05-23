@@ -1,9 +1,14 @@
+:root {
+  --bjsRed: #cc0033;
+  --bjsRedHover: #a7002a;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 80%;
   pointer-events: none;
 }
 
@@ -15,7 +20,8 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 10vh;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +41,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn {
+  box-shadow: none;
+}
+.btn-primary {
+  background: var(--bjsRed);
+  color: #fff;
+}
+.btn-secondary {
+  background-color: #fff;
+  color: var(--bjsRed);
+}
+.btn-primary:hover,
+a:hover .btn-primary {
+  background: var(--bjsRedHover);
+}
+.btn-secondary:hover,
+a:hover .btn-secondary {
+  background-color: #f1f1f1;
+  color: var(--bjsRedHover);
 }
