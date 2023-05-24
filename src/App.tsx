@@ -17,12 +17,14 @@ function App() {
   const mapping = {
     NewComponent,
     OpenHTML,
+    Card,
   };
   return (
-    <div className="App">
+    <div className="App pb-3">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
+
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,

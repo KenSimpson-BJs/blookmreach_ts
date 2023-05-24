@@ -1,4 +1,27 @@
-.thisAClass {
-  color: blue;
+.card {
   background: #fff;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0);
+  transition: 0.1s linear;
+
+  .card-text-cont {
+    color: #000;
+    text-decoration: none;
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.shadowed {
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
