@@ -10,6 +10,7 @@ import { BrProps } from "@bloomreach/react-sdk";
 
 // internal
 import { Link } from "../Link";
+import { Image } from "../Image/Image";
 import { CTA } from "../CTA";
 
 // styles
@@ -22,7 +23,8 @@ interface Card {
   layout?: SelectionType;
   cta?: Cta;
   analytics?: Anchor;
-  image?: Image;
+  image?: image;
+  icon?: boolean;
 }
 
 export function Card({
@@ -42,10 +44,13 @@ export function Card({
     image,
     analytics: link,
   } = getContainerItemContent<Card>(component, page) ?? {};
+  const { icon } = component.getParameters<Card>();
 
   const secondary: boolean = false;
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
+
+  if (image && icon) image.icon = icon;
 
   return (
     <Container>
@@ -60,24 +65,14 @@ export function Card({
           {image && (
             <div
               className={`${styles["card-img-cont"]}${
+                image.icon ? ` mx-auto pt-3` : ""
+              }${
                 flexDirection.includes("row")
                   ? " col-7 d-flex flex-column align-items-center justify-content-center"
                   : ""
               }`}
             >
-              <picture>
-                {image.imageDesktop && (
-                  <source
-                    media="(min-width: 768px)"
-                    srcSet={image.imageDesktop}
-                  />
-                )}
-                <img
-                  src={image.imageMobile}
-                  alt={image.alt}
-                  className="d-block w-100"
-                />
-              </picture>
+              <Image image={image}></Image>
             </div>
           )}
           <div
