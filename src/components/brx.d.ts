@@ -44,10 +44,12 @@ interface Cta {
   style: SelectionType;
 }
 
-interface Image {
+interface image {
   imageMobile: string;
   imageDesktop?: string;
   alt: string;
+  icon?: boolean;
+  imgfit?: SelectionType;
 }
 
 interface BannerDocument {
