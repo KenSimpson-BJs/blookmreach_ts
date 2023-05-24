@@ -25,6 +25,7 @@ interface Card {
   analytics?: Anchor;
   image?: image;
   icon?: boolean;
+  shadowed?: boolean;
 }
 
 export function Card({
@@ -44,7 +45,7 @@ export function Card({
     image,
     analytics: link,
   } = getContainerItemContent<Card>(component, page) ?? {};
-  const { icon } = component.getParameters<Card>();
+  const { icon, shadowed } = component.getParameters<Card>();
 
   const secondary: boolean = false;
   const rounded: boolean = true;
@@ -57,20 +58,18 @@ export function Card({
       {link && (
         <Link
           link={link}
-          className={`d-flex flex-${flexDirection} text-decoration-none mt-2 ${
+          className={`d-flex flex-${flexDirection} flex-wrap text-decoration-none mt-2 ${
             styles.card
-          }${rounded ? ` ${styles.rounded}` : ""}`}
+          }${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
           background={background ? background : "#fff"}
         >
           {image && (
             <div
-              className={`${styles["card-img-cont"]}${
+              className={`px-0 ${styles["card-img-cont"]}${
                 image.icon ? ` mx-auto pt-3` : ""
-              }${
-                flexDirection.includes("row")
-                  ? " col-7 d-flex flex-column align-items-center justify-content-center"
-                  : ""
-              }`}
+              }${flexDirection.includes("row") ? " col-12 col-sm-7" : ""}`}
             >
               <Image image={image}></Image>
             </div>
@@ -78,7 +77,7 @@ export function Card({
           <div
             className={`${styles["card-text-cont"]}${
               flexDirection.includes("row")
-                ? " col-5 d-flex flex-column align-items-center justify-content-center"
+                ? " col-12 col-sm-5 d-flex flex-column align-items-center justify-content-center"
                 : ""
             } py-3`}
           >
