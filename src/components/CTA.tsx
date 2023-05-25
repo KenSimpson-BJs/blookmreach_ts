@@ -1,18 +1,12 @@
 import React from "react";
+import { getSelectionValue } from "../utils/general";
 
 interface CTA {
-  cta: Cta;
+  cta?: Cta;
 }
 
 export function CTA(props: CTA): React.ReactElement | null {
-  const {
-    cta,
-    style: {
-      selectionValues: {
-        [0]: { key: style },
-      },
-    },
-  } = props.cta ?? {};
+  const { cta, style } = props.cta ?? {};
 
   const returnStyle = (value: string) => {
     switch (value) {
@@ -25,5 +19,9 @@ export function CTA(props: CTA): React.ReactElement | null {
     }
   };
 
-  return <span className={returnStyle(style)}>{cta}</span>;
+  return (
+    <span className={style && returnStyle(getSelectionValue(style))}>
+      {cta}
+    </span>
+  );
 }
