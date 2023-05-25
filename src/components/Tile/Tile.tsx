@@ -9,20 +9,21 @@ import { Image } from "../Image/Image";
 import { CTA } from "../CTA";
 
 // internal utis
-import { getSelectionValue, setSelectionValue } from "../../utils/general";
+import { setSelectionValue } from "../../utils/general";
 
 // styles
 import styles from "./Tile.module.scss";
 
 interface Tile {
-  title?: string;
   content?: Content;
   cta?: Cta;
   analytics?: Anchor;
+  title?: string;
+  variant: string;
   image?: image;
   icon?: boolean;
   shadowed?: boolean;
-  variant: string;
+  rounded?: boolean;
 }
 
 export function Tile({
@@ -40,10 +41,7 @@ export function Tile({
     image,
     analytics: link,
   } = getContainerItemContent<Tile>(component, page) ?? {};
-  const { shadowed, variant } = component.getParameters<Tile>();
-
-  const secondary: boolean = false;
-  const rounded: boolean = false;
+  const { rounded, shadowed, variant } = component.getParameters<Tile>();
 
   if (image && image.imgfit && variant === "Circular")
     setSelectionValue(image.imgfit, "center");
