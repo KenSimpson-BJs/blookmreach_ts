@@ -1,31 +1,28 @@
 import React from "react";
-import { Container, Col } from "react-bootstrap";
-import {
-  ContainerItem,
-  Document,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
+import { Container } from "react-bootstrap";
+import { ContainerItem, getContainerItemContent } from "@bloomreach/spa-sdk";
 import { BrProps } from "@bloomreach/react-sdk";
 
-// internal
+// internal components
 import { Link } from "../Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA";
+
+// internal utis
+import { getSelectionValue, setSelectionValue } from "../../utils/general";
 
 // styles
 import styles from "./Tile.module.scss";
 
 interface Tile {
-  background?: string;
   title?: string;
   content?: Content;
-  layout?: SelectionType;
   cta?: Cta;
   analytics?: Anchor;
   image?: image;
   icon?: boolean;
   shadowed?: boolean;
+  variant: string;
 }
 
 export function Tile({
@@ -37,50 +34,73 @@ export function Tile({
   }
 
   const {
-    background,
     title,
     content,
-    layout,
     cta,
     image,
     analytics: link,
   } = getContainerItemContent<Tile>(component, page) ?? {};
-  const { icon, shadowed } = component.getParameters<Tile>();
+  const { shadowed, variant } = component.getParameters<Tile>();
 
   const secondary: boolean = false;
-  const rounded: boolean = true;
-  const flexDirection = layout ? layout.selectionValues[0].key : "column";
+  const rounded: boolean = false;
 
-  if (image && icon) image.icon = icon;
+  if (image && image.imgfit && variant === "Circular")
+    setSelectionValue(image.imgfit, "center");
+
+  if (content) console.log(content.value);
+  if (content && content.value.includes("<a"))
+    return (
+      <Container>
+        {link && (
+          <Link
+            link={link}
+            className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
+          >
+            {image && (
+              <div
+                className={`${styles["tile-image-cont"]}${
+                  variant === "Circular" ? ` ${styles.circular}` : ""
+                }${rounded ? ` ${styles.rounded}` : ""}${
+                  shadowed ? ` ${styles.shadowed}` : ""
+                } col-12${image.icon ? ` mx-auto pt-3` : ""} px-0`}
+              >
+                <Image image={image}></Image>
+              </div>
+            )}
+            {title && (
+              <h3 className="font-weight-bold mx-auto pt-3">{title}</h3>
+            )}
+          </Link>
+        )}
+        <div className={`${styles["tile-text-cont"]} col-12 pb-3`}>
+          {content && (
+            <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
+          )}
+          {cta && <CTA cta={cta}></CTA>}
+        </div>
+      </Container>
+    );
 
   return (
     <Container>
       {link && (
         <Link
           link={link}
-          className={`d-flex flex-${flexDirection} flex-wrap text-decoration-none mt-2 ${
-            styles.Tile
-          }${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
-          }`}
-          background={background ? background : "#fff"}
+          className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
         >
           {image && (
             <div
-              className={`px-0 ${styles["Tile-img-cont"]}${
-                image.icon ? ` mx-auto pt-3` : ""
-              }${flexDirection.includes("row") ? " col-12 col-sm-7" : ""}`}
+              className={`${styles["tile-image-cont"]}${
+                variant === "Circular" ? ` ${styles.circular}` : ""
+              }${rounded ? ` ${styles.rounded}` : ""}${
+                shadowed ? ` ${styles.shadowed}` : ""
+              } col-12${image.icon ? ` mx-auto pt-3` : ""} px-0`}
             >
               <Image image={image}></Image>
             </div>
           )}
-          <div
-            className={`${styles["Tile-text-cont"]}${
-              flexDirection.includes("row")
-                ? " col-12 col-sm-5 d-flex flex-column align-items-center justify-content-center"
-                : ""
-            } py-3`}
-          >
+          <div className={`${styles["tile-text-cont"]} col-12 py-3`}>
             {title && <h3 className="font-weight-bold">{title}</h3>}
             {content && (
               <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
