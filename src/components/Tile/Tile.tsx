@@ -20,6 +20,7 @@ interface Tile {
   analytics?: Anchor;
   title?: string;
   variant: string;
+  textAlignment?: string;
   image?: image;
   shadowed?: boolean;
   rounded?: boolean;
@@ -40,7 +41,8 @@ export function Tile({
     image,
     analytics: link,
   } = getContainerItemContent<Tile>(component, page) ?? {};
-  const { rounded, shadowed, variant } = component.getParameters<Tile>();
+  const { rounded, shadowed, variant, textAlignment } =
+    component.getParameters<Tile>();
 
   if (image) {
     if (image && image.imgfit && variant === "Circular")
@@ -120,5 +122,13 @@ export function Tile({
       </>
     );
   };
-  return <Container>{tileOutput()}</Container>;
+  return (
+    <Container
+      className={`text-${
+        textAlignment ? `${textAlignment.toLowerCase()}` : "center"
+      }`}
+    >
+      {tileOutput()}
+    </Container>
+  );
 }
