@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 import styles from "./Image.module.scss";
-import { selectionValue } from "../../utils/general";
+import { getSelectionValue } from "../../utils/general";
 
 interface Image {
   image: image;
@@ -21,8 +21,10 @@ export function Image(props: Image): React.ReactElement | null {
         src={imageMobile}
         alt={alt}
         className={`d-block ${styles.img}${icon ? ` ${styles.icon}` : ""}${
-          imgfit && selectionValue(imgfit) !== "default"
-            ? ` ${styles.imgfit} ${styles[`imgfit-${selectionValue(imgfit)}`]}`
+          imgfit && getSelectionValue(imgfit) !== "default"
+            ? ` ${styles.imgfit} ${
+                styles[`imgfit-${getSelectionValue(imgfit)}`]
+              }`
             : ""
         }`}
       />
