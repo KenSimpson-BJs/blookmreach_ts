@@ -46,74 +46,79 @@ export function Tile({
     if (image && image.imgfit && variant === "Circular")
       setSelectionValue(image.imgfit, "center");
     image.icon = variant === "Icon";
-    console.log(image.icon);
   }
 
-  if (content) console.log(content.value);
-  if (content && content.value.includes("<a"))
-    return (
-      <Container>
-        {link && (
-          <Link
-            link={link}
-            className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
-          >
-            {image && (
-              <div
-                className={`${styles["tile-image-cont"]}${
-                  variant === "Circular" ? ` ${styles.circular}` : ""
-                }${rounded ? ` ${styles.rounded}` : ""}${
-                  shadowed ? ` ${styles.shadowed}` : ""
-                } col-12${
-                  image.icon ? ` ${styles["tile-icon"]} pt-3` : ""
-                } px-0`}
-              >
-                <Image image={image}></Image>
-              </div>
-            )}
-            {title && (
-              <h3 className="font-weight-bold mx-auto pt-3">{title}</h3>
-            )}
-          </Link>
-        )}
-        <div className={`${styles["tile-text-cont"]} col-12 pb-3`}>
-          {content && (
-            <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
-          )}
-          {cta && <CTA cta={cta}></CTA>}
-        </div>
-      </Container>
-    );
+  const imageContainer = () => {
+    return image ? (
+      <div
+        className={`${styles["tile-image-cont"]}${
+          variant === "Circular" ? ` ${styles.circular}` : ""
+        }${rounded ? ` ${styles.rounded}` : ""}${
+          shadowed ? ` ${styles.shadowed}` : ""
+        } col-12${image.icon ? ` ${styles["tile-icon"]} pt-3` : ""} px-0`}
+      >
+        <Image image={image}></Image>
+      </div>
+    ) : null;
+  };
 
-  return (
-    <Container>
-      {link && (
+  const titleOutput = () => {
+    return title && <h3 className="font-weight-bold mx-auto pt-3">{title}</h3>;
+  };
+
+  const ctaOutput = () => {
+    return cta ? <CTA cta={cta}></CTA> : null;
+  };
+
+  const textContainer = (
+    titleNode?: React.ReactNode,
+    ctaNode?: React.ReactNode
+  ) => {
+    return (
+      <div className={`${styles["tile-text-cont"]} col-12 py-3`}>
+        {titleNode}
+        {content && (
+          <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
+        )}
+        {ctaNode}
+      </div>
+    );
+  };
+
+  const tileOutput = () => {
+    if (link && link.href) {
+      if (content && content.value.includes("<a"))
+        return (
+          <>
+            <Link
+              link={link}
+              className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
+            >
+              {imageContainer()}
+              <div className="col-12">{titleOutput()}</div>
+              <div className="col-12">{ctaOutput()}</div>
+            </Link>
+            {textContainer()}
+          </>
+        );
+
+      return (
         <Link
           link={link}
           className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
         >
-          {image && (
-            <div
-              className={`${styles["tile-image-cont"]}${
-                variant === "Circular" ? ` ${styles.circular}` : ""
-              }${rounded ? ` ${styles.rounded}` : ""}${
-                shadowed && !image.icon ? ` ${styles.shadowed}` : ""
-              } col-12${
-                image.icon ? ` ${styles["tile-icon"]} mx-auto pt-3` : ""
-              } px-0`}
-            >
-              <Image image={image}></Image>
-            </div>
-          )}
-          <div className={`${styles["tile-text-cont"]} col-12 py-3`}>
-            {title && <h3 className="font-weight-bold">{title}</h3>}
-            {content && (
-              <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
-            )}
-            {cta && <CTA cta={cta}></CTA>}
-          </div>
+          {imageContainer()}
+          {textContainer(titleOutput(), ctaOutput())}
         </Link>
-      )}
-    </Container>
-  );
+      );
+    }
+
+    return (
+      <>
+        {imageContainer()}
+        {textContainer(titleOutput())}
+      </>
+    );
+  };
+  return <Container>{tileOutput()}</Container>;
 }
