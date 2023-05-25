@@ -5,7 +5,7 @@ import styles from "./Link.module.scss";
 interface Link {
   link: Anchor;
   className?: string;
-  background: string;
+  background?: string;
   children: React.ReactNode | string;
 }
 

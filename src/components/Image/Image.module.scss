@@ -1,5 +1,19 @@
-.img {
+.imgwrap {
   width: 100%;
+  height: 100%;
+
+  .imgfit {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  $imgfitOps: (center, top, bottom, right, left);
+
+  @each $imgfitOps-key in $imgfitOps {
+    .imgfit-#{$imgfitOps-key} {
+      object-position: $imgfitOps-key;
+    }
+  }
 }
 
 .icon {
@@ -7,15 +21,15 @@
   width: 40px;
 }
 
-.imgfit {
-  height: 100%;
-  object-fit: cover;
-}
+a {
+  .icon {
+    transform: scale(1);
+    transition: var(--transitionEaseIn);
+  }
 
-$imgfitOps: (center, top, bottom, right, left);
-
-@each $imgfitOps-key in $imgfitOps {
-  .imgfit-#{$imgfitOps-key} {
-    object-position: $imgfitOps-key;
+  &:hover {
+    .icon {
+      transform: scale(1.1);
+    }
   }
 }
