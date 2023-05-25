@@ -1,6 +1,9 @@
 :root {
   --bjsRed: #cc0033;
   --bjsRedHover: #a7002a;
+  --transitionLength: 0.1s;
+  --transitionLinear: var(--transitionLength) linear;
+  --transitionEaseIn: var(--transitionLength) ease-in;
 }
 
 .App {
@@ -45,24 +48,4 @@
 
 .container {
   max-width: 1280px !important;
-}
-.btn {
-  box-shadow: none;
-}
-.btn-primary {
-  background: var(--bjsRed);
-  color: #fff;
-}
-.btn-secondary {
-  background-color: #fff;
-  color: var(--bjsRed);
-}
-.btn-primary:hover,
-a:hover .btn-primary {
-  background: var(--bjsRedHover);
-}
-.btn-secondary:hover,
-a:hover .btn-secondary {
-  background-color: #f1f1f1;
-  color: var(--bjsRedHover);
 }

@@ -4,11 +4,15 @@
 
   .tile-image-cont,
   h3 {
-    transition: 0.1s linear;
+    transition: var(--transitionLinear);
   }
 
   .tile-image-cont {
+    overflow: hidden;
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0);
+  }
+  .tile-image-cont.tile-icon {
+    box-shadow: none;
   }
 
   h3 {
@@ -17,7 +21,7 @@
 
   .tile-text-cont {
     text-decoration: none;
-    transition: 0.1s linear;
+    transition: var(--transitionLinear);
   }
 
   .circular {
@@ -51,6 +55,9 @@
     .tile-image-cont {
       box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
     }
+    .tile-image-cont.tile-icon {
+      box-shadow: none;
+    }
     h3 {
       text-decoration: underline;
       color: var(--bjsRedHover);
@@ -61,10 +68,13 @@
 .tile-text-cont {
   text-decoration: none;
   color: #000;
-  transition: 0.1s linear;
+
+  p {
+    margin-bottom: 0.25rem;
+  }
 
   a {
-    transition: 0.1s linear;
+    transition: var(--transitionLinear);
     color: inherit;
     text-decoration: underline;
 

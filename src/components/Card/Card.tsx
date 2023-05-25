@@ -11,7 +11,7 @@ import { BrProps } from "@bloomreach/react-sdk";
 // internal
 import { Link } from "../Link";
 import { Image } from "../Image/Image";
-import { CTA } from "../CTA";
+import { CTA } from "../CTA/CTA";
 
 // styles
 import styles from "./Card.module.scss";
@@ -67,7 +67,7 @@ export function Card({
         >
           {image && (
             <div
-              className={`px-0 ${styles["card-img-cont"]}${
+              className={`px-0 ${styles["card-image-cont"]}${
                 image.icon ? ` mx-auto pt-3` : ""
               }${flexDirection.includes("row") ? " col-12 col-sm-7" : ""}`}
             >

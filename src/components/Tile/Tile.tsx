@@ -6,7 +6,7 @@ import { BrProps } from "@bloomreach/react-sdk";
 // internal components
 import { Link } from "../Link";
 import { Image } from "../Image/Image";
-import { CTA } from "../CTA";
+import { CTA } from "../CTA/CTA";
 
 // internal utis
 import { setSelectionValue } from "../../utils/general";
@@ -21,7 +21,6 @@ interface Tile {
   title?: string;
   variant: string;
   image?: image;
-  icon?: boolean;
   shadowed?: boolean;
   rounded?: boolean;
 }
@@ -43,8 +42,12 @@ export function Tile({
   } = getContainerItemContent<Tile>(component, page) ?? {};
   const { rounded, shadowed, variant } = component.getParameters<Tile>();
 
-  if (image && image.imgfit && variant === "Circular")
-    setSelectionValue(image.imgfit, "center");
+  if (image) {
+    if (image && image.imgfit && variant === "Circular")
+      setSelectionValue(image.imgfit, "center");
+    image.icon = variant === "Icon";
+    console.log(image.icon);
+  }
 
   if (content) console.log(content.value);
   if (content && content.value.includes("<a"))
@@ -61,7 +64,9 @@ export function Tile({
                   variant === "Circular" ? ` ${styles.circular}` : ""
                 }${rounded ? ` ${styles.rounded}` : ""}${
                   shadowed ? ` ${styles.shadowed}` : ""
-                } col-12${image.icon ? ` mx-auto pt-3` : ""} px-0`}
+                } col-12${
+                  image.icon ? ` ${styles["tile-icon"]} pt-3` : ""
+                } px-0`}
               >
                 <Image image={image}></Image>
               </div>
@@ -92,8 +97,10 @@ export function Tile({
               className={`${styles["tile-image-cont"]}${
                 variant === "Circular" ? ` ${styles.circular}` : ""
               }${rounded ? ` ${styles.rounded}` : ""}${
-                shadowed ? ` ${styles.shadowed}` : ""
-              } col-12${image.icon ? ` mx-auto pt-3` : ""} px-0`}
+                shadowed && !image.icon ? ` ${styles.shadowed}` : ""
+              } col-12${
+                image.icon ? ` ${styles["tile-icon"]} mx-auto pt-3` : ""
+              } px-0`}
             >
               <Image image={image}></Image>
             </div>
