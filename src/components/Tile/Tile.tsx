@@ -8,7 +8,7 @@ import { Link } from "../Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
-// internal utis
+// internal utils
 import { setSelectionValue } from "../../utils/general";
 
 // styles
