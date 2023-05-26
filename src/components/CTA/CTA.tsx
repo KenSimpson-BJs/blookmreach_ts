@@ -23,8 +23,12 @@ export function CTA(props: CTA): React.ReactElement | null {
   };
 
   return (
-    <span className={style && returnStyle(getSelectionValue(style))}>
-      {cta}
-    </span>
+    <>
+      {cta && (
+        <span className={style && returnStyle(getSelectionValue(style))}>
+          {cta}
+        </span>
+      )}
+    </>
   );
 }
