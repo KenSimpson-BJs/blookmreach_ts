@@ -44,6 +44,11 @@
 
 .rounded {
   border-radius: 10px;
+  overflow: hidden;
+  > div {
+    border-radius: inherit;
+    overflow: inherit;
+  }
 }
 
 .circular {

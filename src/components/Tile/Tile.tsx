@@ -50,6 +50,12 @@ export function Tile({
     image.icon = variant === "Icon";
   }
 
+  const textAlign = () => {
+    return `text-${
+      textAlignment ? `${textAlignment.toLowerCase()}` : "center"
+    }`;
+  };
+
   const imageContainer = () => {
     return image ? (
       <div
@@ -65,7 +71,13 @@ export function Tile({
   };
 
   const titleOutput = () => {
-    return title && <h3 className="font-weight-bold mx-auto pt-3">{title}</h3>;
+    return (
+      title && (
+        <h3 className={`font-weight-bold ${textAlign()} mx-auto pt-3`}>
+          {title}
+        </h3>
+      )
+    );
   };
 
   const ctaOutput = () => {
@@ -77,7 +89,7 @@ export function Tile({
     ctaNode?: React.ReactNode
   ) => {
     return (
-      <div className={`${styles["tile-text-cont"]} col-12 py-3`}>
+      <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
         {titleNode}
         {content && (
           <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
@@ -97,8 +109,8 @@ export function Tile({
               className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
             >
               {imageContainer()}
-              <div className="col-12">{titleOutput()}</div>
-              <div className="col-12">{ctaOutput()}</div>
+              <div className={`col-12 ${textAlign()}`}>{titleOutput()}</div>
+              <div className={`col-12 ${textAlign()}`}>{ctaOutput()}</div>
             </Link>
             {textContainer()}
           </>
@@ -122,13 +134,5 @@ export function Tile({
       </>
     );
   };
-  return (
-    <Container
-      className={`text-${
-        textAlignment ? `${textAlignment.toLowerCase()}` : "center"
-      }`}
-    >
-      {tileOutput()}
-    </Container>
-  );
+  return <Container>{tileOutput()}</Container>;
 }
