@@ -24,29 +24,6 @@
     transition: var(--transitionLinear);
   }
 
-  .circular {
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    &::before {
-      position: relative;
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
-  }
-
-  .rounded {
-    border-radius: 10px;
-  }
-
   .shadowed {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
   }
@@ -62,6 +39,29 @@
       text-decoration: underline;
       color: var(--bjsRedHover);
     }
+  }
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.circular {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &::before {
+    position: relative;
+    content: "";
+    display: block;
+    padding-top: 100%;
   }
 }
 
