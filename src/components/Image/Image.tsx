@@ -12,8 +12,6 @@ export function Image(props: Image): React.ReactElement | null {
 
   const { imageDesktop, imageMobile, alt, imgfit, icon } = image;
 
-  console.log(icon);
-
   const imgOutput = () => {
     return (
       <img

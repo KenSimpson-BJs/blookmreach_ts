@@ -10,8 +10,6 @@ export function CTA(props: CTA): React.ReactElement | null {
   const { cta, style } = props.cta ?? {};
 
   const returnStyle = (value: string) => {
-    console.log(value);
-
     switch (value) {
       case "primary":
         return `btn btn-primary`;

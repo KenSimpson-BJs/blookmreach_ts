@@ -45,16 +45,13 @@ export function Tile({
     component.getParameters<Tile>();
 
   if (image) {
-    if (image && image.imgfit && variant === "Circular")
+    if (image.imgfit && variant === "Circular")
       setSelectionValue(image.imgfit, "center");
     image.icon = variant === "Icon";
   }
 
-  const textAlign = () => {
-    return `text-${
-      textAlignment ? `${textAlignment.toLowerCase()}` : "center"
-    }`;
-  };
+  const textAlign = () =>
+    `text-${textAlignment ? `${textAlignment.toLowerCase()}` : "center"}`;
 
   const imageContainer = () => {
     return image ? (
@@ -134,5 +131,6 @@ export function Tile({
       </>
     );
   };
+
   return <Container>{tileOutput()}</Container>;
 }

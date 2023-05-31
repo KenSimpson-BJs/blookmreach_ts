@@ -47,7 +47,6 @@ export function Card({
   } = getContainerItemContent<Card>(component, page) ?? {};
   const { icon, shadowed } = component.getParameters<Card>();
 
-  const secondary: boolean = false;
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
