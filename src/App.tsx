@@ -10,7 +10,7 @@ import {
   OpenHTML,
   CardComp,
   TileComp,
-  BannerCTA,
+  BannerCTAComp,
 } from "./components";
 
 // styles
@@ -25,7 +25,7 @@ function App() {
     OpenHTML,
     TileComp,
     CardComp,
-    BannerCTA,
+    BannerCTAComp,
   };
   return (
     <div className="App pb-3">

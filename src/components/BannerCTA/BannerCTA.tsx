@@ -30,14 +30,7 @@ interface BannerCTA {
   textAlignment?: SelectionType;
 }
 
-export function BannerCTA({
-  component,
-  page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
-
+export function BannerCTA(props: BannerCTA): React.ReactElement | null {
   const {
     background,
     title,
@@ -46,8 +39,9 @@ export function BannerCTA({
     image,
     analytics: link,
     textAlignment,
-  } = getContainerItemContent<BannerCTA>(component, page) ?? {};
-  const { shadowed, rounded } = component.getParameters<BannerCTA>();
+    shadowed,
+    rounded,
+  } = props;
 
   const bannerOutput = () => {
     return (
