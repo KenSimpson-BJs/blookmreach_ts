@@ -1,19 +1,3 @@
-/*
- * Copyright 2021-2023 Bloomreach
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import {
@@ -61,6 +45,85 @@ export function BannerCTA({
         >
           {cta}
         </Button>
+      )}
+    </Container>
+  );
+}
+
+// internal
+import { Link } from "../Link";
+import { Image } from "../Image/Image";
+import { CTA } from "../CTA/CTA";
+
+// styles
+import styles from "./Card.module.scss";
+import { getSelectionValue } from "../../utils/general";
+
+interface Card {
+  background?: string;
+  title?: string;
+  content?: Content;
+  cta?: Cta;
+  analytics?: Anchor;
+  image?: image;
+  icon?: boolean;
+  shadowed?: boolean;
+  rounded?: boolean;
+  textAlignment?: SelectionType;
+}
+
+export function Card({
+  component,
+  page,
+}: BrProps<ContainerItem>): React.ReactElement | null {
+  if (!component || !page) {
+    return null;
+  }
+
+  const {
+    background,
+    title,
+    content,
+    cta,
+    image,
+    analytics: link,
+    textAlignment,
+  } = getContainerItemContent<Card>(component, page) ?? {};
+  const { shadowed, rounded } = component.getParameters<Card>();
+
+  return (
+    <Container>
+      {link && (
+        <Link
+          link={link}
+          className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
+          background={background ? background : "#fff"}
+        >
+          {image && (
+            <div
+              className={`px-0 ${styles["banner-image-cont"]}${
+                image.icon ? ` mx-auto pt-3` : ""
+              }`}
+            >
+              <Image image={image}></Image>
+              <div
+                className={`${styles["banner-text-cont"]} text-${
+                  textAlignment ? getSelectionValue(textAlignment) : "center"
+                } py-3`}
+              >
+                {title && <h3 className="font-weight-bold">{title}</h3>}
+                {content && (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: content.value }}
+                  ></div>
+                )}
+                {cta && <CTA cta={cta}></CTA>}
+              </div>
+            </div>
+          )}
+        </Link>
       )}
     </Container>
   );
