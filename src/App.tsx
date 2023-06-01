@@ -5,7 +5,13 @@ import axios from "axios";
 import { BrComponent, BrPage, BrPageContext } from "@bloomreach/react-sdk";
 
 // internal
-import { NewComponent, CardComp, TileComp, OpenHTML } from "./components";
+import {
+  NewComponent,
+  OpenHTML,
+  CardComp,
+  TileComp,
+  BannerCTA,
+} from "./components";
 
 // styles
 import logo from "./logo.svg";
@@ -19,6 +25,7 @@ function App() {
     OpenHTML,
     TileComp,
     CardComp,
+    BannerCTA,
   };
   return (
     <div className="App pb-3">
