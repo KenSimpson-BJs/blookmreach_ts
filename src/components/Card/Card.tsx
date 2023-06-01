@@ -1,12 +1,5 @@
 import React from "react";
-import { Container, Col } from "react-bootstrap";
-import {
-  ContainerItem,
-  Document,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
-import { BrProps } from "@bloomreach/react-sdk";
+import { Container } from "react-bootstrap";
 
 // internal
 import { Link } from "../Link";
@@ -28,14 +21,7 @@ interface Card {
   shadowed?: boolean;
 }
 
-export function Card({
-  component,
-  page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
-
+export function Card(props: Card): React.ReactElement | null {
   const {
     background,
     title,
@@ -44,8 +30,9 @@ export function Card({
     cta,
     image,
     analytics: link,
-  } = getContainerItemContent<Card>(component, page) ?? {};
-  const { icon, shadowed } = component.getParameters<Card>();
+    icon,
+    shadowed,
+  } = props;
 
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
