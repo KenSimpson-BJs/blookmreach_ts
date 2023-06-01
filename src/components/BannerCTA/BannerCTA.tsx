@@ -49,9 +49,36 @@ export function BannerCTA({
   } = getContainerItemContent<BannerCTA>(component, page) ?? {};
   const { shadowed, rounded } = component.getParameters<BannerCTA>();
 
+  const bannerOutput = () => {
+    return (
+      <>
+        {image && (
+          <div
+            className={`px-0 ${styles["banner-image-cont"]}${
+              image.icon ? ` mx-auto pt-3` : ""
+            }`}
+          >
+            <Image image={image}></Image>
+            <div
+              className={`${styles["banner-text-cont"]} text-${
+                textAlignment ? getSelectionValue(textAlignment) : "center"
+              } d-flex flex-column justify-content-center align-items-center py-3`}
+            >
+              {title && <h3 className="font-weight-bold">{title}</h3>}
+              {content && (
+                <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
+              )}
+              {link && link.href && cta && <CTA cta={cta}></CTA>}
+            </div>
+          </div>
+        )}
+      </>
+    );
+  };
+
   return (
     <Container>
-      {link && (
+      {link && link.href ? (
         <Link
           link={link}
           className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
@@ -59,29 +86,16 @@ export function BannerCTA({
           }`}
           background={background ? background : "#fff"}
         >
-          {image && (
-            <div
-              className={`px-0 ${styles["banner-image-cont"]}${
-                image.icon ? ` mx-auto pt-3` : ""
-              }`}
-            >
-              <Image image={image}></Image>
-              <div
-                className={`${styles["banner-text-cont"]} text-${
-                  textAlignment ? getSelectionValue(textAlignment) : "center"
-                } py-3`}
-              >
-                {title && <h3 className="font-weight-bold">{title}</h3>}
-                {content && (
-                  <div
-                    dangerouslySetInnerHTML={{ __html: content.value }}
-                  ></div>
-                )}
-                {cta && <CTA cta={cta}></CTA>}
-              </div>
-            </div>
-          )}
+          {bannerOutput()}
         </Link>
+      ) : (
+        <div
+          className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
+        >
+          {bannerOutput()}
+        </div>
       )}
     </Container>
   );
