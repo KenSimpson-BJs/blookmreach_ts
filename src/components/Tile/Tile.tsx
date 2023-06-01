@@ -26,23 +26,18 @@ interface Tile {
   rounded?: boolean;
 }
 
-export function Tile({
-  component,
-  page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
-
+export function Tile(props: Tile): React.ReactElement | null {
   const {
     title,
     content,
     cta,
     image,
     analytics: link,
-  } = getContainerItemContent<Tile>(component, page) ?? {};
-  const { rounded, shadowed, variant, textAlignment } =
-    component.getParameters<Tile>();
+    rounded,
+    shadowed,
+    variant,
+    textAlignment,
+  } = props;
 
   if (image) {
     if (image.imgfit && variant === "Circular")
