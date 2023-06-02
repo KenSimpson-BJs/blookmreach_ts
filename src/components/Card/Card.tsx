@@ -19,6 +19,7 @@ interface Card {
   image?: image;
   icon?: boolean;
   shadowed?: boolean;
+  imageFormat: string;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -29,15 +30,13 @@ export function Card(props: Card): React.ReactElement | null {
     layout,
     cta,
     image,
+    imageFormat,
     analytics: link,
-    icon,
     shadowed,
   } = props;
 
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
-
-  if (image && icon) image.icon = icon;
 
   return (
     <Container>
@@ -54,10 +53,10 @@ export function Card(props: Card): React.ReactElement | null {
           {image && (
             <div
               className={`px-0 ${styles["card-image-cont"]}${
-                image.icon ? ` mx-auto pt-3` : ""
-              }${flexDirection.includes("row") ? " col-12 col-sm-7" : ""}`}
+                flexDirection.includes("row") ? " col-12 col-sm-7" : ""
+              }`}
             >
-              <Image image={image}></Image>
+              <Image image={image} imageFormat={imageFormat}></Image>
             </div>
           )}
           <div

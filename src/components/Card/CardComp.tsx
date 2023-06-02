@@ -15,6 +15,7 @@ interface CardComp {
   image?: image;
   icon?: boolean;
   shadowed?: boolean;
+  imageFormat: string;
 }
 
 export function CardComp({
@@ -27,7 +28,7 @@ export function CardComp({
 
   const { background, title, content, layout, cta, image, analytics } =
     getContainerItemContent<CardComp>(component, page) ?? {};
-  const { icon, shadowed } = component.getParameters<CardComp>();
+  const { shadowed, imageFormat } = component.getParameters<CardComp>();
 
   return (
     <Card
@@ -37,8 +38,8 @@ export function CardComp({
       layout={layout}
       cta={cta}
       image={image}
+      imageFormat={imageFormat}
       analytics={analytics}
-      icon={icon}
       shadowed={shadowed}
     ></Card>
   );
