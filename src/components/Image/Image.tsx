@@ -5,12 +5,13 @@ import { getSelectionValue } from "../../utils/general";
 
 interface Image {
   image: image;
+  imageFormat: string;
 }
 
 export function Image(props: Image): React.ReactElement | null {
-  const { image } = props ?? {};
+  const { image, imageFormat } = props ?? {};
 
-  const { imageDesktop, imageMobile, alt, imgfit, icon } = image;
+  const { imageDesktop, imageMobile, alt, imgfit } = image;
 
   const imgOutput = () => {
     return (
@@ -41,7 +42,7 @@ export function Image(props: Image): React.ReactElement | null {
   return (
     <div
       className={`d-inline-block ${styles.imgwrap}${
-        icon ? ` ${styles.icon}` : ""
+        imageFormat !== "Default" ? " " + styles[imageFormat.toLowerCase()] : ""
       }`}
     >
       {imgWrapper()}

@@ -19,11 +19,10 @@ interface Tile {
   cta?: Cta;
   analytics?: Anchor;
   title?: string;
-  variant: string;
   textAlignment?: string;
   image?: image;
   shadowed?: boolean;
-  rounded?: boolean;
+  imageFormat: string;
 }
 
 export function Tile(props: Tile): React.ReactElement | null {
@@ -33,16 +32,14 @@ export function Tile(props: Tile): React.ReactElement | null {
     cta,
     image,
     analytics: link,
-    rounded,
+    imageFormat,
     shadowed,
-    variant,
     textAlignment,
   } = props;
 
   if (image) {
-    if (image.imgfit && variant === "Circular")
+    if (image.imgfit && imageFormat === "Circular")
       setSelectionValue(image.imgfit, "center");
-    image.icon = variant === "Icon";
   }
 
   const textAlign = () =>
@@ -52,12 +49,10 @@ export function Tile(props: Tile): React.ReactElement | null {
     return image ? (
       <div
         className={`${styles["tile-image-cont"]}${
-          variant === "Circular" ? ` ${styles.circular}` : ""
-        }${rounded ? ` ${styles.rounded}` : ""}${
           shadowed ? ` ${styles.shadowed}` : ""
-        } col-12${image.icon ? ` ${styles["tile-icon"]} pt-3` : ""} px-0`}
+        } col-12 px-0`}
       >
-        <Image image={image}></Image>
+        <Image image={image} imageFormat={imageFormat}></Image>
       </div>
     ) : null;
   };

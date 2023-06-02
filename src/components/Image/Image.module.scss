@@ -21,6 +21,34 @@
   width: 40px;
 }
 
+.rounded {
+  border-radius: 10px;
+  overflow: hidden;
+  > div {
+    border-radius: inherit;
+    overflow: inherit;
+  }
+}
+
+.circular {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &::before {
+    position: relative;
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+
 a {
   .icon {
     transform: scale(1);
