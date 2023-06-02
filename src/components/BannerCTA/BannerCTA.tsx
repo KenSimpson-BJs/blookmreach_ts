@@ -1,12 +1,5 @@
 import React from "react";
-import { Button, Container, Row } from "react-bootstrap";
-import {
-  ContainerItem,
-  Document,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
-import { BrProps } from "@bloomreach/react-sdk";
+import { Container } from "react-bootstrap";
 
 // internal
 import { Link } from "../Link";
@@ -24,6 +17,7 @@ interface BannerCTA {
   cta?: Cta;
   analytics?: Anchor;
   image?: image;
+  imageFormat: string;
   icon?: boolean;
   shadowed?: boolean;
   rounded?: boolean;
@@ -37,6 +31,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     content,
     cta,
     image,
+    imageFormat,
     analytics: link,
     textAlignment,
     shadowed,
@@ -47,12 +42,8 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     return (
       <>
         {image && (
-          <div
-            className={`px-0 ${styles["banner-image-cont"]}${
-              image.icon ? ` mx-auto pt-3` : ""
-            }`}
-          >
-            <Image image={image}></Image>
+          <div className={`px-0 ${styles["banner-image-cont"]}`}>
+            <Image image={image} imageFormat={imageFormat}></Image>
             <div
               className={`${styles["banner-text-cont"]} text-${
                 textAlignment ? getSelectionValue(textAlignment) : "center"

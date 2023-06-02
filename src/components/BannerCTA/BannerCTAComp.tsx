@@ -15,9 +15,8 @@ interface BannerCTAComp {
   cta?: Cta;
   analytics?: Anchor;
   image?: image;
-  icon?: boolean;
+  imageFormat: string;
   shadowed?: boolean;
-  rounded?: boolean;
   textAlignment?: SelectionType;
 }
 
@@ -31,7 +30,7 @@ export function BannerCTAComp({
 
   const { background, title, content, cta, image, analytics, textAlignment } =
     getContainerItemContent<BannerCTAComp>(component, page) ?? {};
-  const { shadowed, rounded } = component.getParameters<BannerCTAComp>();
+  const { shadowed, imageFormat } = component.getParameters<BannerCTAComp>();
 
   return (
     <BannerCTA
@@ -40,10 +39,10 @@ export function BannerCTAComp({
       content={content}
       cta={cta}
       image={image}
+      imageFormat={imageFormat}
       analytics={analytics}
       textAlignment={textAlignment}
       shadowed={shadowed}
-      rounded={rounded}
     ></BannerCTA>
   );
 }
