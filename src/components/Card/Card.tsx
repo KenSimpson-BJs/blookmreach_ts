@@ -55,7 +55,7 @@ export function Card(props: Card): React.ReactElement | null {
           {image && (
             <div
               className={`px-0 ${styles["card-image-cont"]}${
-                flexDirection.includes("row") ? " col-12 col-sm-7" : ""
+                flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
               }`}
             >
               <Image image={image} imageFormat={imageFormat}></Image>
