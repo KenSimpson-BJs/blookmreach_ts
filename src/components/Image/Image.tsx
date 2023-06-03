@@ -42,7 +42,9 @@ export function Image(props: Image): React.ReactElement | null {
   return (
     <div
       className={`d-inline-block ${styles.imgwrap}${
-        imageFormat !== "Default" ? " " + styles[imageFormat.toLowerCase()] : ""
+        imageFormat !== "Default"
+          ? " mx-auto " + styles[imageFormat.toLowerCase()]
+          : ""
       }`}
     >
       {imgWrapper()}
