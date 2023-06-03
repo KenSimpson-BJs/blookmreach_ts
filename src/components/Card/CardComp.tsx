@@ -5,16 +5,20 @@ import { BrProps } from "@bloomreach/react-sdk";
 // internal
 import { Card } from "./Card";
 
+// utils
+import { getSelectionValue } from "../../utils/general";
+
 interface CardComp {
   background?: string;
   title?: string;
   content?: Content;
   layout?: SelectionType;
+  textAlignment?: SelectionType;
   cta?: Cta;
   analytics?: Anchor;
   image?: image;
   icon?: boolean;
-  shadowed?: boolean;
+  shadow?: boolean;
   imageFormat: string;
 }
 
@@ -26,9 +30,17 @@ export function CardComp({
     return null;
   }
 
-  const { background, title, content, layout, cta, image, analytics } =
-    getContainerItemContent<CardComp>(component, page) ?? {};
-  const { shadowed, imageFormat } = component.getParameters<CardComp>();
+  const {
+    background,
+    title,
+    content,
+    layout,
+    cta,
+    image,
+    analytics,
+    textAlignment,
+  } = getContainerItemContent<CardComp>(component, page) ?? {};
+  const { shadow, imageFormat } = component.getParameters<CardComp>();
 
   return (
     <Card
@@ -40,7 +52,10 @@ export function CardComp({
       image={image}
       imageFormat={imageFormat}
       analytics={analytics}
-      shadowed={shadowed}
+      shadow={shadow}
+      textAlignment={
+        textAlignment ? getSelectionValue(textAlignment) : "center"
+      }
     ></Card>
   );
 }

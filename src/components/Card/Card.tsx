@@ -18,8 +18,9 @@ interface Card {
   analytics?: Anchor;
   image?: image;
   icon?: boolean;
-  shadowed?: boolean;
+  shadow?: boolean;
   imageFormat: string;
+  textAlignment: string;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -32,21 +33,22 @@ export function Card(props: Card): React.ReactElement | null {
     image,
     imageFormat,
     analytics: link,
-    shadowed,
+    shadow,
+    textAlignment,
   } = props;
 
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
   return (
-    <Container>
+    <Container className={`text-${textAlignment.toLowerCase()} pt-2`}>
       {link && (
         <Link
           link={link}
-          className={`d-flex flex-${flexDirection} flex-wrap text-decoration-none mt-2 ${
+          className={`d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
           }${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
+            shadow ? ` ${styles.shadow}` : ""
           }`}
           background={background ? background : "#fff"}
         >
