@@ -1,66 +1,86 @@
-/*
- * Copyright 2021-2023 Bloomreach
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from "react";
-import { Button, Container, Row } from "react-bootstrap";
-import {
-  ContainerItem,
-  Document,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
-import { BrProps } from "@bloomreach/react-sdk";
-// import { Link } from "../Link";
-// import { BrRichTextContent } from "../BrRichTextContent";
-// import styles from "./BannerCTA.module.scss";
+import { Container } from "react-bootstrap";
 
-interface BannerCTACompound {
+// internal
+import { Link } from "../Link";
+import { Image } from "../Image/Image";
+import { CTA } from "../CTA/CTA";
+
+// styles
+import styles from "./BannerCTA.module.scss";
+import { getSelectionValue } from "../../utils/general";
+
+interface BannerCTA {
+  background?: string;
   title?: string;
   content?: Content;
-  cta?: string;
-  link?: Reference;
+  cta?: Cta;
+  analytics?: Anchor;
+  image?: image;
+  imageFormat: string;
+  icon?: boolean;
+  shadowed?: boolean;
+  rounded?: boolean;
+  textAlignment?: string;
 }
 
-export function BannerCTA({
-  component,
-  page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
+export function BannerCTA(props: BannerCTA): React.ReactElement | null {
+  const {
+    background,
+    title,
+    content,
+    cta,
+    image,
+    imageFormat,
+    analytics: link,
+    textAlignment,
+    shadowed,
+    rounded,
+  } = props;
 
-  const { title, content, cta, link } =
-    getContainerItemContent<BannerCTACompound>(component, page) ?? {};
-  const document = link && page?.getContent<Document>(link);
+  const bannerOutput = () => {
+    return (
+      <>
+        {image && (
+          <div className={`px-0 ${styles["banner-image-cont"]}`}>
+            <Image image={image} imageFormat={imageFormat}></Image>
+            <div
+              className={`${styles["banner-text-cont"]} text-${
+                textAlignment ? textAlignment : "center"
+              } d-flex flex-column justify-content-center align-items-center py-3`}
+            >
+              {title && <h3 className="font-weight-bold">{title}</h3>}
+              {content && (
+                <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
+              )}
+              {link && link.href && cta && <CTA cta={cta}></CTA>}
+            </div>
+          </div>
+        )}
+      </>
+    );
+  };
 
   return (
     <Container>
-      {title && <h3 className="mb-2">{title}</h3>}
-      {/* {content && (
-          <BrRichTextContent page={page!} content={{ html: content.value }} />
-        )} */}
-      {cta && (
-        <Button
-          // as={Link}
-          href={document?.getUrl()}
-          variant="light"
-          className="text-primary mt-3"
+      {link && link.href ? (
+        <Link
+          link={link}
+          className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
+          background={background ? background : "#fff"}
         >
-          {cta}
-        </Button>
+          {bannerOutput()}
+        </Link>
+      ) : (
+        <div
+          className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
+        >
+          {bannerOutput()}
+        </div>
       )}
     </Container>
   );

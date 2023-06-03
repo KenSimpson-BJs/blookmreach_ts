@@ -1,12 +1,5 @@
 import React from "react";
-import { Container, Col } from "react-bootstrap";
-import {
-  ContainerItem,
-  Document,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
-import { BrProps } from "@bloomreach/react-sdk";
+import { Container } from "react-bootstrap";
 
 // internal
 import { Link } from "../Link";
@@ -25,17 +18,12 @@ interface Card {
   analytics?: Anchor;
   image?: image;
   icon?: boolean;
-  shadowed?: boolean;
+  shadow?: boolean;
+  imageFormat: string;
+  textAlignment: string;
 }
 
-export function Card({
-  component,
-  page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
-
+export function Card(props: Card): React.ReactElement | null {
   const {
     background,
     title,
@@ -43,35 +31,34 @@ export function Card({
     layout,
     cta,
     image,
+    imageFormat,
     analytics: link,
-  } = getContainerItemContent<Card>(component, page) ?? {};
-  const { icon, shadowed } = component.getParameters<Card>();
+    shadow,
+    textAlignment,
+  } = props;
 
-  const secondary: boolean = false;
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
-  if (image && icon) image.icon = icon;
-
   return (
-    <Container>
+    <Container className={`text-${textAlignment.toLowerCase()} pt-2`}>
       {link && (
         <Link
           link={link}
-          className={`d-flex flex-${flexDirection} flex-wrap text-decoration-none mt-2 ${
+          className={`d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
           }${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
+            shadow ? ` ${styles.shadow}` : ""
           }`}
           background={background ? background : "#fff"}
         >
           {image && (
             <div
               className={`px-0 ${styles["card-image-cont"]}${
-                image.icon ? ` mx-auto pt-3` : ""
-              }${flexDirection.includes("row") ? " col-12 col-sm-7" : ""}`}
+                flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
+              }`}
             >
-              <Image image={image}></Image>
+              <Image image={image} imageFormat={imageFormat}></Image>
             </div>
           )}
           <div
@@ -79,7 +66,7 @@ export function Card({
               flexDirection.includes("row")
                 ? " col-12 col-sm-5 d-flex flex-column align-items-center justify-content-center"
                 : ""
-            } py-3`}
+            } py-3 px-2`}
           >
             {title && <h3 className="font-weight-bold">{title}</h3>}
             {content && (

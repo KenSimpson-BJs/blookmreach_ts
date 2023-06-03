@@ -48,8 +48,17 @@ interface image {
   imageMobile: string;
   imageDesktop?: string;
   alt: string;
-  icon?: boolean;
   imgfit?: SelectionType;
+}
+
+interface BannerCardTile {
+  background?: string;
+  title?: string;
+  content?: Content;
+  cta?: string;
+  image?: image;
+  analytics?: Anchor;
+  textAlignment?: SelectionType;
 }
 
 interface BannerDocument {

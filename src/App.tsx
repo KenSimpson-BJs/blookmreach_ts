@@ -5,7 +5,14 @@ import axios from "axios";
 import { BrComponent, BrPage, BrPageContext } from "@bloomreach/react-sdk";
 
 // internal
-import { NewComponent, Card, Tile, OpenHTML } from "./components";
+import {
+  NewComponent,
+  OpenHTML,
+  CardComp,
+  TileComp,
+  BannerCTAComp,
+  BannerCollection,
+} from "./components";
 
 // styles
 import logo from "./logo.svg";
@@ -17,8 +24,10 @@ function App() {
   const mapping = {
     NewComponent,
     OpenHTML,
-    Tile,
-    Card,
+    TileComp,
+    CardComp,
+    BannerCTAComp,
+    BannerCollection,
   };
   return (
     <div className="App pb-3">

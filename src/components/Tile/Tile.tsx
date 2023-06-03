@@ -19,53 +19,46 @@ interface Tile {
   cta?: Cta;
   analytics?: Anchor;
   title?: string;
-  variant: string;
   textAlignment?: string;
   image?: image;
-  shadowed?: boolean;
-  rounded?: boolean;
+  shadow?: boolean;
+  imageFormat: string;
 }
 
-export function Tile({
-  component,
-  page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
-
+export function Tile(props: Tile): React.ReactElement | null {
   const {
     title,
     content,
     cta,
     image,
     analytics: link,
-  } = getContainerItemContent<Tile>(component, page) ?? {};
-  const { rounded, shadowed, variant, textAlignment } =
-    component.getParameters<Tile>();
+    imageFormat,
+    shadow,
+    textAlignment,
+  } = props;
 
   if (image) {
-    if (image && image.imgfit && variant === "Circular")
+    if (image.imgfit && imageFormat === "Circular")
       setSelectionValue(image.imgfit, "center");
-    image.icon = variant === "Icon";
   }
 
-  const textAlign = () => {
-    return `text-${
-      textAlignment ? `${textAlignment.toLowerCase()}` : "center"
-    }`;
+  const imageFormatStyles = (imageFormat: string) => {
+    if (imageFormat !== "Default")
+      return " " + styles[imageFormat.toLowerCase()];
+    return "";
   };
+
+  const textAlign = () =>
+    `text-${textAlignment ? `${textAlignment.toLowerCase()}` : "center"}`;
 
   const imageContainer = () => {
     return image ? (
       <div
-        className={`${styles["tile-image-cont"]}${
-          variant === "Circular" ? ` ${styles.circular}` : ""
-        }${rounded ? ` ${styles.rounded}` : ""}${
-          shadowed ? ` ${styles.shadowed}` : ""
-        } col-12${image.icon ? ` ${styles["tile-icon"]} pt-3` : ""} px-0`}
+        className={`${styles["tile-image-cont"]}${imageFormatStyles(
+          imageFormat
+        )}${shadow ? " " + styles.shadow : ""} col-12 px-0`}
       >
-        <Image image={image}></Image>
+        <Image image={image} imageFormat={imageFormat}></Image>
       </div>
     ) : null;
   };
@@ -134,5 +127,6 @@ export function Tile({
       </>
     );
   };
+
   return <Container>{tileOutput()}</Container>;
 }
