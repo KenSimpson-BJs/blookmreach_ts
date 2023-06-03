@@ -21,7 +21,7 @@ interface Tile {
   title?: string;
   textAlignment?: string;
   image?: image;
-  shadowed?: boolean;
+  shadow?: boolean;
   imageFormat: string;
 }
 
@@ -33,7 +33,7 @@ export function Tile(props: Tile): React.ReactElement | null {
     image,
     analytics: link,
     imageFormat,
-    shadowed,
+    shadow,
     textAlignment,
   } = props;
 
@@ -42,15 +42,21 @@ export function Tile(props: Tile): React.ReactElement | null {
       setSelectionValue(image.imgfit, "center");
   }
 
+  const imageFormatStyles = (imageFormat: string) => {
+    if (imageFormat !== "Default")
+      return " " + styles[imageFormat.toLowerCase()];
+    return "";
+  };
+
   const textAlign = () =>
     `text-${textAlignment ? `${textAlignment.toLowerCase()}` : "center"}`;
 
   const imageContainer = () => {
     return image ? (
       <div
-        className={`${styles["tile-image-cont"]}${
-          shadowed ? ` ${styles.shadowed}` : ""
-        } col-12 px-0`}
+        className={`${styles["tile-image-cont"]}${imageFormatStyles(
+          imageFormat
+        )}${shadow ? " " + styles.shadow : ""} col-12 px-0`}
       >
         <Image image={image} imageFormat={imageFormat}></Image>
       </div>

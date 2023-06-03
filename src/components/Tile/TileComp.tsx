@@ -16,7 +16,7 @@ interface TileComp {
   variant: string;
   textAlignment?: string;
   image?: image;
-  shadowed?: boolean;
+  shadow?: boolean;
   imageFormat: string;
 }
 
@@ -30,7 +30,7 @@ export function TileComp({
 
   const { title, content, cta, image, analytics } =
     getContainerItemContent<TileComp>(component, page) ?? {};
-  const { imageFormat, shadowed, variant, textAlignment } =
+  const { imageFormat, shadow, variant, textAlignment } =
     component.getParameters<TileComp>();
 
   if (image) {
@@ -46,7 +46,7 @@ export function TileComp({
       image={image}
       analytics={analytics}
       imageFormat={imageFormat}
-      shadowed={shadowed}
+      shadow={shadow}
       textAlignment={textAlignment}
     ></Tile>
   );
