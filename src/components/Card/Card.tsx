@@ -66,7 +66,7 @@ export function Card(props: Card): React.ReactElement | null {
               flexDirection.includes("row")
                 ? " col-12 col-sm-5 d-flex flex-column align-items-center justify-content-center"
                 : ""
-            } py-3`}
+            } py-3 px-2`}
           >
             {title && <h3 className="font-weight-bold">{title}</h3>}
             {content && (
