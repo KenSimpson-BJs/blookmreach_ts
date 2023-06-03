@@ -41,7 +41,9 @@ export function BannerCTAComp({
       image={image}
       imageFormat={imageFormat}
       analytics={analytics}
-      textAlignment={textAlignment}
+      textAlignment={
+        textAlignment ? getSelectionValue(textAlignment) : "center"
+      }
       shadowed={shadowed}
     ></BannerCTA>
   );

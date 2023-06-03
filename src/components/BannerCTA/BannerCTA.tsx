@@ -21,7 +21,7 @@ interface BannerCTA {
   icon?: boolean;
   shadowed?: boolean;
   rounded?: boolean;
-  textAlignment?: SelectionType;
+  textAlignment?: string;
 }
 
 export function BannerCTA(props: BannerCTA): React.ReactElement | null {
@@ -46,7 +46,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
             <Image image={image} imageFormat={imageFormat}></Image>
             <div
               className={`${styles["banner-text-cont"]} text-${
-                textAlignment ? getSelectionValue(textAlignment) : "center"
+                textAlignment ? textAlignment : "center"
               } d-flex flex-column justify-content-center align-items-center py-3`}
             >
               {title && <h3 className="font-weight-bold">{title}</h3>}
