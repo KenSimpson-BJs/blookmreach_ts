@@ -3,6 +3,7 @@
   --bjsRedHover: #a7002a;
   --bjsBlack: #000;
   --bjsGrayBlack: #303030;
+  --bjsWhite: #fff;
   --transitionLength: 0.1s;
   --transitionLinear: var(--transitionLength) linear;
   --transitionEaseIn: var(--transitionLength) ease-in;
