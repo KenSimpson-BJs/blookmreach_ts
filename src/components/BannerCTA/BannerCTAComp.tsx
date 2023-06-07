@@ -10,8 +10,7 @@ import { getSelectionValue } from "../../utils/general";
 
 interface BannerCTAComp {
   background?: string;
-  title?: string;
-  content?: Content;
+  titleText: titleTextFG;
   cta?: Cta;
   analytics?: Anchor;
   image?: image;
@@ -28,15 +27,14 @@ export function BannerCTAComp({
     return null;
   }
 
-  const { background, title, content, cta, image, analytics, textAlignment } =
+  const { background, titleText, cta, image, analytics, textAlignment } =
     getContainerItemContent<BannerCTAComp>(component, page) ?? {};
   const { shadowed, imageFormat } = component.getParameters<BannerCTAComp>();
 
   return (
     <BannerCTA
       background={background}
-      title={title}
-      content={content}
+      titleText={titleText}
       cta={cta}
       image={image}
       imageFormat={imageFormat}
