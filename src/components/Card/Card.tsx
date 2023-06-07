@@ -79,7 +79,7 @@ export function Card(props: Card): React.ReactElement | null {
             {titleText?.titleText?.text && (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: titleText?.titleText?.text.value,
+                  __html: titleText?.titleText?.text?.value,
                 }}
               ></div>
             )}
