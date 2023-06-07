@@ -51,6 +51,10 @@ interface image {
   imgfit?: SelectionType;
 }
 
+interface BannerCardTileDocument {
+  document?: import("@bloomreach/spa-sdk").Reference;
+}
+
 interface BannerCardTile {
   background?: string;
   title?: string;
@@ -58,7 +62,22 @@ interface BannerCardTile {
   cta?: string;
   image?: image;
   analytics?: Anchor;
-  textAlignment?: SelectionType;
+  layout?: SelectionType;
+  verticalAlign: SelectionType;
+  horizontalAlign: SelectionType;
+}
+
+interface titleText {
+  title?: string;
+  text?: Content;
+}
+
+interface titleTextFG {
+  titleText?: titleText;
+  textAlignment: SelectionType;
+  headlineSize?: SelectionType;
+  subcopySize?: SelectionType;
+  textColor: SelectionType;
 }
 
 interface BannerDocument {
