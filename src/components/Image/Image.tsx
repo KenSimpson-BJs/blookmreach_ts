@@ -18,7 +18,7 @@ export function Image(props: Image): React.ReactElement | null {
       <img
         src={imageMobile}
         alt={alt}
-        className={`d-block w-100 ${
+        className={`d-block w-100 h-100 ${
           imgfit && getSelectionValue(imgfit) !== "default"
             ? ` ${styles.imgfit} ${
                 styles[`imgfit-${getSelectionValue(imgfit)}`]

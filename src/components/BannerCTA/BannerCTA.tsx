@@ -12,8 +12,7 @@ import { getSelectionValue } from "../../utils/general";
 
 interface BannerCTA {
   background?: string;
-  title?: string;
-  content?: Content;
+  titleText?: titleTextFG;
   cta?: Cta;
   analytics?: Anchor;
   image?: image;
@@ -27,8 +26,7 @@ interface BannerCTA {
 export function BannerCTA(props: BannerCTA): React.ReactElement | null {
   const {
     background,
-    title,
-    content,
+    titleText,
     cta,
     image,
     imageFormat,
@@ -43,15 +41,26 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
       <>
         {image && (
           <div className={`px-0 ${styles["banner-image-cont"]}`}>
-            <Image image={image} imageFormat={imageFormat}></Image>
+            <Image
+              image={image}
+              imageFormat={imageFormat === "Rounded" ? imageFormat : "Default"}
+            ></Image>
             <div
               className={`${styles["banner-text-cont"]} text-${
                 textAlignment ? textAlignment : "center"
               } d-flex flex-column justify-content-center align-items-center py-3`}
             >
-              {title && <h3 className="font-weight-bold">{title}</h3>}
-              {content && (
-                <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
+              {titleText?.titleText?.title && (
+                <h3 className="font-weight-bold">
+                  {titleText?.titleText?.title}
+                </h3>
+              )}
+              {titleText?.titleText?.text && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: titleText?.titleText?.text.value,
+                  }}
+                ></div>
               )}
               {link && link.href && cta && <CTA cta={cta}></CTA>}
             </div>

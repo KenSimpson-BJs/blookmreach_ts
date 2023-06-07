@@ -14,14 +14,22 @@
  * limitations under the License.
  */
 
-import React from "react";
+import React, { useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
-import { ContainerItem, getContainerItemContent } from "@bloomreach/spa-sdk";
-import { BrProps } from "@bloomreach/react-sdk";
+import { Reference, ContainerItem } from "@bloomreach/spa-sdk";
+import { BrManageContentButton, BrProps } from "@bloomreach/react-sdk";
 import { BannerCTA, Tile, Card } from "../../components";
 import styles from "./BannerCollection.module.scss";
+import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils";
 
-const MAX_DOCUMENTS = 8;
+const MAX_DOCUMENTS = 1;
+const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
+  (n) => `document${n + 1}`
+);
+
+interface BannerCollectionModels {
+  document1?: Reference;
+}
 
 interface BannerCollectionParameters {
   title: string;
@@ -33,26 +41,59 @@ interface BannerCollectionParameters {
 }
 
 interface BannerCollectionCompound {
-  bannerCardTile?: BannerCardTile[];
+  bannerCardTile: BannerCardTile[];
 }
 
 export function BannerCollection({
   component,
   page,
 }: BrProps<ContainerItem>): React.ReactElement | null {
+  const {
+    title,
+    variant,
+    rowLength,
+    shadow,
+    textAlignment,
+    imageFormat,
+    ...params
+  } =
+    component?.getParameters<
+      BannerCollectionParameters & Record<string, any>
+    >() || {};
+
+  const models = component?.getModels<BannerCollectionModels>();
+  const docParams = getEffectiveMultipleDocumentParameters(
+    page,
+    models,
+    MAX_DOCUMENTS
+  );
+
+  const error = useMemo(() => {
+    return (
+      Object.entries(params).filter(
+        ([key, value]) => DOCUMENT_PARAMS.includes(key) && value
+      ).length > docParams?.length
+    );
+  }, [docParams.length, params]);
+
   if (!component || !page) {
     return null;
   }
 
-  console.log(component);
-
-  const { title, variant, rowLength, shadow, textAlignment, imageFormat } =
-    component.getParameters<BannerCollectionParameters>();
   const { bannerCardTile } =
-    getContainerItemContent<BannerCollectionCompound>(component, page) ?? {};
-
-  if (bannerCardTile) {
-    console.log(bannerCardTile);
+    docParams[0].document.getData<BannerCollectionCompound>();
+  if (!docParams.length && !error) {
+    return page?.isPreview() ? (
+      <div className="has-edit-button">
+        <BrManageContentButton
+          documentTemplateQuery="new-reference-spa-bannercardtilectype-document"
+          folderTemplateQuery="new-reference-spa-bannercardtilectype-folder"
+          parameter="document1"
+          root="content"
+          relative
+        />
+      </div>
+    ) : null;
   }
 
   const returnVariant = (variant: string, props: any) => {
@@ -83,12 +124,15 @@ export function BannerCollection({
       <Row className="align-items-stretch">
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
-            console.log(item);
             const props = { imageFormat, shadow, textAlignment, ...item };
+            console.log(props);
 
             return (
-              <Col key={key} className={returnColClass(rowLength)}>
-                {returnVariant(variant, { ...props })}
+              <Col
+                key={key}
+                className={rowLength ? returnColClass(rowLength) : ""}
+              >
+                {variant ? returnVariant(variant, { ...props }) : ""}
               </Col>
             );
           })}

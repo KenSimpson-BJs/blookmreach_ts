@@ -9,10 +9,9 @@ import { Tile } from "./Tile";
 import { setSelectionValue } from "../../utils/general";
 
 interface TileComp {
-  content?: Content;
+  titleText: titleTextFG;
   cta?: Cta;
   analytics?: Anchor;
-  title?: string;
   variant: string;
   textAlignment?: string;
   image?: image;
@@ -28,10 +27,12 @@ export function TileComp({
     return null;
   }
 
-  const { title, content, cta, image, analytics } =
+  const { titleText, cta, image, analytics } =
     getContainerItemContent<TileComp>(component, page) ?? {};
   const { imageFormat, shadow, variant, textAlignment } =
     component.getParameters<TileComp>();
+
+  console.log(titleText);
 
   if (image) {
     if (image.imgfit && imageFormat === "Circular")
@@ -40,8 +41,7 @@ export function TileComp({
 
   return (
     <Tile
-      title={title}
-      content={content}
+      titleText={titleText}
       cta={cta}
       image={image}
       analytics={analytics}

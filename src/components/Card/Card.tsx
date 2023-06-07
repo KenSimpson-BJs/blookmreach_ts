@@ -11,8 +11,7 @@ import styles from "./Card.module.scss";
 
 interface Card {
   background?: string;
-  title?: string;
-  content?: Content;
+  titleText?: titleTextFG;
   layout?: SelectionType;
   cta?: Cta;
   analytics?: Anchor;
@@ -26,8 +25,7 @@ interface Card {
 export function Card(props: Card): React.ReactElement | null {
   const {
     background,
-    title,
-    content,
+    titleText,
     layout,
     cta,
     image,
@@ -58,7 +56,12 @@ export function Card(props: Card): React.ReactElement | null {
                 flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
               }`}
             >
-              <Image image={image} imageFormat={imageFormat}></Image>
+              <Image
+                image={image}
+                imageFormat={
+                  imageFormat !== "Rounded" ? imageFormat : "Default"
+                }
+              ></Image>
             </div>
           )}
           <div
@@ -68,9 +71,17 @@ export function Card(props: Card): React.ReactElement | null {
                 : ""
             } py-3 px-2`}
           >
-            {title && <h3 className="font-weight-bold">{title}</h3>}
-            {content && (
-              <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
+            {titleText?.titleText?.title && (
+              <h3 className="font-weight-bold">
+                {titleText?.titleText?.title}
+              </h3>
+            )}
+            {titleText?.titleText?.text && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: titleText?.titleText?.text?.value,
+                }}
+              ></div>
             )}
             {cta && <CTA cta={cta}></CTA>}
           </div>
