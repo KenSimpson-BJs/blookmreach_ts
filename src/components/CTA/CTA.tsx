@@ -24,7 +24,7 @@ export function CTA(props: CTA): React.ReactElement | null {
     <>
       {cta && (
         <span className={style && returnStyle(getSelectionValue(style))}>
-          {cta}
+          <b>{cta}</b>
         </span>
       )}
     </>

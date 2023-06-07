@@ -3,18 +3,15 @@
   overflow: hidden;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0);
   transition: var(--transitionLinear);
+  font-size: 16px;
+  color: #000;
 
   .card-image-cont {
     width: fit-content;
   }
 
   .card-text-cont {
-    color: #000;
     text-decoration: none;
-
-    h3 {
-      font-size: 20px;
-    }
   }
 
   &:hover {

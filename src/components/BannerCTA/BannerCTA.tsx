@@ -6,9 +6,12 @@ import { Link } from "../Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
+// utils
+import { getSelectionValue } from "../../utils/general";
+
 // styles
 import styles from "./BannerCTA.module.scss";
-import { getSelectionValue } from "../../utils/general";
+import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface BannerCTA {
   background?: string;
@@ -46,19 +49,48 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
               imageFormat={imageFormat === "Rounded" ? imageFormat : "Default"}
             ></Image>
             <div
-              className={`${styles["banner-text-cont"]} text-${
+              className={`${styles["banner-text-cont"]}${
+                titleText?.textColor
+                  ? ` ${
+                      titleStyles[
+                        "bjsText" + getSelectionValue(titleText?.textColor)
+                      ]
+                    }`
+                  : ` ${titleStyles["bjsTextGrayBlack"]}`
+              } text-${
                 textAlignment ? textAlignment : "center"
               } d-flex flex-column justify-content-center align-items-center py-3`}
             >
               {titleText?.titleText?.title && (
-                <h3 className="font-weight-bold">
+                <h2
+                  className={`font-weight-bold${
+                    titleText?.headlineSize
+                      ? ` ${
+                          titleStyles[
+                            "bjsHeadline" +
+                              getSelectionValue(titleText?.headlineSize)
+                          ]
+                        }`
+                      : ` ${titleStyles["bjsHeadlineMedium"]}`
+                  }`}
+                >
                   {titleText?.titleText?.title}
-                </h3>
+                </h2>
               )}
               {titleText?.titleText?.text && (
                 <div
+                  className={`${
+                    titleText?.subcopySize
+                      ? ` ${
+                          titleStyles[
+                            "bjsSubcopy" +
+                              getSelectionValue(titleText?.subcopySize)
+                          ]
+                        }`
+                      : ` ${titleStyles["bjsSubcopyMedium"]}`
+                  }`}
                   dangerouslySetInnerHTML={{
-                    __html: titleText?.titleText?.text.value,
+                    __html: titleText?.titleText?.text?.value,
                   }}
                 ></div>
               )}

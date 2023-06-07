@@ -2,6 +2,10 @@ a {
   :global {
     .btn {
       box-shadow: none;
+      font-size: 14px;
+      line-height: 1;
+      padding: 9px 20px;
+      border-radius: 10px;
     }
     .btn-primary {
       background: var(--bjsRed);
@@ -29,6 +33,8 @@ a {
   .link {
     color: var(--bjsRed);
     transition: var(--transitionLinear);
+    font-size: 20px;
+    line-height: 25px;
 
     &:hover {
       color: var(--bjsRedHover);

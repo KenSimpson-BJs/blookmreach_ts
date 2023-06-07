@@ -6,8 +6,12 @@ import { Link } from "../Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
+// utils
+import { getSelectionValue } from "../../utils/general";
+
 // styles
 import styles from "./Card.module.scss";
+import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Card {
   background?: string;
@@ -66,18 +70,47 @@ export function Card(props: Card): React.ReactElement | null {
           )}
           <div
             className={`${styles["card-text-cont"]}${
+              titleText?.textColor
+                ? ` ${
+                    titleStyles[
+                      "bjsText" + getSelectionValue(titleText?.textColor)
+                    ]
+                  }`
+                : ` ${titleStyles["bjsTextGrayBlack"]}`
+            }${
               flexDirection.includes("row")
                 ? " col-12 col-sm-5 d-flex flex-column align-items-center justify-content-center"
                 : ""
             } py-3 px-2`}
           >
             {titleText?.titleText?.title && (
-              <h3 className="font-weight-bold">
+              <h3
+                className={`font-weight-bold${
+                  titleText?.headlineSize
+                    ? ` ${
+                        titleStyles[
+                          "bjsHeadline" +
+                            getSelectionValue(titleText?.headlineSize)
+                        ]
+                      }`
+                    : ` ${titleStyles["bjsHeadlineMedium"]}`
+                }`}
+              >
                 {titleText?.titleText?.title}
               </h3>
             )}
             {titleText?.titleText?.text && (
               <div
+                className={`${
+                  titleText?.subcopySize
+                    ? ` ${
+                        titleStyles[
+                          "bjsSubcopy" +
+                            getSelectionValue(titleText?.subcopySize)
+                        ]
+                      }`
+                    : ` ${titleStyles["bjsSubcopyMedium"]}`
+                }`}
                 dangerouslySetInnerHTML={{
                   __html: titleText?.titleText?.text?.value,
                 }}
