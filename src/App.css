@@ -1,6 +1,8 @@
 :root {
   --bjsRed: #cc0033;
   --bjsRedHover: #a7002a;
+  --bjsBlack: #000;
+  --bjsGrayBlack: #303030;
   --transitionLength: 0.1s;
   --transitionLinear: var(--transitionLength) linear;
   --transitionEaseIn: var(--transitionLength) ease-in;
@@ -48,4 +50,39 @@
 
 .container {
   max-width: 1280px !important;
+}
+
+.bjsHeadlineSmall {
+  font-size: 24px;
+  line-height: 29px;
+}
+.bjsHeadlineMedium {
+  font-size: 30px;
+  line-height: 35px;
+}
+.bjsHeadlineLarge {
+  font-size: 35px;
+  line-height: 40px;
+}
+.bjsHeadlineHuge {
+  font-size: 45px;
+  line-height: 50px;
+}
+
+.bjsSubcopySmall {
+  font-size: 16px;
+  line-height: 21px;
+}
+.bjsSubcopyMedium {
+  font-size: 20px;
+  line-height: 25px;
+}
+.bjsSubcopyLarge {
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.bjsCTA {
+  font-size: 14px;
+  line-height: ;
 }
