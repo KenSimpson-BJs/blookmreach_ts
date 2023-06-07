@@ -43,7 +43,10 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
       <>
         {image && (
           <div className={`px-0 ${styles["banner-image-cont"]}`}>
-            <Image image={image} imageFormat={imageFormat}></Image>
+            <Image
+              image={image}
+              imageFormat={imageFormat === "Rounded" ? imageFormat : "Default"}
+            ></Image>
             <div
               className={`${styles["banner-text-cont"]} text-${
                 textAlignment ? textAlignment : "center"
