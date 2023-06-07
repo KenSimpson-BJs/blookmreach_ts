@@ -15,10 +15,9 @@ import { setSelectionValue } from "../../utils/general";
 import styles from "./Tile.module.scss";
 
 interface Tile {
-  content?: Content;
+  titleText?: titleTextFG;
   cta?: Cta;
   analytics?: Anchor;
-  title?: string;
   textAlignment?: string;
   image?: image;
   shadow?: boolean;
@@ -27,8 +26,7 @@ interface Tile {
 
 export function Tile(props: Tile): React.ReactElement | null {
   const {
-    title,
-    content,
+    titleText: titleTextFG,
     cta,
     image,
     analytics: link,
@@ -64,6 +62,8 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
+    if (!titleTextFG?.titleText) return;
+    const { title } = titleTextFG.titleText;
     return (
       title && (
         <h3 className={`font-weight-bold ${textAlign()} mx-auto pt-3`}>
@@ -81,20 +81,26 @@ export function Tile(props: Tile): React.ReactElement | null {
     titleNode?: React.ReactNode,
     ctaNode?: React.ReactNode
   ) => {
+    if (!titleTextFG?.titleText) return;
+    const { text } = titleTextFG.titleText;
     return (
-      <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
-        {titleNode}
-        {content && (
-          <div dangerouslySetInnerHTML={{ __html: content.value }}></div>
-        )}
-        {ctaNode}
-      </div>
+      text && (
+        <div
+          className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}
+        >
+          {titleNode}
+          {text && <div dangerouslySetInnerHTML={{ __html: text.value }}></div>}
+          {ctaNode}
+        </div>
+      )
     );
   };
 
   const tileOutput = () => {
     if (link && link.href) {
-      if (content && content.value.includes("<a"))
+      if (!titleTextFG?.titleText) return;
+      const { text } = titleTextFG.titleText;
+      if (text && text.value.includes("<a"))
         return (
           <>
             <Link
