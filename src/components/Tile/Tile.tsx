@@ -62,14 +62,12 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
-    if (!titleTextFG?.titleText) return;
+    if (!titleTextFG?.titleText?.title) return;
     const { title } = titleTextFG.titleText;
     return (
-      title && (
-        <h3 className={`font-weight-bold ${textAlign()} mx-auto pt-3`}>
-          {title}
-        </h3>
-      )
+      <h3 className={`font-weight-bold ${textAlign()} mx-auto pt-3`}>
+        {title}
+      </h3>
     );
   };
 
@@ -81,26 +79,20 @@ export function Tile(props: Tile): React.ReactElement | null {
     titleNode?: React.ReactNode,
     ctaNode?: React.ReactNode
   ) => {
-    if (!titleTextFG?.titleText) return;
+    if (!titleTextFG?.titleText?.text) return;
     const { text } = titleTextFG.titleText;
     return (
-      text && (
-        <div
-          className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}
-        >
-          {titleNode}
-          {text && <div dangerouslySetInnerHTML={{ __html: text.value }}></div>}
-          {ctaNode}
-        </div>
-      )
+      <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
+        {titleNode}
+        {text && <div dangerouslySetInnerHTML={{ __html: text.value }}></div>}
+        {ctaNode}
+      </div>
     );
   };
 
   const tileOutput = () => {
     if (link && link.href) {
-      if (!titleTextFG?.titleText) return;
-      const { text } = titleTextFG.titleText;
-      if (text && text.value.includes("<a"))
+      if (titleTextFG?.titleText?.text?.value.includes("<a"))
         return (
           <>
             <Link
