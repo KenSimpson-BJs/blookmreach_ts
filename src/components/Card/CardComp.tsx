@@ -10,8 +10,7 @@ import { getSelectionValue } from "../../utils/general";
 
 interface CardComp {
   background?: string;
-  title?: string;
-  content?: Content;
+  titleText: titleTextFG;
   layout?: SelectionType;
   textAlignment?: SelectionType;
   cta?: Cta;
@@ -32,8 +31,7 @@ export function CardComp({
 
   const {
     background,
-    title,
-    content,
+    titleText,
     layout,
     cta,
     image,
@@ -45,8 +43,7 @@ export function CardComp({
   return (
     <Card
       background={background}
-      title={title}
-      content={content}
+      titleText={titleText}
       layout={layout}
       cta={cta}
       image={image}
