@@ -7,7 +7,7 @@ import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
 // utils
-import { getSelectionValue } from "../../utils/general";
+import { getSelectionValue, textToHorizontalFlex } from "../../utils/general";
 
 // styles
 import styles from "./Card.module.scss";
@@ -25,6 +25,7 @@ interface Card {
   imageFormat: string;
   horizontalAlign?: SelectionType;
   verticalAlign?: SelectionType;
+  textAlignment?: string;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -39,6 +40,7 @@ export function Card(props: Card): React.ReactElement | null {
     shadow,
     horizontalAlign,
     verticalAlign,
+    textAlignment,
   } = props;
 
   const rounded: boolean = true;
@@ -47,8 +49,11 @@ export function Card(props: Card): React.ReactElement | null {
   return (
     <Container
       className={`text-${
-        titleText?.textAlignment &&
-        getSelectionValue(titleText?.textAlignment).toLowerCase()
+        textAlignment
+          ? textAlignment.toLowerCase()
+          : titleText?.textAlignment
+          ? getSelectionValue(titleText?.textAlignment)
+          : "center"
       } pt-2`}
     >
       {link && (
@@ -91,7 +96,9 @@ export function Card(props: Card): React.ReactElement | null {
                       ? `${getSelectionValue(verticalAlign)}`
                       : "center"
                   } align-items-${
-                    horizontalAlign
+                    textAlignment
+                      ? textToHorizontalFlex(textAlignment)
+                      : horizontalAlign
                       ? `${getSelectionValue(horizontalAlign)}`
                       : "center"
                   }`
