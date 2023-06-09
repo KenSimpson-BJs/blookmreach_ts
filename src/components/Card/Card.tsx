@@ -43,7 +43,6 @@ export function Card(props: Card): React.ReactElement | null {
     textAlignment,
   } = props;
 
-  const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
   return (
@@ -61,7 +60,7 @@ export function Card(props: Card): React.ReactElement | null {
           link={link}
           className={`d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
-          }${rounded ? ` ${styles.rounded}` : ""}${
+          }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
             shadow ? ` ${styles.shadow}` : ""
           }`}
           background={background ? background : "#fff"}
@@ -70,6 +69,10 @@ export function Card(props: Card): React.ReactElement | null {
             <div
               className={`px-0 ${styles["card-image-cont"]}${
                 flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
+              }${
+                imageFormat === "Circular" || imageFormat === "Icon"
+                  ? " px-3 pt-3"
+                  : ""
               }`}
             >
               <Image
