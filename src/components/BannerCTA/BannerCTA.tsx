@@ -7,7 +7,7 @@ import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
 // utils
-import { getSelectionValue } from "../../utils/general";
+import { getSelectionValue, textToHorizontalFlex } from "../../utils/general";
 
 // styles
 import styles from "./BannerCTA.module.scss";
@@ -44,12 +44,6 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     verticalAlign,
     horizontalAlign,
   } = props;
-
-  const textToHorizontalFlex = (alignment: string) => {
-    if (alignment === "Left") return "start";
-    if (alignment === "Right") return "end";
-    return "center";
-  };
 
   const bannerOutput = () => {
     return (
