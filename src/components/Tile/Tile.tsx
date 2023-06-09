@@ -19,22 +19,13 @@ interface Tile {
   titleText?: titleTextFG;
   cta?: Cta;
   analytics?: Anchor;
-  textAlignment?: string;
   image?: image;
   shadow?: boolean;
   imageFormat: string;
 }
 
 export function Tile(props: Tile): React.ReactElement | null {
-  const {
-    titleText,
-    cta,
-    image,
-    analytics: link,
-    imageFormat,
-    shadow,
-    textAlignment,
-  } = props;
+  const { titleText, cta, image, analytics: link, imageFormat, shadow } = props;
 
   if (image) {
     if (image.imgfit && imageFormat === "Circular")
@@ -48,7 +39,11 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const textAlign = () =>
-    `text-${textAlignment ? `${textAlignment.toLowerCase()}` : "center"}`;
+    `text-${
+      titleText?.textAlignment
+        ? `${getSelectionValue(titleText?.textAlignment).toLowerCase()}`
+        : "center"
+    }`;
 
   const imageContainer = () => {
     return image ? (
