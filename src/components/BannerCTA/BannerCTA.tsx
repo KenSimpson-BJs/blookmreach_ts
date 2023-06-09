@@ -23,7 +23,6 @@ interface BannerCTA {
   icon?: boolean;
   shadowed?: boolean;
   rounded?: boolean;
-  textAlignment?: string;
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
 }
@@ -36,7 +35,6 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     image,
     imageFormat,
     analytics: link,
-    textAlignment,
     shadowed,
     rounded,
     verticalAlign,
@@ -62,7 +60,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
                     }`
                   : ` ${titleStyles["bjsTextGrayBlack"]}`
               } text-${
-                textAlignment ? textAlignment : "center"
+                titleText?.textAlignment ? titleText?.textAlignment : "center"
               } d-flex flex-column justify-content-${
                 verticalAlign ? `${getSelectionValue(verticalAlign)}` : "center"
               } align-items-${

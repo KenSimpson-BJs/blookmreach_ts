@@ -16,7 +16,6 @@ interface BannerCTAComp {
   image?: image;
   imageFormat: string;
   shadowed?: boolean;
-  textAlignment?: SelectionType;
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
 }
@@ -35,7 +34,6 @@ export function BannerCTAComp({
     cta,
     image,
     analytics,
-    textAlignment,
     verticalAlign,
     horizontalAlign,
   } = getContainerItemContent<BannerCTAComp>(component, page) ?? {};
@@ -49,9 +47,6 @@ export function BannerCTAComp({
       image={image}
       imageFormat={imageFormat}
       analytics={analytics}
-      textAlignment={
-        textAlignment ? getSelectionValue(textAlignment) : "center"
-      }
       shadowed={shadowed}
       verticalAlign={verticalAlign}
       horizontalAlign={horizontalAlign}
