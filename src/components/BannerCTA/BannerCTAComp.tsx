@@ -18,6 +18,7 @@ interface BannerCTAComp {
   shadowed?: boolean;
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
+  disclaimer?: Content;
 }
 
 export function BannerCTAComp({
@@ -36,6 +37,7 @@ export function BannerCTAComp({
     analytics,
     verticalAlign,
     horizontalAlign,
+    disclaimer,
   } = getContainerItemContent<BannerCTAComp>(component, page) ?? {};
   const { shadowed, imageFormat } = component.getParameters<BannerCTAComp>();
 
@@ -50,6 +52,7 @@ export function BannerCTAComp({
       shadowed={shadowed}
       verticalAlign={verticalAlign}
       horizontalAlign={horizontalAlign}
+      disclaimer={disclaimer}
     ></BannerCTA>
   );
 }
