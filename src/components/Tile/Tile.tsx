@@ -9,31 +9,23 @@ import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
 // internal utils
-import { setSelectionValue } from "../../utils/general";
+import { getSelectionValue, setSelectionValue } from "../../utils/general";
 
 // styles
 import styles from "./Tile.module.scss";
+import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Tile {
   titleText?: titleTextFG;
   cta?: Cta;
   analytics?: Anchor;
-  textAlignment?: string;
   image?: image;
   shadow?: boolean;
   imageFormat: string;
 }
 
 export function Tile(props: Tile): React.ReactElement | null {
-  const {
-    titleText: titleTextFG,
-    cta,
-    image,
-    analytics: link,
-    imageFormat,
-    shadow,
-    textAlignment,
-  } = props;
+  const { titleText, cta, image, analytics: link, imageFormat, shadow } = props;
 
   if (image) {
     if (image.imgfit && imageFormat === "Circular")
@@ -47,7 +39,11 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const textAlign = () =>
-    `text-${textAlignment ? `${textAlignment.toLowerCase()}` : "center"}`;
+    `text-${
+      titleText?.textAlignment
+        ? `${getSelectionValue(titleText?.textAlignment).toLowerCase()}`
+        : "center"
+    }`;
 
   const imageContainer = () => {
     return image ? (
@@ -62,10 +58,20 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
-    if (!titleTextFG?.titleText?.title) return;
-    const { title } = titleTextFG.titleText;
+    if (!titleText?.titleText?.title) return;
+    const { title } = titleText.titleText;
     return (
-      <h3 className={`font-weight-bold ${textAlign()} mx-auto pt-3`}>
+      <h3
+        className={`font-weight-bold ${textAlign()}${
+          titleText?.headlineSize
+            ? ` ${
+                titleStyles[
+                  "bjsHeadline" + getSelectionValue(titleText?.headlineSize)
+                ]
+              }`
+            : ` ${titleStyles["bjsHeadlineMedium"]}`
+        } mx-auto pt-3`}
+      >
         {title}
       </h3>
     );
@@ -79,10 +85,20 @@ export function Tile(props: Tile): React.ReactElement | null {
     titleNode?: React.ReactNode,
     ctaNode?: React.ReactNode
   ) => {
-    if (!titleTextFG?.titleText?.text) return;
-    const { text } = titleTextFG.titleText;
+    if (!titleText?.titleText?.text) return;
+    const { text } = titleText.titleText;
     return (
-      <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
+      <div
+        className={`${styles["tile-text-cont"]} ${textAlign()}${
+          titleText?.subcopySize
+            ? ` ${
+                titleStyles[
+                  "bjsSubcopy" + getSelectionValue(titleText?.subcopySize)
+                ]
+              }`
+            : ` ${titleStyles["bjsSubcopyMedium"]}`
+        } col-12 py-3`}
+      >
         {titleNode}
         {text && <div dangerouslySetInnerHTML={{ __html: text.value }}></div>}
         {ctaNode}
@@ -92,7 +108,7 @@ export function Tile(props: Tile): React.ReactElement | null {
 
   const tileOutput = () => {
     if (link && link.href) {
-      if (titleTextFG?.titleText?.text?.value.includes("<a"))
+      if (titleText?.titleText?.text?.value.includes("<a"))
         return (
           <>
             <Link
@@ -126,5 +142,17 @@ export function Tile(props: Tile): React.ReactElement | null {
     );
   };
 
-  return <Container>{tileOutput()}</Container>;
+  return (
+    <Container
+      className={`${
+        titleText?.textColor
+          ? ` ${
+              titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]
+            }`
+          : ` ${titleStyles["bjsTextGrayBlack"]}`
+      }`}
+    >
+      {tileOutput()}
+    </Container>
+  );
 }

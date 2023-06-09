@@ -23,7 +23,8 @@ interface Card {
   icon?: boolean;
   shadow?: boolean;
   imageFormat: string;
-  textAlignment: string;
+  horizontalAlign?: SelectionType;
+  verticalAlign?: SelectionType;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -36,14 +37,20 @@ export function Card(props: Card): React.ReactElement | null {
     imageFormat,
     analytics: link,
     shadow,
-    textAlignment,
+    horizontalAlign,
+    verticalAlign,
   } = props;
 
   const rounded: boolean = true;
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
   return (
-    <Container className={`text-${textAlignment.toLowerCase()} pt-2`}>
+    <Container
+      className={`text-${
+        titleText?.textAlignment &&
+        getSelectionValue(titleText?.textAlignment).toLowerCase()
+      } pt-2`}
+    >
       {link && (
         <Link
           link={link}
@@ -79,44 +86,54 @@ export function Card(props: Card): React.ReactElement | null {
                 : ` ${titleStyles["bjsTextGrayBlack"]}`
             }${
               flexDirection.includes("row")
-                ? " col-12 col-sm-5 d-flex flex-column align-items-center justify-content-center"
+                ? ` col-12 col-sm-5 d-flex flex-column justify-content-${
+                    verticalAlign
+                      ? `${getSelectionValue(verticalAlign)}`
+                      : "center"
+                  } align-items-${
+                    horizontalAlign
+                      ? `${getSelectionValue(horizontalAlign)}`
+                      : "center"
+                  }`
                 : ""
-            } py-3 px-2`}
+            }`}
           >
-            {titleText?.titleText?.title && (
-              <h3
-                className={`font-weight-bold${
-                  titleText?.headlineSize
-                    ? ` ${
-                        titleStyles[
-                          "bjsHeadline" +
-                            getSelectionValue(titleText?.headlineSize)
-                        ]
-                      }`
-                    : ` ${titleStyles["bjsHeadlineMedium"]}`
-                }`}
-              >
-                {titleText?.titleText?.title}
-              </h3>
-            )}
-            {titleText?.titleText?.text && (
-              <div
-                className={`${
-                  titleText?.subcopySize
-                    ? ` ${
-                        titleStyles[
-                          "bjsSubcopy" +
-                            getSelectionValue(titleText?.subcopySize)
-                        ]
-                      }`
-                    : ` ${titleStyles["bjsSubcopyMedium"]}`
-                }`}
-                dangerouslySetInnerHTML={{
-                  __html: titleText?.titleText?.text?.value,
-                }}
-              ></div>
-            )}
-            {cta && <CTA cta={cta}></CTA>}
+            <div>
+              {titleText?.titleText?.title && (
+                <h3
+                  className={`font-weight-bold${
+                    titleText?.headlineSize
+                      ? ` ${
+                          titleStyles[
+                            "bjsHeadline" +
+                              getSelectionValue(titleText?.headlineSize)
+                          ]
+                        }`
+                      : ` ${titleStyles["bjsHeadlineMedium"]}`
+                  }`}
+                >
+                  {titleText?.titleText?.title}
+                </h3>
+              )}
+              {titleText?.titleText?.text && (
+                <div
+                  className={`${
+                    titleText?.subcopySize
+                      ? ` ${
+                          titleStyles[
+                            "bjsSubcopy" +
+                              getSelectionValue(titleText?.subcopySize)
+                          ]
+                        }`
+                      : ` ${titleStyles["bjsSubcopyMedium"]}`
+                  }`}
+                  dangerouslySetInnerHTML={{
+                    __html: titleText?.titleText?.text?.value,
+                  }}
+                ></div>
+              )}
+              {cta && <CTA cta={cta}></CTA>}
+            </div>
           </div>
         </Link>
       )}

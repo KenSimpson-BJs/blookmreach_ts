@@ -19,6 +19,8 @@ interface CardComp {
   icon?: boolean;
   shadow?: boolean;
   imageFormat: string;
+  horizontalAlign?: SelectionType;
+  verticalAlign?: SelectionType;
 }
 
 export function CardComp({
@@ -37,6 +39,8 @@ export function CardComp({
     image,
     analytics,
     textAlignment,
+    horizontalAlign,
+    verticalAlign,
   } = getContainerItemContent<CardComp>(component, page) ?? {};
   const { shadow, imageFormat } = component.getParameters<CardComp>();
 
@@ -50,9 +54,8 @@ export function CardComp({
       imageFormat={imageFormat}
       analytics={analytics}
       shadow={shadow}
-      textAlignment={
-        textAlignment ? getSelectionValue(textAlignment) : "center"
-      }
+      horizontalAlign={horizontalAlign}
+      verticalAlign={verticalAlign}
     ></Card>
   );
 }

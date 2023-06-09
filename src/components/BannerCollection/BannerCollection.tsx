@@ -125,7 +125,6 @@ export function BannerCollection({
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
             const props = { imageFormat, shadow, textAlignment, ...item };
-            console.log(props);
 
             return (
               <Col
