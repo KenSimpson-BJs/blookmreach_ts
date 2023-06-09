@@ -65,7 +65,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
                   : ` ${titleStyles["bjsTextGrayBlack"]}`
               } text-${
                 textAlignment
-                  ? textAlignment
+                  ? textAlignment.toLowerCase()
                   : titleText?.textAlignment
                   ? getSelectionValue(titleText?.textAlignment)
                   : "center"
