@@ -32,8 +32,6 @@ export function TileComp({
   const { imageFormat, shadow, variant, textAlignment } =
     component.getParameters<TileComp>();
 
-  console.log(titleText);
-
   if (image) {
     if (image.imgfit && imageFormat === "Circular")
       setSelectionValue(image.imgfit, "center");
