@@ -1,6 +1,6 @@
 .tile {
   background: none;
-  color: #000;
+  color: inherit;
 
   .tile-image-cont,
   h3 {
@@ -62,7 +62,7 @@
 
 .tile-text-cont {
   text-decoration: none;
-  color: #000;
+  color: inherit;
 
   p {
     margin-bottom: 0.25rem;
