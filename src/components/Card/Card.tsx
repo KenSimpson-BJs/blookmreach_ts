@@ -71,7 +71,9 @@ export function Card(props: Card): React.ReactElement | null {
                 flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
               }${
                 imageFormat === "Circular" || imageFormat === "Icon"
-                  ? " px-3 pt-3"
+                  ? ` px-3 ${
+                      textAlignment ? "pt-3" : "py-3 d-flex align-items-center"
+                    }`
                   : ""
               }`}
             >
