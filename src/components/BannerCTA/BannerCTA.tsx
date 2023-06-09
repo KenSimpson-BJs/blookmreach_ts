@@ -24,6 +24,8 @@ interface BannerCTA {
   shadowed?: boolean;
   rounded?: boolean;
   textAlignment?: string;
+  verticalAlign?: SelectionType;
+  horizontalAlign?: SelectionType;
 }
 
 export function BannerCTA(props: BannerCTA): React.ReactElement | null {
@@ -37,6 +39,8 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     textAlignment,
     shadowed,
     rounded,
+    verticalAlign,
+    horizontalAlign,
   } = props;
 
   const bannerOutput = () => {
@@ -59,7 +63,13 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
                   : ` ${titleStyles["bjsTextGrayBlack"]}`
               } text-${
                 textAlignment ? textAlignment : "center"
-              } d-flex flex-column justify-content-center align-items-center py-3`}
+              } d-flex flex-column justify-content-${
+                verticalAlign ? `${getSelectionValue(verticalAlign)}` : "center"
+              } align-items-${
+                horizontalAlign
+                  ? `${getSelectionValue(horizontalAlign)}`
+                  : "center"
+              } py-3`}
             >
               {titleText?.titleText?.title && (
                 <h2
