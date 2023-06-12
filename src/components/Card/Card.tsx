@@ -53,7 +53,7 @@ export function Card(props: Card): React.ReactElement | null {
           : titleText?.textAlignment
           ? getSelectionValue(titleText?.textAlignment)
           : "center"
-      } pt-2`}
+      } pt-2 py-3`}
     >
       {link && (
         <Link

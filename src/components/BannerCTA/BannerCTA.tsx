@@ -134,7 +134,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
   };
 
   return (
-    <Container>
+    <Container className="py-3">
       {link && link.href ? (
         <Link
           link={link}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
 import styles from "./Image.module.scss";
 import { getSelectionValue } from "../../utils/general";
 
@@ -41,7 +40,7 @@ export function Image(props: Image): React.ReactElement | null {
 
   return (
     <div
-      className={`d-inline-block ${styles.imgwrap}${
+      className={`${styles.imgwrap}${
         imageFormat !== "Default"
           ? " mx-auto " + styles[imageFormat.toLowerCase()]
           : ""

@@ -126,7 +126,7 @@ export function BannerGrid({
   };
 
   return (
-    <div className={`${styles["banner-grid"]} banner-grid mx-auto my-4`}>
+    <div className={`${styles["banner-grid"]} banner-grid mx-auto py-3`}>
       <h3 className="mb-4">{title}</h3>
       <Row
         className={`${
@@ -140,7 +140,9 @@ export function BannerGrid({
             return (
               <Col
                 key={key}
-                className={rowLength ? returnColClass(rowLength) : ""}
+                className={`${rowLength ? returnColClass(rowLength) : ""} ${
+                  variant !== "Tile" ? "px-0" : ""
+                }`}
               >
                 {variant ? returnVariant(variant, { ...props }) : ""}
               </Col>
