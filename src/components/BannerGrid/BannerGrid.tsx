@@ -19,8 +19,13 @@ import { Col, Row } from "react-bootstrap";
 import { Reference, ContainerItem } from "@bloomreach/spa-sdk";
 import { BrManageContentButton, BrProps } from "@bloomreach/react-sdk";
 import { BannerCTA, Tile, Card } from "..";
-import styles from "./BannerGrid.module.scss";
+
+// utils
 import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils";
+
+// styles
+import styles from "./BannerGrid.module.scss";
+import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 
 const MAX_DOCUMENTS = 1;
 const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
@@ -38,6 +43,7 @@ interface BannerGridParameters {
   shadow: boolean;
   textAlignment: string;
   imageFormat: string;
+  maxWidth: string;
 }
 
 interface BannerGridCompound {
@@ -55,6 +61,7 @@ export function BannerGrid({
     shadow,
     textAlignment,
     imageFormat,
+    maxWidth,
     ...params
   } =
     component?.getParameters<BannerGridParameters & Record<string, any>>() ||
@@ -121,7 +128,7 @@ export function BannerGrid({
   return (
     <div className={`${styles["banner-grid"]} banner-grid mx-auto my-4`}>
       <h3 className="mb-4">{title}</h3>
-      <Row className="align-items-stretch">
+      <Row className={`${widthStyles["w-" + maxWidth]} align-items-stretch`}>
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
             const props = { imageFormat, shadow, textAlignment, ...item };
