@@ -41,7 +41,7 @@ export function Image(props: Image): React.ReactElement | null {
 
   return (
     <div
-      className={`d-inline-block ${styles.imgwrap}${
+      className={`${styles.imgwrap}${
         imageFormat !== "Default"
           ? " mx-auto " + styles[imageFormat.toLowerCase()]
           : ""
