@@ -28,7 +28,7 @@ interface BannerCTA {
   horizontalAlign?: SelectionType;
   disclaimer?: Content;
   textAlignment?: string;
-  maxWidth: string;
+  maxWidth?: string;
 }
 
 export function BannerCTA(props: BannerCTA): React.ReactElement | null {
@@ -138,18 +138,22 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
       {link && link.href ? (
         <Link
           link={link}
-          className={`${widthStyles["w-" + maxWidth]} ${styles.banner}${
-            rounded ? ` ${styles.rounded}` : ""
-          }${shadowed ? ` ${styles.shadowed}` : ""}`}
+          className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
+            styles.banner
+          }${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
           background={background ? background : "#fff"}
         >
           {bannerOutput()}
         </Link>
       ) : (
         <div
-          className={`${widthStyles["w-" + maxWidth]} ${styles.banner}${
-            rounded ? ` ${styles.rounded}` : ""
-          }${shadowed ? ` ${styles.shadowed}` : ""}`}
+          className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
+            styles.banner
+          }${rounded ? ` ${styles.rounded}` : ""}${
+            shadowed ? ` ${styles.shadowed}` : ""
+          }`}
         >
           {bannerOutput()}
         </div>
