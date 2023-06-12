@@ -140,7 +140,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
           link={link}
           className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
             styles.banner
-          }${rounded ? ` ${styles.rounded}` : ""}${
+          }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
             shadow ? ` ${styles.shadow}` : ""
           }`}
           background={background ? background : "#fff"}
@@ -151,7 +151,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
         <div
           className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
             styles.banner
-          }${rounded ? ` ${styles.rounded}` : ""}${
+          }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
             shadow ? ` ${styles.shadow}` : ""
           }`}
         >
