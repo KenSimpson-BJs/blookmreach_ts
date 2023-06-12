@@ -12,6 +12,7 @@ import { getSelectionValue, textToHorizontalFlex } from "../../utils/general";
 // styles
 import styles from "./BannerCTA.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
+import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 
 interface BannerCTA {
   background?: string;
@@ -27,6 +28,7 @@ interface BannerCTA {
   horizontalAlign?: SelectionType;
   disclaimer?: Content;
   textAlignment?: string;
+  maxWidth: string;
 }
 
 export function BannerCTA(props: BannerCTA): React.ReactElement | null {
@@ -43,6 +45,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     textAlignment,
     verticalAlign,
     horizontalAlign,
+    maxWidth,
   } = props;
 
   const bannerOutput = () => {
@@ -135,18 +138,18 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
       {link && link.href ? (
         <Link
           link={link}
-          className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
-          }`}
+          className={`${widthStyles["w-" + maxWidth]} ${styles.banner}${
+            rounded ? ` ${styles.rounded}` : ""
+          }${shadowed ? ` ${styles.shadowed}` : ""}`}
           background={background ? background : "#fff"}
         >
           {bannerOutput()}
         </Link>
       ) : (
         <div
-          className={`${styles.banner}${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
-          }`}
+          className={`${widthStyles["w-" + maxWidth]} ${styles.banner}${
+            rounded ? ` ${styles.rounded}` : ""
+          }${shadowed ? ` ${styles.shadowed}` : ""}`}
         >
           {bannerOutput()}
         </div>

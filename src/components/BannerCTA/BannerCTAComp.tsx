@@ -16,6 +16,7 @@ interface BannerCTAComp {
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
   disclaimer?: Content;
+  maxWidth: string;
 }
 
 export function BannerCTAComp({
@@ -36,7 +37,8 @@ export function BannerCTAComp({
     horizontalAlign,
     disclaimer,
   } = getContainerItemContent<BannerCTAComp>(component, page) ?? {};
-  const { shadowed, imageFormat } = component.getParameters<BannerCTAComp>();
+  const { shadowed, imageFormat, maxWidth } =
+    component.getParameters<BannerCTAComp>();
 
   return (
     <BannerCTA
@@ -50,6 +52,7 @@ export function BannerCTAComp({
       verticalAlign={verticalAlign}
       horizontalAlign={horizontalAlign}
       disclaimer={disclaimer}
+      maxWidth={maxWidth}
     ></BannerCTA>
   );
 }
