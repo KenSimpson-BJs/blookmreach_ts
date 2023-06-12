@@ -128,7 +128,11 @@ export function BannerGrid({
   return (
     <div className={`${styles["banner-grid"]} banner-grid mx-auto my-4`}>
       <h3 className="mb-4">{title}</h3>
-      <Row className={`${widthStyles["w-" + maxWidth]} align-items-stretch`}>
+      <Row
+        className={`${
+          widthStyles["w-" + maxWidth]
+        } justify-content-center align-items-stretch`}
+      >
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
             const props = { imageFormat, shadow, textAlignment, ...item };
