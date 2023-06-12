@@ -5,9 +5,6 @@ import { BrProps } from "@bloomreach/react-sdk";
 // internal
 import { BannerCTA } from "./BannerCTA";
 
-// styles
-import { getSelectionValue } from "../../utils/general";
-
 interface BannerCTAComp {
   background?: string;
   titleText: titleTextFG;
