@@ -161,7 +161,7 @@ export function Tile(props: Tile): React.ReactElement | null {
               titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]
             }`
           : ` ${titleStyles["bjsTextGrayBlack"]}`
-      }`}
+      } py-3`}
     >
       {tileOutput()}
     </Container>
