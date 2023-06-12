@@ -22,7 +22,7 @@ interface BannerCTA {
   image?: image;
   imageFormat: string;
   icon?: boolean;
-  shadowed?: boolean;
+  shadow?: boolean;
   rounded?: boolean;
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
@@ -40,7 +40,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     image,
     imageFormat,
     analytics: link,
-    shadowed,
+    shadow,
     rounded,
     textAlignment,
     verticalAlign,
@@ -141,7 +141,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
           className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
             styles.banner
           }${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
+            shadow ? ` ${styles.shadow}` : ""
           }`}
           background={background ? background : "#fff"}
         >
@@ -152,7 +152,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
           className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
             styles.banner
           }${rounded ? ` ${styles.rounded}` : ""}${
-            shadowed ? ` ${styles.shadowed}` : ""
+            shadow ? ` ${styles.shadow}` : ""
           }`}
         >
           {bannerOutput()}
