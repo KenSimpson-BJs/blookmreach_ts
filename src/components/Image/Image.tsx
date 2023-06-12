@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
 import styles from "./Image.module.scss";
 import { getSelectionValue } from "../../utils/general";
 
