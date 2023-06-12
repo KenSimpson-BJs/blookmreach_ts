@@ -118,7 +118,7 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const tileOutput = () => {
-    if (link && link.href) {
+    if (link?.href) {
       if (titleText?.titleText?.text?.value.includes("<a"))
         return (
           <>
