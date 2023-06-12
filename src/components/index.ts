@@ -3,4 +3,4 @@ export * from "./OpenHTML";
 export * from "./Tile";
 export * from "./Card";
 export * from "./BannerCTA";
-export * from "./BannerCollection";
+export * from "./BannerGrid";

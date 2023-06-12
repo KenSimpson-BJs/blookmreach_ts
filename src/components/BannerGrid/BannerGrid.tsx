@@ -18,8 +18,8 @@ import React, { useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Reference, ContainerItem } from "@bloomreach/spa-sdk";
 import { BrManageContentButton, BrProps } from "@bloomreach/react-sdk";
-import { BannerCTA, Tile, Card } from "../../components";
-import styles from "./BannerCollection.module.scss";
+import { BannerCTA, Tile, Card } from "..";
+import styles from "./BannerGrid.module.scss";
 import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils";
 
 const MAX_DOCUMENTS = 1;
@@ -27,11 +27,11 @@ const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
   (n) => `document${n + 1}`
 );
 
-interface BannerCollectionModels {
+interface BannerGridModels {
   document1?: Reference;
 }
 
-interface BannerCollectionParameters {
+interface BannerGridParameters {
   title: string;
   variant: string;
   rowLength: string;
@@ -40,11 +40,11 @@ interface BannerCollectionParameters {
   imageFormat: string;
 }
 
-interface BannerCollectionCompound {
+interface BannerGridCompound {
   bannerCardTile: BannerCardTile[];
 }
 
-export function BannerCollection({
+export function BannerGrid({
   component,
   page,
 }: BrProps<ContainerItem>): React.ReactElement | null {
@@ -57,11 +57,10 @@ export function BannerCollection({
     imageFormat,
     ...params
   } =
-    component?.getParameters<
-      BannerCollectionParameters & Record<string, any>
-    >() || {};
+    component?.getParameters<BannerGridParameters & Record<string, any>>() ||
+    {};
 
-  const models = component?.getModels<BannerCollectionModels>();
+  const models = component?.getModels<BannerGridModels>();
   const docParams = getEffectiveMultipleDocumentParameters(
     page,
     models,
@@ -80,8 +79,6 @@ export function BannerCollection({
     return null;
   }
 
-  const { bannerCardTile } =
-    docParams[0].document.getData<BannerCollectionCompound>();
   if (!docParams.length && !error) {
     return page?.isPreview() ? (
       <div className="has-edit-button">
@@ -95,6 +92,9 @@ export function BannerCollection({
       </div>
     ) : null;
   }
+
+  const { bannerCardTile } =
+    docParams[0].document.getData<BannerGridCompound>();
 
   const returnVariant = (variant: string, props: any) => {
     if (variant === "Tile") return <Tile {...props}></Tile>;

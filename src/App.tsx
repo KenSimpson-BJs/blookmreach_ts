@@ -11,7 +11,7 @@ import {
   CardComp,
   TileComp,
   BannerCTAComp,
-  BannerCollection,
+  BannerGrid,
 } from "./components";
 
 // styles
@@ -27,7 +27,7 @@ function App() {
     TileComp,
     CardComp,
     BannerCTAComp,
-    BannerCollection,
+    BannerGrid,
   };
   return (
     <div className="App pb-3">
