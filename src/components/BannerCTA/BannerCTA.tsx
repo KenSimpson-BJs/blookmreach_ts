@@ -23,7 +23,6 @@ interface BannerCTA {
   imageFormat: string;
   icon?: boolean;
   shadow?: boolean;
-  rounded?: boolean;
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
   disclaimer?: Content;
@@ -41,7 +40,6 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     imageFormat,
     analytics: link,
     shadow,
-    rounded,
     textAlignment,
     verticalAlign,
     horizontalAlign,
