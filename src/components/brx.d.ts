@@ -57,8 +57,7 @@ interface BannerCardTileDocument {
 
 interface BannerCardTile {
   background?: string;
-  title?: string;
-  content?: Content;
+  titleText: titleTextFG;
   cta?: string;
   image?: image;
   analytics?: Anchor;
