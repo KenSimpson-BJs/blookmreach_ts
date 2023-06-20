@@ -139,6 +139,8 @@ export function BannerGrid({
       >
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
+            console.log(subcopySize);
+
             const props = {
               imageFormat,
               shadow,
