@@ -14,8 +14,6 @@ import styles from "./BannerCTA.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 
-console.log(titleStyles);
-
 interface BannerCTA {
   background?: string;
   titleText?: titleTextFG;
