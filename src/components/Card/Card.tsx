@@ -26,6 +26,8 @@ interface Card {
   horizontalAlign?: SelectionType;
   verticalAlign?: SelectionType;
   textAlignment?: string;
+  headlineSize?: string;
+  subcopySize?: string;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -41,40 +43,46 @@ export function Card(props: Card): React.ReactElement | null {
     horizontalAlign,
     verticalAlign,
     textAlignment,
+    headlineSize: globalHeadlineSize,
+    subcopySize: globalSubcopySize,
   } = props;
 
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
-  const titleOutput = (titleObj?: titleTextFG) => {
-    if (!titleObj || !titleObj.titleText) return <></>;
-
+  const titleOutput = () => {
+    if (!titleText || !titleText.titleText) return <></>;
     const {
       titleText: { title },
       headlineSize,
-    } = titleObj;
+    } = titleText;
 
-    const headlineClass = () => {
-      if (!headlineSize) return ` ${titleStyles["bjsHeadlineMedium"]}`;
-      return ` ${titleStyles["bjsHeadline" + getSelectionValue(headlineSize)]}`;
+    const headlineArg = globalHeadlineSize
+      ? globalHeadlineSize
+      : getSelectionValue(headlineSize);
+
+    const headlineClass = (headlineSize: SelectionType | string) => {
+      return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
     };
 
-    switch (headlineSize ? getSelectionValue(headlineSize) : "Medium") {
+    switch (headlineArg) {
       case "Small":
-        return <h4 className={headlineClass()}>{title}</h4>;
+        return <h4 className={headlineClass(headlineArg)}>{title}</h4>;
       case "Medium":
-        return <h3 className={headlineClass()}>{title}</h3>;
+        return <h3 className={headlineClass(headlineArg)}>{title}</h3>;
       case "Large":
-        return <h2 className={headlineClass()}>{title}</h2>;
+        return <h2 className={headlineClass(headlineArg)}>{title}</h2>;
       case "Huge":
-        return <h1 className={headlineClass()}>{title}</h1>;
+        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
       default:
-        return <h1 className={headlineClass()}>{title}</h1>;
+        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
     }
   };
 
-  const subcopyClass = (subcopySize: SelectionType | undefined) => {
-    if (!subcopySize) return ` ${titleStyles["bjsSubcopyMedium"]}`;
-    return ` ${titleStyles["bjsSubcopy" + getSelectionValue(subcopySize)]}`;
+  const subcopyClass = () => {
+    const subcopyArg = globalSubcopySize
+      ? globalSubcopySize
+      : titleText && getSelectionValue(titleText?.subcopySize);
+    return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
   };
 
   return (
@@ -143,10 +151,10 @@ export function Card(props: Card): React.ReactElement | null {
             }`}
           >
             <div>
-              {titleOutput(titleText)}
+              {titleOutput()}
               {titleText?.titleText?.text && (
                 <div
-                  className={subcopyClass(titleText?.subcopySize)}
+                  className={subcopyClass()}
                   dangerouslySetInnerHTML={{
                     __html: titleText?.titleText?.text?.value,
                   }}
