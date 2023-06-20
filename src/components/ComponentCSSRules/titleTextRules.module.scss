@@ -1,62 +1,76 @@
 .bjsHeadlineSmall {
   font-size: 18px;
   line-height: 24px;
+  margin-bottom: 8px;
 }
 .bjsHeadlineMedium {
   font-size: 20px;
   line-height: 28px;
+  margin-bottom: 8px;
 }
 .bjsHeadlineLarge {
   font-size: 24px;
   line-height: 32px;
+  margin-bottom: 8px;
 }
 .bjsHeadlineHuge {
   font-size: 36px;
   line-height: 48px;
+  margin-bottom: 8px;
 }
 
 .bjsSubcopySmall {
   font-size: 14px;
   line-height: 24px;
+  margin-bottom: 8px;
 }
 .bjsSubcopyMedium {
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 8px;
 }
 .bjsSubcopyLarge {
   font-size: 18px;
   line-height: 24px;
+  margin-bottom: 24px;
 }
 
 @media screen and (min-width: 768px) {
   .bjsHeadlineSmall {
     font-size: 20px;
     line-height: 28px;
+    margin-bottom: 4px;
   }
   .bjsHeadlineMedium {
     font-size: 24px;
     line-height: 32px;
+    margin-bottom: 4px;
   }
   .bjsHeadlineLarge {
     font-size: 36px;
     line-height: 48px;
+    margin-bottom: 4px;
   }
   .bjsHeadlineHuge {
-    font-size: 96px;
-    line-height: 72px;
+    font-size: 72px;
+    line-height: 96px;
+    margin-bottom: 4px;
   }
 
   .bjsSubcopySmall {
     font-size: 14px;
     line-height: 24px;
+    margin-bottom: 8px;
   }
   .bjsSubcopyMedium {
     font-size: 16px;
     line-height: 24px;
+    margin-bottom: 24px;
   }
   .bjsSubcopyLarge {
     font-size: 24px;
     line-height: 32px;
+    margin-bottom: 36px;
   }
 }
 
