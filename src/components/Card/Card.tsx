@@ -146,7 +146,7 @@ export function Card(props: Card): React.ReactElement | null {
               {titleOutput(titleText)}
               {titleText?.titleText?.text && (
                 <div
-                  className={`${subcopyClass(titleText?.subcopySize)}`}
+                  className={subcopyClass(titleText?.subcopySize)}
                   dangerouslySetInnerHTML={{
                     __html: titleText?.titleText?.text?.value,
                   }}
