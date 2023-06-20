@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Container } from "react-bootstrap";
 
 // internal
@@ -14,6 +14,8 @@ import styles from "./BannerCTA.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 
+console.log(titleStyles);
+
 interface BannerCTA {
   background?: string;
   titleText?: titleTextFG;
@@ -23,12 +25,13 @@ interface BannerCTA {
   imageFormat: string;
   icon?: boolean;
   shadow?: boolean;
-  rounded?: boolean;
   verticalAlign?: SelectionType;
   horizontalAlign?: SelectionType;
   disclaimer?: Content;
   textAlignment?: string;
   maxWidth?: string;
+  headlineSize?: string;
+  subcopySize?: string;
 }
 
 export function BannerCTA(props: BannerCTA): React.ReactElement | null {
@@ -41,14 +44,51 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     imageFormat,
     analytics: link,
     shadow,
-    rounded,
     textAlignment,
     verticalAlign,
     horizontalAlign,
     maxWidth,
+    headlineSize: globalHeadlineSize,
+    subcopySize: globalSubcopySize,
   } = props;
 
   const bannerOutput = () => {
+    const titleOutput = () => {
+      if (!titleText || !titleText.titleText) return <></>;
+      const {
+        titleText: { title },
+        headlineSize,
+      } = titleText;
+
+      const headlineArg = globalHeadlineSize
+        ? globalHeadlineSize
+        : getSelectionValue(headlineSize);
+
+      const headlineClass = (headlineSize: SelectionType | string) => {
+        return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
+      };
+
+      switch (headlineArg) {
+        case "Small":
+          return <h4 className={headlineClass(headlineArg)}>{title}</h4>;
+        case "Medium":
+          return <h3 className={headlineClass(headlineArg)}>{title}</h3>;
+        case "Large":
+          return <h2 className={headlineClass(headlineArg)}>{title}</h2>;
+        case "Huge":
+          return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+        default:
+          return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+      }
+    };
+
+    const subcopyClass = () => {
+      const subcopyArg = globalSubcopySize
+        ? globalSubcopySize
+        : titleText && getSelectionValue(titleText?.subcopySize);
+      return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
+    };
+
     return (
       <>
         {image && (
@@ -83,34 +123,10 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
               } py-3`}
             >
               <div>
-                {titleText?.titleText?.title && (
-                  <h2
-                    className={`font-weight-bold${
-                      titleText?.headlineSize
-                        ? ` ${
-                            titleStyles[
-                              "bjsHeadline" +
-                                getSelectionValue(titleText?.headlineSize)
-                            ]
-                          }`
-                        : ` ${titleStyles["bjsHeadlineMedium"]}`
-                    }`}
-                  >
-                    {titleText?.titleText?.title}
-                  </h2>
-                )}
+                {titleOutput()}
                 {titleText?.titleText?.text && (
                   <div
-                    className={`${
-                      titleText?.subcopySize
-                        ? ` ${
-                            titleStyles[
-                              "bjsSubcopy" +
-                                getSelectionValue(titleText?.subcopySize)
-                            ]
-                          }`
-                        : ` ${titleStyles["bjsSubcopyMedium"]}`
-                    }`}
+                    className={subcopyClass()}
                     dangerouslySetInnerHTML={{
                       __html: titleText?.titleText?.text?.value,
                     }}

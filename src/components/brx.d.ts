@@ -57,8 +57,7 @@ interface BannerCardTileDocument {
 
 interface BannerCardTile {
   background?: string;
-  title?: string;
-  content?: Content;
+  titleText: titleTextFG;
   cta?: string;
   image?: image;
   analytics?: Anchor;
@@ -75,8 +74,8 @@ interface titleText {
 interface titleTextFG {
   titleText?: titleText;
   textAlignment: SelectionType;
-  headlineSize?: SelectionType;
-  subcopySize?: SelectionType;
+  headlineSize: SelectionType;
+  subcopySize: SelectionType;
   textColor: SelectionType;
 }
 

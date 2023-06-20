@@ -26,6 +26,8 @@ interface Card {
   horizontalAlign?: SelectionType;
   verticalAlign?: SelectionType;
   textAlignment?: string;
+  headlineSize?: string;
+  subcopySize?: string;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -41,9 +43,47 @@ export function Card(props: Card): React.ReactElement | null {
     horizontalAlign,
     verticalAlign,
     textAlignment,
+    headlineSize: globalHeadlineSize,
+    subcopySize: globalSubcopySize,
   } = props;
 
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
+
+  const titleOutput = () => {
+    if (!titleText || !titleText.titleText) return <></>;
+    const {
+      titleText: { title },
+      headlineSize,
+    } = titleText;
+
+    const headlineArg = globalHeadlineSize
+      ? globalHeadlineSize
+      : getSelectionValue(headlineSize);
+
+    const headlineClass = (headlineSize: SelectionType | string) => {
+      return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
+    };
+
+    switch (headlineArg) {
+      case "Small":
+        return <h4 className={headlineClass(headlineArg)}>{title}</h4>;
+      case "Medium":
+        return <h3 className={headlineClass(headlineArg)}>{title}</h3>;
+      case "Large":
+        return <h2 className={headlineClass(headlineArg)}>{title}</h2>;
+      case "Huge":
+        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+      default:
+        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+    }
+  };
+
+  const subcopyClass = () => {
+    const subcopyArg = globalSubcopySize
+      ? globalSubcopySize
+      : titleText && getSelectionValue(titleText?.subcopySize);
+    return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
+  };
 
   return (
     <Container
@@ -111,34 +151,10 @@ export function Card(props: Card): React.ReactElement | null {
             }`}
           >
             <div>
-              {titleText?.titleText?.title && (
-                <h3
-                  className={`font-weight-bold${
-                    titleText?.headlineSize
-                      ? ` ${
-                          titleStyles[
-                            "bjsHeadline" +
-                              getSelectionValue(titleText?.headlineSize)
-                          ]
-                        }`
-                      : ` ${titleStyles["bjsHeadlineMedium"]}`
-                  }`}
-                >
-                  {titleText?.titleText?.title}
-                </h3>
-              )}
+              {titleOutput()}
               {titleText?.titleText?.text && (
                 <div
-                  className={`${
-                    titleText?.subcopySize
-                      ? ` ${
-                          titleStyles[
-                            "bjsSubcopy" +
-                              getSelectionValue(titleText?.subcopySize)
-                          ]
-                        }`
-                      : ` ${titleStyles["bjsSubcopyMedium"]}`
-                  }`}
+                  className={subcopyClass()}
                   dangerouslySetInnerHTML={{
                     __html: titleText?.titleText?.text?.value,
                   }}

@@ -23,6 +23,8 @@ interface Tile {
   shadow?: boolean;
   imageFormat: string;
   textAlignment?: string;
+  headlineSize?: string;
+  subcopySize?: string;
 }
 
 export function Tile(props: Tile): React.ReactElement | null {
@@ -34,6 +36,8 @@ export function Tile(props: Tile): React.ReactElement | null {
     imageFormat,
     shadow,
     textAlignment,
+    headlineSize: globalHeadlineSize,
+    subcopySize: globalSubcopySize,
   } = props;
 
   if (image) {
@@ -69,23 +73,39 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
-    if (!titleText?.titleText?.title) return;
-    const { title } = titleText.titleText;
-    return (
-      <h3
-        className={`font-weight-bold ${textAlign()}${
-          titleText?.headlineSize
-            ? ` ${
-                titleStyles[
-                  "bjsHeadline" + getSelectionValue(titleText?.headlineSize)
-                ]
-              }`
-            : ` ${titleStyles["bjsHeadlineMedium"]}`
-        } mx-auto pt-3`}
-      >
-        {title}
-      </h3>
-    );
+    if (!titleText || !titleText.titleText) return;
+    const {
+      titleText: { title },
+      headlineSize,
+    } = titleText;
+
+    const headlineArg = globalHeadlineSize
+      ? globalHeadlineSize
+      : getSelectionValue(headlineSize);
+
+    const headlineClass = (headlineSize: SelectionType | string) => {
+      return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
+    };
+
+    switch (headlineArg) {
+      case "Small":
+        return <h4 className={headlineClass(headlineArg)}>{title}</h4>;
+      case "Medium":
+        return <h3 className={headlineClass(headlineArg)}>{title}</h3>;
+      case "Large":
+        return <h2 className={headlineClass(headlineArg)}>{title}</h2>;
+      case "Huge":
+        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+      default:
+        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+    }
+  };
+
+  const subcopyClass = () => {
+    const subcopyArg = globalSubcopySize
+      ? globalSubcopySize
+      : titleText && getSelectionValue(titleText?.subcopySize);
+    return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
   };
 
   const ctaOutput = () => {
@@ -99,19 +119,14 @@ export function Tile(props: Tile): React.ReactElement | null {
     if (!titleText?.titleText?.text) return;
     const { text } = titleText.titleText;
     return (
-      <div
-        className={`${styles["tile-text-cont"]} ${textAlign()}${
-          titleText?.subcopySize
-            ? ` ${
-                titleStyles[
-                  "bjsSubcopy" + getSelectionValue(titleText?.subcopySize)
-                ]
-              }`
-            : ` ${titleStyles["bjsSubcopyMedium"]}`
-        } col-12 py-3`}
-      >
+      <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
         {titleNode}
-        {text && <div dangerouslySetInnerHTML={{ __html: text.value }}></div>}
+        {text && (
+          <div
+            className={subcopyClass()}
+            dangerouslySetInnerHTML={{ __html: text.value }}
+          ></div>
+        )}
         {ctaNode}
       </div>
     );

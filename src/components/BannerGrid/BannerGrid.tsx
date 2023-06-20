@@ -44,6 +44,8 @@ interface BannerGridParameters {
   textAlignment: string;
   imageFormat: string;
   maxWidth: string;
+  headlineSize: string;
+  subcopySize: string;
 }
 
 interface BannerGridCompound {
@@ -62,6 +64,8 @@ export function BannerGrid({
     textAlignment,
     imageFormat,
     maxWidth,
+    headlineSize,
+    subcopySize,
     ...params
   } =
     component?.getParameters<BannerGridParameters & Record<string, any>>() ||
@@ -135,7 +139,16 @@ export function BannerGrid({
       >
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
-            const props = { imageFormat, shadow, textAlignment, ...item };
+            console.log(subcopySize);
+
+            const props = {
+              imageFormat,
+              shadow,
+              textAlignment,
+              headlineSize,
+              subcopySize,
+              ...item,
+            };
 
             return (
               <Col
