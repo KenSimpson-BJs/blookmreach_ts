@@ -3,6 +3,9 @@
     .container {
       height: 100%;
     }
+    .tile.container {
+      padding: 0 !important;
+    }
   }
   :global .col-6 {
     @media screen and (max-width: 374px) {

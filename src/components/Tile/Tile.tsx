@@ -170,7 +170,7 @@ export function Tile(props: Tile): React.ReactElement | null {
 
   return (
     <Container
-      className={`${
+      className={`tile ${
         titleText?.textColor
           ? ` ${
               titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]
