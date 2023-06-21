@@ -11,6 +11,7 @@ import { getSelectionValue, setSelectionValue } from "../../utils/general";
 
 // styles
 import styles from "./Tile.module.scss";
+import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Tile {
@@ -23,6 +24,7 @@ interface Tile {
   textAlignment?: string;
   headlineSize?: string;
   subcopySize?: string;
+  maxWidth?: string;
 }
 
 export function Tile(props: Tile): React.ReactElement | null {
@@ -36,6 +38,7 @@ export function Tile(props: Tile): React.ReactElement | null {
     textAlignment,
     headlineSize: globalHeadlineSize,
     subcopySize: globalSubcopySize,
+    maxWidth,
   } = props;
 
   if (image) {
@@ -172,7 +175,9 @@ export function Tile(props: Tile): React.ReactElement | null {
           <>
             <Link
               link={link}
-              className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
+              className={`${
+                maxWidth ? widthStyles["w-" + maxWidth] : ""
+              } d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
             >
               {imageContainer()}
               <div className={`col-12 ${textAlign()}`}>{titleOutput()}</div>
@@ -185,7 +190,9 @@ export function Tile(props: Tile): React.ReactElement | null {
       return (
         <Link
           link={link}
-          className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
+          className={`${
+            maxWidth ? widthStyles["w-" + maxWidth] : ""
+          } d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
         >
           {imageContainer()}
           {textContainer(titleOutput(), ctaOutput())}
@@ -194,10 +201,10 @@ export function Tile(props: Tile): React.ReactElement | null {
     }
 
     return (
-      <>
+      <div className={maxWidth ? widthStyles["w-" + maxWidth] : ""}>
         {imageContainer()}
         {textContainer(titleOutput())}
-      </>
+      </div>
     );
   };
 
