@@ -1,7 +1,5 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { ContainerItem, getContainerItemContent } from "@bloomreach/spa-sdk";
-import { BrProps } from "@bloomreach/react-sdk";
 
 // internal components
 import { Link } from "../Link";
@@ -13,6 +11,7 @@ import { getSelectionValue, setSelectionValue } from "../../utils/general";
 
 // styles
 import styles from "./Tile.module.scss";
+import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Tile {
@@ -25,6 +24,7 @@ interface Tile {
   textAlignment?: string;
   headlineSize?: string;
   subcopySize?: string;
+  maxWidth?: string;
 }
 
 export function Tile(props: Tile): React.ReactElement | null {
@@ -38,6 +38,7 @@ export function Tile(props: Tile): React.ReactElement | null {
     textAlignment,
     headlineSize: globalHeadlineSize,
     subcopySize: globalSubcopySize,
+    maxWidth,
   } = props;
 
   if (image) {
@@ -73,7 +74,7 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
-    if (!titleText || !titleText.titleText) return;
+    if (!titleText || !titleText.titleText?.title) return;
     const {
       titleText: { title },
       headlineSize,
@@ -89,15 +90,50 @@ export function Tile(props: Tile): React.ReactElement | null {
 
     switch (headlineArg) {
       case "Small":
-        return <h4 className={headlineClass(headlineArg)}>{title}</h4>;
+        return (
+          <h4
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h4>
+        );
       case "Medium":
-        return <h3 className={headlineClass(headlineArg)}>{title}</h3>;
+        return (
+          <h3
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h3>
+        );
       case "Large":
-        return <h2 className={headlineClass(headlineArg)}>{title}</h2>;
+        return (
+          <h2
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h2>
+        );
       case "Huge":
-        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+        return (
+          <h1
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h1>
+        );
       default:
-        return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+        return (
+          <h1
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h1>
+        );
     }
   };
 
@@ -139,7 +175,9 @@ export function Tile(props: Tile): React.ReactElement | null {
           <>
             <Link
               link={link}
-              className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
+              className={`${
+                maxWidth ? widthStyles["w-" + maxWidth] : ""
+              } d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
             >
               {imageContainer()}
               <div className={`col-12 ${textAlign()}`}>{titleOutput()}</div>
@@ -152,7 +190,9 @@ export function Tile(props: Tile): React.ReactElement | null {
       return (
         <Link
           link={link}
-          className={`d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
+          className={`${
+            maxWidth ? widthStyles["w-" + maxWidth] : ""
+          } d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
         >
           {imageContainer()}
           {textContainer(titleOutput(), ctaOutput())}
@@ -161,22 +201,22 @@ export function Tile(props: Tile): React.ReactElement | null {
     }
 
     return (
-      <>
+      <div className={maxWidth ? widthStyles["w-" + maxWidth] : ""}>
         {imageContainer()}
         {textContainer(titleOutput())}
-      </>
+      </div>
     );
   };
 
   return (
     <Container
-      className={`${
+      className={`tile ${
         titleText?.textColor
           ? ` ${
               titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]
             }`
           : ` ${titleStyles["bjsTextGrayBlack"]}`
-      } py-3`}
+      } pt-3`}
     >
       {tileOutput()}
     </Container>

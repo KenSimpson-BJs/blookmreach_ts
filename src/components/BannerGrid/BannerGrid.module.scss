@@ -3,6 +3,18 @@
     .container {
       height: 100%;
     }
+    .tile.container {
+      padding: 0 !important;
+    }
+  }
+  [class*="_card"],
+  [class*="_banner"],
+  [class*="_tile"] {
+    [class*="bjsHeadlineSmall"],
+    [class*="bjsHeadlineMedium"],
+    [class*="bjsHeadlineLarge"] {
+      margin: 4px 0;
+    }
   }
   :global .col-6 {
     @media screen and (max-width: 374px) {
