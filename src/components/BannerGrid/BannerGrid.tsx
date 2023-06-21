@@ -95,19 +95,52 @@ export function BannerGrid({
 
     switch (titleSize) {
       case "Small":
-        return <h4 className={titleClass()}>{title}</h4>;
+        return (
+          <h4
+            className={titleClass()}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h4>
+        );
       case "Medium":
-        return <h3 className={titleClass()}>{title}</h3>;
+        return (
+          <h3
+            className={titleClass()}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h3>
+        );
       case "Large":
-        return <h2 className={titleClass()}>{title}</h2>;
+        return (
+          <h2
+            className={titleClass()}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h2>
+        );
       case "Huge":
-        return <h1 className={titleClass()}>{title}</h1>;
+        return (
+          <h1
+            className={titleClass()}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h1>
+        );
       default:
-        return <h1 className={titleClass()}>{title}</h1>;
+        return (
+          <h1
+            className={titleClass()}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          ></h1>
+        );
     }
   };
-
-  
 
   if (!component || !page) {
     return null;

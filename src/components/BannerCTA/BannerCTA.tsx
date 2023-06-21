@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 
 // internal
@@ -52,7 +52,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
 
   const bannerOutput = () => {
     const titleOutput = () => {
-      if (!titleText || !titleText.titleText) return <></>;
+      if (!titleText || !titleText.titleText?.title) return <></>;
       const {
         titleText: { title },
         headlineSize,
@@ -68,15 +68,50 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
 
       switch (headlineArg) {
         case "Small":
-          return <h4 className={headlineClass(headlineArg)}>{title}</h4>;
+          return (
+            <h4
+              className={headlineClass(headlineArg)}
+              dangerouslySetInnerHTML={{
+                __html: title,
+              }}
+            ></h4>
+          );
         case "Medium":
-          return <h3 className={headlineClass(headlineArg)}>{title}</h3>;
+          return (
+            <h3
+              className={headlineClass(headlineArg)}
+              dangerouslySetInnerHTML={{
+                __html: title,
+              }}
+            ></h3>
+          );
         case "Large":
-          return <h2 className={headlineClass(headlineArg)}>{title}</h2>;
+          return (
+            <h2
+              className={headlineClass(headlineArg)}
+              dangerouslySetInnerHTML={{
+                __html: title,
+              }}
+            ></h2>
+          );
         case "Huge":
-          return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+          return (
+            <h1
+              className={headlineClass(headlineArg)}
+              dangerouslySetInnerHTML={{
+                __html: title,
+              }}
+            ></h1>
+          );
         default:
-          return <h1 className={headlineClass(headlineArg)}>{title}</h1>;
+          return (
+            <h1
+              className={headlineClass(headlineArg)}
+              dangerouslySetInnerHTML={{
+                __html: title,
+              }}
+            ></h1>
+          );
       }
     };
 
