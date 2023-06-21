@@ -38,7 +38,7 @@ interface BannerGridModels {
 }
 
 interface BannerGridParameters {
-  title: string;
+  title?: string;
   variant: string;
   rowLength: string;
   shadow: boolean;
