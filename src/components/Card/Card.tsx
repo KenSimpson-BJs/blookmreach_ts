@@ -125,7 +125,7 @@ export function Card(props: Card): React.ReactElement | null {
 
   return (
     <Container
-      className={`text-${
+      className={`${widthStyles.unsetContainerWidth} text-${
         textAlignment
           ? textAlignment.toLowerCase()
           : titleText?.textAlignment
