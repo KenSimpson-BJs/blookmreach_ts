@@ -26,6 +26,7 @@ import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils"
 // styles
 import styles from "./BannerGrid.module.scss";
 import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
+import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 const MAX_DOCUMENTS = 1;
 const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
@@ -44,6 +45,7 @@ interface BannerGridParameters {
   textAlignment: string;
   imageFormat: string;
   maxWidth: string;
+  titleSize: string;
   headlineSize: string;
   subcopySize: string;
 }
@@ -64,6 +66,7 @@ export function BannerGrid({
     textAlignment,
     imageFormat,
     maxWidth,
+    titleSize,
     headlineSize,
     subcopySize,
     ...params
@@ -85,6 +88,26 @@ export function BannerGrid({
       ).length > docParams?.length
     );
   }, [docParams.length, params]);
+
+  const titleOutput = () => {
+    if (!title) return null;
+    const titleClass = () => ` ${titleStyles["bjsHeadline" + titleSize]}`;
+
+    switch (titleSize) {
+      case "Small":
+        return <h4 className={titleClass()}>{title}</h4>;
+      case "Medium":
+        return <h3 className={titleClass()}>{title}</h3>;
+      case "Large":
+        return <h2 className={titleClass()}>{title}</h2>;
+      case "Huge":
+        return <h1 className={titleClass()}>{title}</h1>;
+      default:
+        return <h1 className={titleClass()}>{title}</h1>;
+    }
+  };
+
+  
 
   if (!component || !page) {
     return null;
@@ -131,7 +154,7 @@ export function BannerGrid({
 
   return (
     <div className={`${styles["banner-grid"]} banner-grid mx-auto py-3`}>
-      <h3 className="mb-4">{title}</h3>
+      {titleOutput()}
       <Row
         className={`${
           widthStyles["w-" + maxWidth]
