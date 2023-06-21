@@ -123,8 +123,6 @@ export function Card(props: Card): React.ReactElement | null {
     return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
   };
 
-  console.log(maxWidth);
-
   return (
     <Container
       className={`text-${

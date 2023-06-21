@@ -41,8 +41,6 @@ export function CardComp({
   } = getContainerItemContent<CardComp>(component, page) ?? {};
   const { shadow, imageFormat, maxWidth } = component.getParameters<CardComp>();
 
-  console.log(maxWidth);
-
   return (
     <Card
       background={background}
