@@ -11,6 +11,7 @@ import { getSelectionValue, textToHorizontalFlex } from "../../utils/general";
 
 // styles
 import styles from "./Card.module.scss";
+import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Card {
@@ -28,6 +29,7 @@ interface Card {
   textAlignment?: string;
   headlineSize?: string;
   subcopySize?: string;
+  maxWidth?: string;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -45,6 +47,7 @@ export function Card(props: Card): React.ReactElement | null {
     textAlignment,
     headlineSize: globalHeadlineSize,
     subcopySize: globalSubcopySize,
+    maxWidth,
   } = props;
 
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
@@ -120,6 +123,8 @@ export function Card(props: Card): React.ReactElement | null {
     return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
   };
 
+  console.log(maxWidth);
+
   return (
     <Container
       className={`text-${
@@ -133,7 +138,9 @@ export function Card(props: Card): React.ReactElement | null {
       {link && (
         <Link
           link={link}
-          className={`d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
+          className={`${
+            maxWidth ? widthStyles["w-" + maxWidth] : ""
+          } d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
           }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
             shadow ? ` ${styles.shadow}` : ""

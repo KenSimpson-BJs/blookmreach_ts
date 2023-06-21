@@ -5,9 +5,6 @@ import { BrProps } from "@bloomreach/react-sdk";
 // internal
 import { Card } from "./Card";
 
-// utils
-import { getSelectionValue } from "../../utils/general";
-
 interface CardComp {
   background?: string;
   titleText: titleTextFG;
@@ -21,6 +18,7 @@ interface CardComp {
   imageFormat: string;
   horizontalAlign?: SelectionType;
   verticalAlign?: SelectionType;
+  maxWidth: string;
 }
 
 export function CardComp({
@@ -38,11 +36,12 @@ export function CardComp({
     cta,
     image,
     analytics,
-    textAlignment,
     horizontalAlign,
     verticalAlign,
   } = getContainerItemContent<CardComp>(component, page) ?? {};
-  const { shadow, imageFormat } = component.getParameters<CardComp>();
+  const { shadow, imageFormat, maxWidth } = component.getParameters<CardComp>();
+
+  console.log(maxWidth);
 
   return (
     <Card
@@ -56,6 +55,7 @@ export function CardComp({
       shadow={shadow}
       horizontalAlign={horizontalAlign}
       verticalAlign={verticalAlign}
+      maxWidth={maxWidth}
     ></Card>
   );
 }
