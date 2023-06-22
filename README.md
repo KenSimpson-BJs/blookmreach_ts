@@ -29,7 +29,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 # Available components
 
-** Note from the developer: All components document their available properties, fields and their inputs. If you provide inputs or data outside of what's recommended in the component documentation, you do so with the understanding that things may break as a result, and the resulting issues will be on you, the content editor, to resolve **
+## ** Note from the developer**: 
+All components document their available properties, fields and their inputs. If you provide inputs or data outside of what's recommended in the component documentation, you do so with the understanding that things may break as a result, and the resulting issues will be on you, the content editor, to resolve
 
 ## Available within the CMS
 
