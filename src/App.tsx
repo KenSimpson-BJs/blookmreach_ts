@@ -31,9 +31,9 @@ function App() {
   };
   return (
     <div className="App pb-3">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      </header> */}
 
       <BrPage
         configuration={{
