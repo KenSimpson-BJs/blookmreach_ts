@@ -168,7 +168,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
                 {link && link.href && cta && <CTA cta={cta}></CTA>}
                 {disclaimer && (
                   <div
-                    className={styles.disclaimer}
+                    className={titleStyles.disclaimer}
                     dangerouslySetInnerHTML={{
                       __html: disclaimer.value,
                     }}
