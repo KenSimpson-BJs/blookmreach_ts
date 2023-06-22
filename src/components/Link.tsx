@@ -35,7 +35,7 @@ export function Link(props: Link): React.ReactElement | null {
           ? "plp-espot-gtm-tag plp-espot-gtm-view"
           : "hp-espot-gtm-tag hp-espot-gtm-view"
       }${className ? ` ${className}` : ""}`}
-      style={{ backgroundColor: background ? background : "#fff" }}
+      style={{ backgroundColor: background ? background : "inherit" }}
     >
       {children}
     </a>
