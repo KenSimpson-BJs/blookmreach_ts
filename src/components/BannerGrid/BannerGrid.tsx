@@ -190,7 +190,7 @@ export function BannerGrid({
 
   return (
     <div
-      className={`${styles["banner-grid"]} banner-grid mx-auto py-3`}
+      className={`${styles["banner-grid"]} mx-auto py-3`}
       style={
         backgroundColor
           ? {
@@ -204,7 +204,7 @@ export function BannerGrid({
       <Row
         className={`${
           widthStyles["w-" + maxWidth]
-        } justify-content-center align-items-stretch`}
+        } justify-content-center align-items-stretch pt-3`}
       >
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
