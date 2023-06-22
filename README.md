@@ -33,16 +33,16 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Available within the CMS
 
-- Banner Grid
-- Banner CTA
-- Card
-- Tile
+- [Banner Grid](src/components/BannerGrid)
+- [Banner CTA](src/components/BannerCTA)
+- [Card](src/components/Card)
+- [Tile](src/components/Tile)
 
 ## Only available within the application
 
-- Link
-- Image
-- CTA
+- [Link](src/components/Link)
+- [Image](src/components/Image)
+- [CTA](src/components/CTA)
 
 # CMS Components
 
