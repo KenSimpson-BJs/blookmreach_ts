@@ -38,14 +38,15 @@ interface BannerGridModels {
 }
 
 interface BannerGridParameters {
-  title?: string;
-  variant: string;
-  rowLength: string;
-  shadow: boolean;
-  textAlignment: string;
-  imageFormat: string;
   maxWidth: string;
+  backgroundColor?: string;
+  title?: string;
   titleSize: string;
+  variant: string;
+  imageFormat: string;
+  shadow: boolean;
+  rowLength: string;
+  textAlignment: string;
   headlineSize: string;
   subcopySize: string;
 }
@@ -69,6 +70,7 @@ export function BannerGrid({
     titleSize,
     headlineSize,
     subcopySize,
+    backgroundColor,
     ...params
   } =
     component?.getParameters<BannerGridParameters & Record<string, any>>() ||
@@ -91,7 +93,8 @@ export function BannerGrid({
 
   const titleOutput = () => {
     if (!title) return null;
-    const titleClass = () => ` ${titleStyles["bjsHeadline" + titleSize]}`;
+    const titleClass = () =>
+      ` pb-3 pb-md-4 ${titleStyles["bjsHeadline" + titleSize]}`;
 
     switch (titleSize) {
       case "Small":
@@ -186,12 +189,22 @@ export function BannerGrid({
   };
 
   return (
-    <div className={`${styles["banner-grid"]} banner-grid mx-auto py-3`}>
+    <div
+      className={`${styles["banner-grid"]} mx-auto py-3`}
+      style={
+        backgroundColor
+          ? {
+              borderTop: "1px solid #ccc",
+              backgroundColor: backgroundColor,
+            }
+          : {}
+      }
+    >
       {titleOutput()}
       <Row
         className={`${
           widthStyles["w-" + maxWidth]
-        } justify-content-center align-items-stretch`}
+        } justify-content-center align-items-stretch pt-3`}
       >
         {bannerCardTile &&
           bannerCardTile.map((item: BannerCardTile, key) => {
