@@ -17,6 +17,7 @@ interface TileComp {
   shadow?: boolean;
   imageFormat: string;
   maxWidth: string;
+  textAlignment: string;
 }
 
 export function TileComp({
@@ -29,7 +30,8 @@ export function TileComp({
 
   const { titleText, cta, image, analytics } =
     getContainerItemContent<TileComp>(component, page) ?? {};
-  const { imageFormat, shadow, maxWidth } = component.getParameters<TileComp>();
+  const { maxWidth, imageFormat, shadow, textAlignment } =
+    component.getParameters<TileComp>();
 
   if (image) {
     if (image.imgfit && imageFormat === "Circular")
@@ -45,6 +47,7 @@ export function TileComp({
       imageFormat={imageFormat}
       shadow={shadow}
       maxWidth={maxWidth}
+      textAlignment={textAlignment}
     ></Tile>
   );
 }
