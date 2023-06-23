@@ -108,6 +108,22 @@
 .bjsTextGrayBlack {
   color: var(--bjsGrayBlack);
 }
+a.bjsTextRed:hover,
+.bjsTextRed a:hover,
+a.bjsTextGrayBlack:hover,
+.bjsTextGrayBlack a:hover {
+  color: var(--bjsRedHover) !important;
+}
+
 .bjsTextWhite {
   color: var(--bjsWhite);
+}
+
+:global a {
+  [class*="bjsTextRed"],
+  [class*="bjsTextGrayBlack"] {
+    :hover {
+      color: var(--bjsRedHover);
+    }
+  }
 }
