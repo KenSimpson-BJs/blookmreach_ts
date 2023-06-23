@@ -15,8 +15,12 @@ export function CTA(props: CTA): React.ReactElement | null {
         return `btn btn-primary`;
       case "secondary":
         return `btn btn-secondary`;
+      case "link_red":
+        return `${styles.link_red}`;
+      case "link_drk":
+        return `${styles.link_drk}`;
       default:
-        return `${styles.link}`;
+        return `${styles.link_drk}`;
     }
   };
 

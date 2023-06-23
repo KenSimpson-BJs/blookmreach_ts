@@ -30,7 +30,8 @@ a {
     }
   }
 
-  .link {
+  .link_red,
+  .link_drk {
     color: var(--bjsRed);
     transition: var(--transitionLinear);
     font-size: 20px;
@@ -40,8 +41,16 @@ a {
       color: var(--bjsRedHover);
     }
   }
+  .link_red {
+    color: var(--bjsRed);
+  }
+  .link_drk {
+    color: var(--bjsGrayBlack);
+  }
+
   &:hover {
-    .link {
+    .link_red,
+    .link_drk {
       color: var(--bjsRedHover);
       text-decoration: underline;
     }
