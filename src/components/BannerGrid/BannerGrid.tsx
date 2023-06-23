@@ -156,12 +156,14 @@ export function BannerGrid({
           documentTemplateQuery="new-reference-spa-bannercardtilectype-document"
           folderTemplateQuery="new-reference-spa-bannercardtilectype-folder"
           parameter="document1"
-          root="content"
+          root="content/bannergrid-docs"
           relative
         />
       </div>
     ) : null;
   }
+
+  if (docParams.length < 1) return null;
 
   const { bannerCardTile } =
     docParams[0].document.getData<BannerGridCompound>();
