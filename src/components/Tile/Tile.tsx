@@ -74,7 +74,8 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
-    if (!titleText || !titleText.titleText?.title) return;
+    if (!titleText || !titleText.titleText?.title?.value) return;
+
     const {
       titleText: { title },
       headlineSize,
@@ -87,50 +88,57 @@ export function Tile(props: Tile): React.ReactElement | null {
     const headlineClass = (headlineSize: SelectionType | string) => {
       return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
     };
+    console.log(title.value);
 
     switch (headlineArg) {
       case "Small":
+        console.log("Small");
+
         return (
           <h4
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h4>
         );
       case "Medium":
+        console.log("Medium");
         return (
           <h3
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h3>
         );
       case "Large":
+        console.log("Large");
         return (
           <h2
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h2>
         );
       case "Huge":
+        console.log("Huge");
         return (
           <h1
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h1>
         );
       default:
+        console.log("default");
         return (
           <h1
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h1>
         );
@@ -152,15 +160,14 @@ export function Tile(props: Tile): React.ReactElement | null {
     titleNode?: React.ReactNode,
     ctaNode?: React.ReactNode
   ) => {
-    if (!titleText?.titleText?.text) return;
-    const { text } = titleText.titleText;
+    if (!titleNode && !titleText?.titleText?.text && !ctaNode) return;
     return (
       <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
         {titleNode}
-        {text && (
+        {titleText?.titleText?.text && (
           <div
             className={subcopyClass()}
-            dangerouslySetInnerHTML={{ __html: text.value }}
+            dangerouslySetInnerHTML={{ __html: titleText.titleText.text.value }}
           ></div>
         )}
         {ctaNode}
