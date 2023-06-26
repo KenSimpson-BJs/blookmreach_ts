@@ -16,7 +16,11 @@
 
 import React, { useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
-import { Reference, ContainerItem } from "@bloomreach/spa-sdk";
+import {
+  Reference,
+  ContainerItem,
+  getContainerItemContent,
+} from "@bloomreach/spa-sdk";
 import { BrManageContentButton, BrProps } from "@bloomreach/react-sdk";
 import { BannerCTA, Tile, Card } from "..";
 
@@ -40,7 +44,6 @@ interface BannerGridModels {
 interface BannerGridParameters {
   maxWidth: string;
   backgroundColor?: string;
-  title?: string;
   titleSize: string;
   variant: string;
   imageFormat: string;
@@ -60,7 +63,6 @@ export function BannerGrid({
   page,
 }: BrProps<ContainerItem>): React.ReactElement | null {
   const {
-    title,
     variant,
     rowLength,
     shadow,
@@ -91,8 +93,15 @@ export function BannerGrid({
     );
   }, [docParams.length, params]);
 
+  if (!component || !page) {
+    return null;
+  }
+  const { title, text } =
+    getContainerItemContent<titleText>(component, page) ?? {};
+
   const titleOutput = () => {
     if (!title) return null;
+
     const titleClass = () =>
       ` pb-3 pb-md-4 ${titleStyles["bjsHeadline" + titleSize]}`;
 
@@ -102,7 +111,7 @@ export function BannerGrid({
           <h4
             className={titleClass()}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h4>
         );
@@ -111,7 +120,7 @@ export function BannerGrid({
           <h3
             className={titleClass()}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h3>
         );
@@ -120,7 +129,7 @@ export function BannerGrid({
           <h2
             className={titleClass()}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h2>
         );
@@ -129,7 +138,7 @@ export function BannerGrid({
           <h1
             className={titleClass()}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h1>
         );
@@ -138,7 +147,7 @@ export function BannerGrid({
           <h1
             className={titleClass()}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h1>
         );

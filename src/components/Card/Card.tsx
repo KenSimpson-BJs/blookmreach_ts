@@ -73,7 +73,7 @@ export function Card(props: Card): React.ReactElement | null {
           <h4
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h4>
         );
@@ -82,7 +82,7 @@ export function Card(props: Card): React.ReactElement | null {
           <h3
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h3>
         );
@@ -91,7 +91,7 @@ export function Card(props: Card): React.ReactElement | null {
           <h2
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h2>
         );
@@ -100,7 +100,7 @@ export function Card(props: Card): React.ReactElement | null {
           <h1
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h1>
         );
@@ -109,7 +109,7 @@ export function Card(props: Card): React.ReactElement | null {
           <h1
             className={headlineClass(headlineArg)}
             dangerouslySetInnerHTML={{
-              __html: title,
+              __html: title.value,
             }}
           ></h1>
         );
