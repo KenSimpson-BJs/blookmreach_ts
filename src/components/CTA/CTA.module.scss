@@ -30,9 +30,9 @@ a {
     }
   }
 
+  link,
   .link_red,
   .link_drk {
-    color: var(--bjsRed);
     transition: var(--transitionLinear);
     font-size: 20px;
     line-height: 25px;
@@ -40,6 +40,13 @@ a {
     &:hover {
       color: var(--bjsRedHover);
     }
+  }
+  .link,
+  .link_pencil {
+    color: inherit;
+  }
+  .link_pencil {
+    font-size: inherit;
   }
   .link_red {
     color: var(--bjsRed);
