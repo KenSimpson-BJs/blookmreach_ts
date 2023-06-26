@@ -88,12 +88,9 @@ export function Tile(props: Tile): React.ReactElement | null {
     const headlineClass = (headlineSize: SelectionType | string) => {
       return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
     };
-    console.log(title.value);
 
     switch (headlineArg) {
       case "Small":
-        console.log("Small");
-
         return (
           <h4
             className={headlineClass(headlineArg)}
@@ -103,7 +100,6 @@ export function Tile(props: Tile): React.ReactElement | null {
           ></h4>
         );
       case "Medium":
-        console.log("Medium");
         return (
           <h3
             className={headlineClass(headlineArg)}
@@ -113,7 +109,6 @@ export function Tile(props: Tile): React.ReactElement | null {
           ></h3>
         );
       case "Large":
-        console.log("Large");
         return (
           <h2
             className={headlineClass(headlineArg)}
@@ -123,7 +118,6 @@ export function Tile(props: Tile): React.ReactElement | null {
           ></h2>
         );
       case "Huge":
-        console.log("Huge");
         return (
           <h1
             className={headlineClass(headlineArg)}
@@ -133,7 +127,6 @@ export function Tile(props: Tile): React.ReactElement | null {
           ></h1>
         );
       default:
-        console.log("default");
         return (
           <h1
             className={headlineClass(headlineArg)}
