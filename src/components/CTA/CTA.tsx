@@ -3,14 +3,20 @@ import { getSelectionValue } from "../../utils/general";
 import styles from "./CTA.module.scss";
 
 interface CTA {
-  cta?: Cta;
+  cta: Cta;
+  variant?: string;
 }
 
 export function CTA(props: CTA): React.ReactElement | null {
-  const { cta, style } = props.cta ?? {};
+  const {
+    cta: { cta, style },
+    variant,
+  } = props ?? {};
 
-  const returnStyle = (value: string) => {
+  const returnStyle = (value: string | undefined) => {
     switch (value) {
+      case "Pencil Banner":
+        return `${styles.link_pencil}`;
       case "primary":
         return `btn btn-primary`;
       case "secondary":
@@ -20,14 +26,20 @@ export function CTA(props: CTA): React.ReactElement | null {
       case "link_drk":
         return `${styles.link_drk}`;
       default:
-        return `${styles.link_drk}`;
+        return `${styles.link}`;
     }
   };
 
   return (
     <>
       {cta && (
-        <span className={style && returnStyle(getSelectionValue(style))}>
+        <span
+          className={
+            variant
+              ? returnStyle(variant)
+              : returnStyle(getSelectionValue(style))
+          }
+        >
           <b>{cta}</b>
         </span>
       )}
