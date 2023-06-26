@@ -67,7 +67,7 @@ interface BannerCardTile {
 }
 
 interface titleText {
-  title?: string;
+  title?: Content;
   text?: Content;
 }
 
