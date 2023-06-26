@@ -4,7 +4,7 @@ import styles from "./CTA.module.scss";
 
 interface CTA {
   cta: Cta;
-  variant: string;
+  variant?: string;
 }
 
 export function CTA(props: CTA): React.ReactElement | null {
