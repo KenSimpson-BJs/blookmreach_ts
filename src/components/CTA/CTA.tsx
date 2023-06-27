@@ -13,7 +13,7 @@ export function CTA(props: CTA): React.ReactElement | null {
     variant,
   } = props ?? {};
 
-  const returnStyle = (value: string | undefined) => {
+  const returnStyle = (value: string) => {
     switch (value) {
       case "Pencil Banner":
         return `${styles.link_pencil}`;
@@ -30,6 +30,8 @@ export function CTA(props: CTA): React.ReactElement | null {
     }
   };
 
+  console.log(style);
+
   return (
     <>
       {cta && (
@@ -37,7 +39,9 @@ export function CTA(props: CTA): React.ReactElement | null {
           className={
             variant
               ? returnStyle(variant)
-              : returnStyle(getSelectionValue(style))
+              : style
+              ? returnStyle(getSelectionValue(style))
+              : styles.link
           }
         >
           <b>{cta}</b>
