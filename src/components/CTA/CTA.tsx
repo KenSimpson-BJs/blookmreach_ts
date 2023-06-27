@@ -30,8 +30,6 @@ export function CTA(props: CTA): React.ReactElement | null {
     }
   };
 
-  console.log(style);
-
   return (
     <>
       {cta && (
