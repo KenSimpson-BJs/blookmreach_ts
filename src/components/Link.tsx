@@ -1,6 +1,4 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
-import styles from "./Link.module.scss";
 
 interface Link {
   link: Anchor;
