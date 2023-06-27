@@ -146,7 +146,7 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const ctaOutput = () => {
-    return cta ? <CTA cta={cta}></CTA> : null;
+    return cta && cta?.cta?.length > 0 ? <CTA cta={cta}></CTA> : null;
   };
 
   const textContainer = (
