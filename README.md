@@ -32,6 +32,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## ** Note from the developer**: 
 All components document their available properties, fields and their inputs. If you provide inputs or data outside of what's recommended in the component documentation, you do so with the understanding that things may break as a result, and the resulting issues will be on you, the content editor, to resolve
 
+[Additional Component Documentation with some visual references](https://bjsonline.sharepoint.com/:w:/r/sites/CD_KPMG_BJsCMSProjectManagement/_layouts/15/doc2.aspx?sourcedoc=%7BD5B64228-3067-43B0-A532-2E3E6A4BB219%7D&file=SPA%20POC%20Components%20(1).docx&wdOrigin=TEAMS-ELECTRON.p2p.bim&action=default&mobileredirect=true&cid=762d6cce-3c56-479d-bca5-018d4b953519)
+
 ## Available within the CMS
 
 - [Banner Grid](src/components/BannerGrid)
