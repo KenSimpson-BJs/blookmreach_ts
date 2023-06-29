@@ -1,0 +1,875 @@
+[
+    {
+        "id": "testComponentGroup/simple-image-component",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "SimpleImageComponent",
+        "contentType": null,
+        "label": "Simple Image Component",
+        "icon": "https://cdn-icons-png.flaticon.com/128/5968/5968541.png",
+        "parameters": [
+            {
+                "name": "imageSrc",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "https://th.bing.com/th/id/R.6df01381507a6ac74d97ecf11a92ea69?rik=KWgTmrNafhxv0A&riu=http%3a%2f%2f2.bp.blogspot.com%2f-xryaIKjlDTg%2fUAbznSk8IgI%2fAAAAAAAAQII%2f-imC98usNf8%2fs1600%2ffunny-cat-pictures-007-006.jpg&ehk=QBwxGN8mu2Chq%2bYbqoWCLxBbQqx2MiECF2nLx5qSqdE%3d&risl=&pid=ImgRaw&r=0",
+                "displayName": null,
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "imageAlt",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "A cute cat staring over the table at you",
+                "displayName": null,
+                "system": false,
+                "config": null
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/open-html-component",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "OpenHTML",
+        "contentType": null,
+        "label": "Open Html Component",
+        "icon": "https://cdn-icons-png.flaticon.com/128/186/186320.png",
+        "parameters": [
+            {
+                "name": "document",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "document",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents-only",
+                    "pickerInitialPath": "content",
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/category-bubbles",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "CategoryBubbles",
+        "contentType": null,
+        "label": "Category Bubbles",
+        "icon": "https://cdn-icons-png.flaticon.com/512/861/861727.png",
+        "parameters": [
+            {
+                "name": "bgHex",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Background Color",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "bgImg",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Background Image URL",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "fontColor",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Text Color",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "clpPage",
+                "valueType": "boolean",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": false,
+                "displayName": "CLP Page",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "headline",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Header Text",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "categoryItems",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Category Items",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents-only",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/trending",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "Trending",
+        "contentType": null,
+        "label": "Trending",
+        "icon": "https://cdn-icons-png.flaticon.com/128/483/483257.png",
+        "parameters": [
+            {
+                "name": "headline",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Headline Text",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "bgHex",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Background Color",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "bgImg",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Background Image URL",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "fontColor",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Text Color",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "trendingItems",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Trending Items",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents-only",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/newcomponent",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "NewComponent",
+        "contentType": "referencespa:bannercta",
+        "label": "NewComponent",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "title",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Nein",
+                "displayName": "Title",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "cta",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "CTA",
+                "displayName": "CTA",
+                "system": false,
+                "config": null
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/card",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "CardComp",
+        "contentType": "referencespa:BannerCardTile",
+        "label": "Card",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "maxWidth",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "1280px",
+                "displayName": "Max Width",
+                "system": false,
+                "config": {
+                    "value": [
+                        "900px",
+                        "1280px",
+                        "Full"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "imageFormat",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Default",
+                "displayName": "Image Format",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Default",
+                        "Rounded",
+                        "Circular",
+                        "Icon"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "shadow",
+                "valueType": "boolean",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": false,
+                "displayName": "Add Shadow",
+                "system": false,
+                "config": null
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/tile",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "TileComp",
+        "contentType": "referencespa:BannerCardTile",
+        "label": "Tile",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "maxWidth",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "1280px",
+                "displayName": "Max Width",
+                "system": false,
+                "config": {
+                    "value": [
+                        "900px",
+                        "1280px",
+                        "Full"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "imageFormat",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Default",
+                "displayName": "Image Format",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Default",
+                        "Rounded",
+                        "Circular",
+                        "Icon"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "shadow",
+                "valueType": "boolean",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": false,
+                "displayName": "Shadow",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "textAlignment",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Center",
+                "displayName": "Text Alignment",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Center",
+                        "Left",
+                        "Right"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/banner",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "BannerCTAComp",
+        "contentType": "referencespa:BannerFieldGroup",
+        "label": "Banner",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "maxWidth",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "1280px",
+                "displayName": "Max Width",
+                "system": false,
+                "config": {
+                    "value": [
+                        "900px",
+                        "1280px",
+                        "Full"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "imageFormat",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Default",
+                "displayName": "Image Format",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Default",
+                        "Rounded"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "shadow",
+                "valueType": "boolean",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": false,
+                "displayName": "Shadow",
+                "system": false,
+                "config": null
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/header-test",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "Header",
+        "contentType": null,
+        "label": "Header",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "megaMenu",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Mega Menu",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            },
+            {
+                "name": "navbar",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "NavBar",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            },
+            {
+                "name": "categoryNavigation",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Category Navigation Document",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/navigation",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "Navigation",
+        "contentType": null,
+        "label": "Navigation",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "navbar",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "navbar",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            },
+            {
+                "name": "megaMenu",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "megaMenu",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            },
+            {
+                "name": "categoryNavigation",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "categoryNavigation",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": null,
+                    "pickerRememberLastVisited": true,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": false,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            }
+        ],
+        "fieldGroups": []
+    },
+    {
+        "id": "testComponentGroup/banner-grid",
+        "extends": "base/component",
+        "hidden": false,
+        "system": false,
+        "xtype": null,
+        "ctype": "BannerGrid",
+        "contentType": "TitleText",
+        "label": "Banner Grid",
+        "icon": null,
+        "parameters": [
+            {
+                "name": "maxWidth",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "1280px",
+                "displayName": "Max Width",
+                "system": false,
+                "config": {
+                    "value": [
+                        "900px",
+                        "1280px",
+                        "Full"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "titleSize",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Large",
+                "displayName": "Title Size",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Small",
+                        "Medium",
+                        "Large",
+                        "Huge"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "document1",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "",
+                "displayName": "Banner/Card/Tile document",
+                "system": false,
+                "config": {
+                    "pickerConfiguration": "cms-pickers/documents",
+                    "pickerInitialPath": "/content",
+                    "pickerRememberLastVisited": false,
+                    "pickerSelectableNodeTypes": [],
+                    "relative": true,
+                    "pickerRootPath": null,
+                    "enableUpload": false,
+                    "type": "contentpath"
+                }
+            },
+            {
+                "name": "variant",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Tile",
+                "displayName": "Variant",
+                "system": false,
+                "config": {
+                    "value": [
+                        "BannerCTA",
+                        "Tile",
+                        "Card"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "rowLength",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "4",
+                "displayName": "Grid Row Length (Desktop)",
+                "system": false,
+                "config": {
+                    "value": [
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "imageFormat",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Default",
+                "displayName": "Image Format",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Default",
+                        "Rounded",
+                        "Circular",
+                        "Icon"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "shadow",
+                "valueType": "boolean",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": false,
+                "displayName": "shadow",
+                "system": false,
+                "config": null
+            },
+            {
+                "name": "textAlignment",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Center",
+                "displayName": "Text Alignment",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Center",
+                        "Left",
+                        "Right"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "headlineSize",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Medium",
+                "displayName": "Headline Size",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Small",
+                        "Medium",
+                        "Large",
+                        "Huge"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "subcopySize",
+                "valueType": "string",
+                "required": true,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "Medium",
+                "displayName": "SubCopy Size",
+                "system": false,
+                "config": {
+                    "value": [
+                        "Small",
+                        "Medium",
+                        "Large"
+                    ],
+                    "structuredValues": null,
+                    "valueListProvider": null,
+                    "sourceId": null,
+                    "type": "dropdown"
+                }
+            },
+            {
+                "name": "backgroundColor",
+                "valueType": "string",
+                "required": false,
+                "hidden": false,
+                "overlay": false,
+                "defaultValue": "#fff",
+                "displayName": "Background Color",
+                "system": false,
+                "config": null
+            }
+        ],
+        "fieldGroups": []
+    }
+]
