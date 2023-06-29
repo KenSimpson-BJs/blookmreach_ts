@@ -39,7 +39,7 @@ function App() {
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
           endpoint:
-            "https://trial-xdfd57qq.bloomreach.io/delivery/site/v1/channels/ken-test-channel/pages",
+            "https://test-bjs.bloomreach.io/delivery/site/v1/channels/prototypes/pages",
           httpClient: axios as any,
         }}
         mapping={mapping}
