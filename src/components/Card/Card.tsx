@@ -200,7 +200,7 @@ export function Card(props: Card): React.ReactElement | null {
                   }}
                 ></div>
               )}
-              {cta && <CTA cta={cta}></CTA>}
+              {cta && cta?.cta?.length > 0 && <CTA cta={cta}></CTA>}
             </div>
           </div>
         </Link>
