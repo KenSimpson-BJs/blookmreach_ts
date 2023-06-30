@@ -33,6 +33,10 @@ function App() {
     Header,
     Footer,
   };
+
+  console.log(process.env.NODE_ENV);
+  console.log(process.env.REACT_APP_CHANNEL_ENDPOINT);
+
   return (
     <div className="App pb-3">
       <header className="App-header">
@@ -42,8 +46,7 @@ function App() {
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
-          endpoint:
-            "https://test-bjs.bloomreach.io/delivery/site/v1/channels/qa3---core/pages",
+          endpoint: process.env.REACT_APP_CHANNEL_ENDPOINT,
           httpClient: axios as any,
         }}
         mapping={mapping}
