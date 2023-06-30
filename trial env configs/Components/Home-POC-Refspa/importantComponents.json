@@ -209,9 +209,7 @@
                 "pickerConfiguration": "cms-pickers/documents-only",
                 "pickerInitialPath": "/content",
                 "pickerRememberLastVisited": true,
-                "pickerSelectableNodeTypes": [
-                    "NavBar"
-                ],
+                "pickerSelectableNodeTypes": [],
                 "relative": false,
                 "pickerRootPath": "",
                 "enableUpload": false,
@@ -231,9 +229,7 @@
                 "pickerConfiguration": "cms-pickers/documents-only",
                 "pickerInitialPath": "/content",
                 "pickerRememberLastVisited": true,
-                "pickerSelectableNodeTypes": [
-                    "MegaMenu"
-                ],
+                "pickerSelectableNodeTypes": [],
                 "relative": false,
                 "pickerRootPath": "",
                 "enableUpload": false,
@@ -253,9 +249,7 @@
                 "pickerConfiguration": "cms-pickers/documents-only",
                 "pickerInitialPath": "/content",
                 "pickerRememberLastVisited": true,
-                "pickerSelectableNodeTypes": [
-                    "Navigation"
-                ],
+                "pickerSelectableNodeTypes": [],
                 "relative": false,
                 "pickerRootPath": null,
                 "enableUpload": false,
