@@ -12,6 +12,8 @@ import {
   TileComp,
   BannerCTAComp,
   BannerGrid,
+  Header,
+  Footer,
 } from "./components";
 
 // styles
@@ -28,6 +30,8 @@ function App() {
     CardComp,
     BannerCTAComp,
     BannerGrid,
+    Header,
+    Footer,
   };
   return (
     <div className="App pb-3">
@@ -43,7 +47,26 @@ function App() {
           httpClient: axios as any,
         }}
         mapping={mapping}
-      ></BrPage>
+      >
+        <BrComponent path="header">
+          <div className="mr-3 mr-lg-0">
+            <BrComponent />
+          </div>
+        </BrComponent>
+        <BrComponent path="main">
+          <div>
+            <BrComponent />
+          </div>
+        </BrComponent>
+        <BrComponent path="footer">
+          <footer className="bg-secondary text-light py-3">
+            {/* {!contextPage?.isPreview() && Boolean(cookieConsentVal) && (
+              <BrPersonalization path={configuration.path} />
+            )} */}
+          </footer>
+          <BrComponent />
+        </BrComponent>
+      </BrPage>
     </div>
   );
 }

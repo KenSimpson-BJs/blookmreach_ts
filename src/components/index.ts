@@ -4,3 +4,5 @@ export * from "./Tile";
 export * from "./Card";
 export * from "./BannerCTA";
 export * from "./BannerGrid";
+export * from "./Header";
+export * from "./Footer";
