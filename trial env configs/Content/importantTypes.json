@@ -1965,7 +1965,7 @@
     // 
     // 
     // 
-    // Navigation Type
+    // Navigation Type - Done
     {
         "name": "Navigation",
         "enabled": true,
@@ -2053,7 +2053,7 @@
     // 
     // 
     // 
-    // NavBar
+    // NavBar - Done
     {
         "name": "NavBar",
         "enabled": true,
@@ -2225,7 +2225,7 @@
     // 
     // 
     // 
-    // MegaMenu
+    // MegaMenu - Done
     {
         "name": "MegaMenu",
         "enabled": true,
@@ -2336,7 +2336,7 @@
     // 
     // 
     // 
-    // Footer
+    // Footer - Done
     {
         "name": "Footer",
         "enabled": true,

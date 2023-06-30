@@ -1,0 +1,2072 @@
+// api endpoint example
+// Core
+// {{brxHost}}/management/content/v1/project/core/document/content/documents/home-poc-refspa/content/navigation/navbar
+// brxHost = https://trial-xdfd57qq.bloomreach.io
+// Project
+// {{brxHost}}/management/content/v1/project/{{projectId}}/document/content/documents/home-poc-refspa/content/navigation/navbar
+// projectId = veMdT (random letters associated with project)
+//Content Files 
+// 
+// 
+// 
+// NavBar - Done
+{
+    "contentType": "NavBar",
+    "fields": [
+        {
+            "name": "services",
+            "value": [
+                {
+                    "fields": {
+                        "categoryLinks": [
+                            {
+                                "fields": {
+                                    "NavItem": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://tires.bjs.com"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Tires"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://optical.bjs.com"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Optical"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://travel.bjs.com"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Travel"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://bjs.myhomeprojectcenter.com/?source=headeribbon"
+                                                ],
+                                                "icon": [
+                                                    ""
+                                                ],
+                                                "title": [
+                                                    "Home Improvement"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.att.com/partners/bjs/"
+                                                ],
+                                                "icon": [
+                                                    ""
+                                                ],
+                                                "title": [
+                                                    "Wireless"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://partnerships.handy.com/bjs/?source=headeribbon"
+                                                ],
+                                                "icon": [
+                                                    ""
+                                                ],
+                                                "title": [
+                                                    "Install and Assembly"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=ExclusiveMemberBenefits&source=headeribbon"
+                                                ],
+                                                "icon": [
+                                                    ""
+                                                ],
+                                                "title": [
+                                                    "View All"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "category": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/content?template=B&espot_main=ExclusiveMemberBenefits&source=headeribbon"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Services"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "links",
+            "value": [
+                {
+                    "fields": {
+                        "link": [
+                            "https://www.bjs.com/myCoupons?source=header"
+                        ],
+                        "icon": [],
+                        "title": [
+                            "Coupons"
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "link": [
+                            "https://www.bjs.com/deals"
+                        ],
+                        "icon": [],
+                        "title": [
+                            "Deals"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "name": "navbar",
+    "displayName": "NavBar",
+    "path": "/content/documents/qa3---core/content/navigation/navbar",
+    "system": {
+        "createdBy": "ksimpson@bjs.com",
+        "createdAt": "2023-02-22T20:26:25.98+01:00",
+        "updatedBy": "rhormaza@bjs.com",
+        "updatedAt": "2023-06-23T16:27:04.684+02:00"
+    }
+}
+// 
+// 
+// 
+// MegaMenu - Done
+{
+    "name": "mega-menu",
+    "displayName": "Mega Menu",
+    "contentType": "MegaMenu",
+    "path": "/content/documents/qa3---core/content/navigation/mega-menu",
+    "fields": [
+        {
+            "name": "mmTop",
+            "value": [
+                {
+                    "fields": {
+                        "NavItem": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/account/manageOrders?source=megamenu"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/sdd-ico?fmt=png-alpha"
+                                    ],
+                                    "title": [
+                                        "Buy It Again"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/deals?source=megamenu"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/deals-ico-2x?fmt=png-alpha"
+                                    ],
+                                    "title": [
+                                        "Deals"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "BottomCategories",
+            "value": [
+                {
+                    "fields": {
+                        "NavItem": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/content?template=B&espot_main=Apparel_inClub"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Apparel"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/apple?source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Apple Shop"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "BottomDiscover",
+            "value": [
+                {
+                    "fields": {
+                        "NavItem": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/search?source=Homepage_ATF4&visualVariant.nonvisualVariant.gbi_program_availability.gbi_shipping_and_pickup=Same-day%20Delivery"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Same-Day Delivery"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/smartsaver?source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Smart-Saver Offers"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/clearance/3000000000000130959?source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Clearance"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/partyplanning?source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Deli & Bakery Ordering"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/blog?source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "BJ's Smart Saver Blog"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/content?template=B&espot_main=OwnBrands&source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "Own Brands"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/search?visualVariant.nonvisualVariant.new_arrival=Y&rmp=no&source=megamenu"
+                                    ],
+                                    "icon": [],
+                                    "title": [
+                                        "New Arrivals"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "system": {
+        "createdBy": "ksimpson@bjs.com",
+        "createdAt": "2023-02-20T22:25:27.527+01:00",
+        "updatedBy": "ksimpson@bjs.com",
+        "updatedAt": "2023-03-01T19:38:44.479+01:00"
+    }
+}
+// 
+// 
+// 
+// Category Navigation Links - Done
+{
+    "contentType": "Navigation",
+    "fields": [
+        {
+            "name": "categoryTrees",
+            "value": [
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/3000000000000117223?source=megamenu"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Grocery, Household & Pet"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/grocery-household-and-pet/paper-and-plastic/3000000000000182488?source=megamenu&template=clp&l3Cat=Paper%20Products"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Paper Products"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/grocery-household-and-pet/paper-and-plastic/3000000000000182488?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Paper & Plastic"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            true
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/tv-and-electronics/3000000000000144985?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "TV & Electronics"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/tv-and-electronics/tvs-and-home-theater/178?source=megamenu&template=clp&l3Cat=TVs%20%26%20Displays"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "TVs & Displays"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/tv-and-electronics/tvs-and-home-theater/178?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "TVs & Home Theater"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            true
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/patio-and-outdoor-living/3000000000000117105?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Patio & Outdoor Living"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/patio-and-outdoor-living/backyard-play/3000000000000164505?source=megamenu&template=clp&l3Cat=Swing%20Sets%20%26%20Climbers"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Swing Sets & Climbers"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/patio-and-outdoor-living/backyard-play/3000000000000164505?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Backyard Play"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            true
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/furniture/3000000000000117040?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Furniture"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/furniture/mattresses/403?source=megamenu&template=clp&l3Cat=Twin%20Size%20Mattresses"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Twin Size Mattresses"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/furniture/mattresses/403?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Mattresses"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/computers-and-tablets/3000000000000144986?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Computers & Tablets"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/computers-and-tablets/computers/743?source=megamenu&template=clp&l3Cat=Tablets"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Tablets"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/computers-and-tablets/computers/743?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Computers"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/lawn-and-garden/3000000000000164485?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Lawn & Garden"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/lawn-and-garden/sheds/3000000000000200489?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Sheds"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/lawn-and-garden/deck-and-outdoor-storage/3000000000000201994?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Deck & Outdoor Storage"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/lawn-and-garden/outdoor-power-equipment/3000000000000018504?source=megamenu&template=clp&l3Cat=Lawn%20Mowers"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Lawn Mowers"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/lawn-and-garden/outdoor-power-equipment/3000000000000018504?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Outdoor Power Equipment"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/baby-and-kids/3000000000000117158?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Baby & Kids"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/baby-and-kids/diapers-and-wipes/3000000000000201992?source=megamenu&template=clp&l3Cat=Diapers%20%26%20Training%20Pants"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Diapers & Training Pants"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/baby-and-kids/diapers-and-wipes/3000000000000201992?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Diapers & Wipes"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/pet/3000000000000244988?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Pet"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/pet/berkley-jensen-pet/3000000000000248988?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Berkley Jensen Pet"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/pet/dog-supplies/3000000000000245488?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Dog Supplies"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/toys/3000000000000144988?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Toys"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/toys/indoor-play/3000000000000019003?source=megamenu&template=clp&l3Cat=Trading%20Cards"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Trading Cards"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/toys/indoor-play/3000000000000019003?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Indoor Play"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/home/385?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Home"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/home/housewares/646?source=megamenu&template=clp&l3Cat=Dining%20%26%20Entertaining"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Dining & Entertaining"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/home/housewares/646?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Housewares"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/seasonal-home/3000000000000186497?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Seasonal Home"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/seasonal-home/fathers-day/3000000000000238988?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Fathers Day"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/seasonal-home/summer-seasonal/3000000000000228988?source=megamenu&template=clp&l3Cat=Cookout%20Classics"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Cookout Classics"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/seasonal-home/summer-seasonal/3000000000000228988?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Summer Seasonal"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/health-and-beauty/3000000000000117203?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Health & Beauty"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/health-and-beauty/personal-care/884?source=megamenu&template=clp&l3Cat=Oral%20Care"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Oral Care"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/health-and-beauty/personal-care/884?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Personal Care"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/appliances/3000000000000144987?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Appliances"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/appliances/cooling-and-heating/3000000000000117088?source=megamenu&template=clp&l3Cat=Air%20Conditioners"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Air Conditioners"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/appliances/cooling-and-heating/3000000000000117088?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Cooling & Heating"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/jewelry/3000000000000117191?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Jewelry"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/jewelry/rings/101?source=megamenu&template=clp&l3Cat=Diamond%20Rings"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Diamond Rings"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/jewelry/rings/101?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Rings"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/sports-and-fitness/3000000000000117134?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Sports & Fitness"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/sports-and-fitness/exercise-and-fitness/3000000000000117135?source=megamenu&template=clp&l3Cat=Ellipticals%20%26%20Steppers"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Ellipticals & Steppers"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/sports-and-fitness/exercise-and-fitness/3000000000000117135?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Exercise & Fitness"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/office/3000000000000116959?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Office"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": [
+                                                    {
+                                                        "fields": {
+                                                            "link": [
+                                                                "https://www.bjs.com/category/office/printers-and-office-machines/3000000000000116984?source=megamenu&template=clp&l3Cat=Printers"
+                                                            ],
+                                                            "icon": [],
+                                                            "title": [
+                                                                "Machines Printers"
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/office/printers-and-office-machines/3000000000000116984?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Printers & Office"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "treeCategory": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.bjs.com/category/gift-cards/124013?source=megamenu&template=clp"
+                                    ],
+                                    "icon": [
+                                        ""
+                                    ],
+                                    "title": [
+                                        "Gift Cards"
+                                    ]
+                                }
+                            }
+                        ],
+                        "CategoryNavGroup": [
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/gift-cards/bj-s-gift-cards/3000000000000184488?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "BJ's Gift Cards"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "categoryLinks": [
+                                        {
+                                            "fields": {
+                                                "NavItem": []
+                                            }
+                                        }
+                                    ],
+                                    "category": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/category/gift-cards/food-beverage-and-restaurants/3000000000000021004?source=megamenu&template=clp"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Food, Beverage & Restaurants"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "subHeader": [
+                            false
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "name": "category-navigation-links",
+    "displayName": "Category Navigation Links",
+    "path": "/content/documents/qa3---core/content/navigation/category-navigation-links",
+    "system": {
+        "createdBy": "ksimpson@bjs.com",
+        "createdAt": "2023-06-06T17:08:08.854+02:00",
+        "updatedBy": "ksimpson@bjs.com",
+        "updatedAt": "2023-06-06T17:57:21.398+02:00"
+    }
+}
+// 
+// 
+// 
+// Footer - Done
+{
+    "contentType": "Footer",
+    "fields": [
+        {
+            "name": "CategoryNavGroup",
+            "value": [
+                {
+                    "fields": {
+                        "categoryLinks": [
+                            {
+                                "fields": {
+                                    "NavItem": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/membershipEnroll?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Membership Options/Join"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=join_corporate&espot_ln=join_consumer&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Corporate Membership Program"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/membershipDetail?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "My Account"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/myCoupons?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Coupons"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/exclusivebenefits"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "BJ’s Services"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=member_terms&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Membership Terms"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/bjsone?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "BJ's One™"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=SameDaySelectTerms?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Same Day Select Terms"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "category": [
+                            {
+                                "fields": {
+                                    "link": [],
+                                    "icon": [],
+                                    "title": [
+                                        "Membership"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "categoryLinks": [
+                            {
+                                "fields": {
+                                    "NavItem": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://help.bjs.com/"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Help Center/Contact Us"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/orderLogin?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Track My Order"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/membershipForgotEmail?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Forgot Username"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/membershipForgotPassword?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Forgot Password"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=bjsoneterms&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "BJ’s One™ Mastercard® Terms"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://bjs.capitalone.com/?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Pay BJ’s One™ Mastercard® Credit Card Bill"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://b2bsales.bjs.com/?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "BJ’s B2B Sales"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "category": [
+                            {
+                                "fields": {
+                                    "link": [],
+                                    "icon": [],
+                                    "title": [
+                                        "Customer Care"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "categoryLinks": [
+                            {
+                                "fields": {
+                                    "NavItem": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/clubLocatorDetail?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Locations"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=minisite_giftcard&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Check Gift Card Balance"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=A&espot_main=recalls&espot_ln=about_LeftNav&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Product Recalls"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/help/what-is-bj-s-wholesale-club-return-policy-/"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Return Policy"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://bjswholesale.co1.qualtrics.com/jfe/form/SV_cXQVjsodGWbQIWp?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Site Feedback"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=minisite_ClubForACause&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Club for a Cause"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/blog"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "BJ’s Smart Saver Blog"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?espot_main=featured_brands&source=header"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Featured Brands"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "category": [
+                            {
+                                "fields": {
+                                    "link": [],
+                                    "icon": [],
+                                    "title": [
+                                        "Quick Links"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "categoryLinks": [
+                            {
+                                "fields": {
+                                    "NavItem": [
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/careers"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Careers"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/aboutUs?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Company Background"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://investors.bjs.com/?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Investor Relations"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://newsroom.bjs.com/?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Press Room"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=BJsESGContentEspot"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "ESG"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=about_terms&source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Terms of Use"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=A&espot_main=about_accessibility&espot_ln=about_LeftNav?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Accessibility Policy"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://s22.q4cdn.com/311271118/files/doc_downloads/2019/Vendor-code-of-conduct-FINAL-9.4.18.pdf?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Vendor Code of Conduct"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://app.rangeme.com/suppliers/register/bjs?source=footer"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "New Suppliers"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/content?template=B&espot_main=about_privacy"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Privacy Policy"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "fields": {
+                                                "link": [
+                                                    "https://www.bjs.com/ccpawebform"
+                                                ],
+                                                "icon": [],
+                                                "title": [
+                                                    "Do Not Sell or Share My Personal Information"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "category": [
+                            {
+                                "fields": {
+                                    "link": [],
+                                    "icon": [],
+                                    "title": [
+                                        "Corporate"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "appIcons",
+            "value": [
+                {
+                    "fields": {
+                        "NavItem": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://itunes.apple.com/us/app/bjs-wholesale-club/id1287596508?mt=8&source=footer"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/BB_IMG_ios-app-store"
+                                    ],
+                                    "title": [
+                                        "Apple App Store"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://play.google.com/store/apps/details?id=com.brandingbrand.reactnative.and.bjs&source=footer"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/BB_IMG_google-play"
+                                    ],
+                                    "title": [
+                                        "Google Play Store"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "socialIcons",
+            "value": [
+                {
+                    "fields": {
+                        "NavItem": [
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.facebook.com/bjswholesaleclub/?ref=br_rs&source=footer"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/SP562F"
+                                    ],
+                                    "title": [
+                                        "Facebook Icon"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://twitter.com/BJsWholesale?source=footer"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/SP562T"
+                                    ],
+                                    "title": [
+                                        "Twitter Icon"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.pinterest.com/bjswholesale/?source=footer"
+                                    ],
+                                    "icon": [
+                                        "https://s7d6.scene7.com/is/image/bjs/SP562P"
+                                    ],
+                                    "title": [
+                                        "Pinterest Icon"
+                                    ]
+                                }
+                            },
+                            {
+                                "fields": {
+                                    "link": [
+                                        "https://www.instagram.com/bjswholesale"
+                                    ],
+                                    "icon": [
+                                        "https://bjs.scene7.com/is/image/bjs/Footer_if_instagram?fmt=png-alpha"
+                                    ],
+                                    "title": [
+                                        "Instagram Icon"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "name": "footer",
+    "displayName": "Footer",
+    "path": "/content/documents/qa3---core/content/navigation/footer",
+    "system": {
+        "createdBy": "ksimpson@bjs.com",
+        "createdAt": "2023-05-30T21:30:20.847+02:00",
+        "updatedBy": "ksimpson@bjs.com",
+        "updatedAt": "2023-06-19T17:59:01.01+02:00"
+    }
+}
