@@ -31,15 +31,15 @@ function App() {
   };
   return (
     <div className="App pb-3">
-      {/* <header className="App-header">
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-      </header> */}
+      </header>
 
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
           endpoint:
-            "https://test-bjs.bloomreach.io/delivery/site/v1/channels/prototypes/pages",
+            "https://test-bjs.bloomreach.io/delivery/site/v1/channels/qa3---core/pages",
           httpClient: axios as any,
         }}
         mapping={mapping}
