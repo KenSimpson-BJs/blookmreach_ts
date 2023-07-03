@@ -53,11 +53,8 @@ export function Card(props: Card): React.ReactElement | null {
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
   const titleOutput = () => {
-    if (!titleText || !titleText.titleText?.title) return <></>;
-    const {
-      titleText: { title },
-      headlineSize,
-    } = titleText;
+    if (!titleText || !titleText.title) return <></>;
+    const { title, headlineSize } = titleText;
 
     const headlineArg = globalHeadlineSize
       ? globalHeadlineSize
@@ -192,11 +189,11 @@ export function Card(props: Card): React.ReactElement | null {
           >
             <div>
               {titleOutput()}
-              {titleText?.titleText?.text && (
+              {titleText?.text && (
                 <div
                   className={subcopyClass()}
                   dangerouslySetInnerHTML={{
-                    __html: titleText?.titleText?.text?.value,
+                    __html: titleText?.text?.value,
                   }}
                 ></div>
               )}
