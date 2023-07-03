@@ -326,7 +326,101 @@
     // 
     // 
     // 
-    // TitleText - Done
+    // TitleText Breakout - Done
+    {
+        "name": "TitleandTextbreakout",
+        "enabled": true,
+        "type": "FieldGroup",
+        "presentation": {
+            "displayName": "Title and Text breakout",
+            "layout": "one-column"
+        },
+        "fields": [
+            {
+                "name": "title",
+                "type": "RichText",
+                "required": false,
+                "multiple": false,
+                "presentation": {
+                    "caption": "Title",
+                    "hint": "Used for titles/headlines. Accepts classes and some inline HTML such as line breaks, strong, underline and italicize tags, sup and sub tags and some other commonly used inline tags",
+                    "layoutColumn": 1,
+                    "ckEditorAppendedJson": null,
+                    "ckEditorOverlayedJson": "{\"autoParagraph\":false}",
+                    "imagepickerBasePath": null,
+                    "imagepickerType": "images",
+                    "imagepickerNodetypes": null,
+                    "imagepickerLastVisitedEnabled": null,
+                    "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+                    "imagepickerLastVisitedNodetypes": [
+                        "gallery"
+                    ],
+                    "imagepickerPreferredImageVariant": "original",
+                    "linkpickerBasePath": null,
+                    "linkpickerType": "documents",
+                    "linkpickerNodetypes": null,
+                    "linkpickerLastVisitedEnabled": null,
+                    "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+                    "linkpickerLastVisitedNodetypes": [
+                        "folder"
+                    ],
+                    "linkPickerLanguageContextAware": null,
+                    "linkPickerOpenInNewWindowEnabled": true,
+                    "includeImageVariants": null,
+                    "excludeImageVariants": null
+                },
+                "validations": {},
+                "defaultValue": []
+            },
+            {
+                "name": "text",
+                "type": "RichText",
+                "required": false,
+                "multiple": false,
+                "presentation": {
+                    "caption": "Text",
+                    "hint": "Used for subcopy, body text and disclaimers. Automatically wraps all entered text in a paragraph (<p>) tag unless already wrapped. Accepts classes and some inline HTML such as line breaks, strong, underline and italicize tags, sup and sub tags and some other commonly used inline tags",
+                    "layoutColumn": 1,
+                    "ckEditorAppendedJson": null,
+                    "ckEditorOverlayedJson": null,
+                    "imagepickerBasePath": null,
+                    "imagepickerType": "images",
+                    "imagepickerNodetypes": null,
+                    "imagepickerLastVisitedEnabled": null,
+                    "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+                    "imagepickerLastVisitedNodetypes": [
+                        "gallery"
+                    ],
+                    "imagepickerPreferredImageVariant": "original",
+                    "linkpickerBasePath": null,
+                    "linkpickerType": "documents",
+                    "linkpickerNodetypes": null,
+                    "linkpickerLastVisitedEnabled": null,
+                    "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+                    "linkpickerLastVisitedNodetypes": [
+                        "folder"
+                    ],
+                    "linkPickerLanguageContextAware": null,
+                    "linkPickerOpenInNewWindowEnabled": true,
+                    "includeImageVariants": null,
+                    "excludeImageVariants": null
+                },
+                "validations": {},
+                "defaultValue": []
+            }
+        ],
+        "system": {
+            "createdBy": "ksimpson@bjs.com",
+            "createdAt": "2023-07-03T14:13:02.304-04:00",
+            "updatedBy": "ksimpson@bjs.com",
+            "updatedAt": "2023-07-03T14:16:45.323-04:00",
+            "id": "agicGbJnvT"
+        }
+    }
+    // 
+    // 
+    // 
+    // TitleText Complete - Done
     {
         "name": "TitleandTextField",
         "enabled": true,
@@ -346,7 +440,7 @@
                     "hint": "Used for titles/headlines. Accepts classes and some inline HTML such as line breaks, strong, underline and italicize tags, sup and sub tags and some other commonly used inline tags",
                     "layoutColumn": 1,
                     "ckEditorAppendedJson": null,
-                    "ckEditorOverlayedJson": "{autoParagraph:false}",
+                    "ckEditorOverlayedJson": "{\"autoParagraph\":false}",
                     "imagepickerBasePath": null,
                     "imagepickerType": "images",
                     "imagepickerNodetypes": null,
@@ -1068,16 +1162,7 @@
                     "layoutColumn": 2
                 },
                 "validations": {},
-                "defaultValue": [
-                    {
-                        "fields": {
-                            "cta": [
-                                ""
-                            ],
-                            "style": []
-                        }
-                    }
-                ],
+                "defaultValue": [],
                 "fieldGroupType": "CTA"
             },
             {
@@ -1131,26 +1216,7 @@
                     "layoutColumn": 1
                 },
                 "validations": {},
-                "defaultValue": [
-                    {
-                        "fields": {
-                            "subcopySize": [
-                                "Medium"
-                            ],
-                            "textAlignment": [
-                                "center"
-                            ],
-                            "headlineSize": [
-                                "Medium"
-                            ],
-                            "text": [],
-                            "title": [],
-                            "textColor": [
-                                "Red"
-                            ]
-                        }
-                    }
-                ],
+                "defaultValue": [],
                 "fieldGroupType": "TitleandTextField"
             },
             {
@@ -1188,8 +1254,8 @@
                 "required": false,
                 "multiple": false,
                 "presentation": {
-                    "caption": "Text Image Layout",
-                    "hint": "Layout of text in relation to card image",
+                    "caption": "Content Layout",
+                    "hint": "",
                     "layoutColumn": 1,
                     "displayType": "Dropdown",
                     "sortOrder": null,
@@ -1198,11 +1264,107 @@
                 },
                 "validations": {
                     "inResourceBundle": null,
-                    "inValues": null
+                    "inValues": [
+                        {
+                            "key": "column",
+                            "label": "Text Bottom"
+                        },
+                        {
+                            "key": "column-reverse",
+                            "label": "Text Top"
+                        },
+                        {
+                            "key": "row",
+                            "label": "Text Right"
+                        },
+                        {
+                            "key": "row-reverse",
+                            "label": "Text Left"
+                        }
+                    ]
                 },
-                "defaultValue": []
+                "defaultValue": [
+                    "column"
+                ]
+            },
+            {
+                "name": "verticalAlign",
+                "type": "SelectableString",
+                "required": false,
+                "multiple": false,
+                "presentation": {
+                    "caption": "Vertical Text Container Alignment",
+                    "hint": "",
+                    "layoutColumn": 1,
+                    "displayType": "Dropdown",
+                    "sortOrder": null,
+                    "sortBy": null,
+                    "showDefault": null
+                },
+                "validations": {
+                    "inResourceBundle": null,
+                    "inValues": [
+                        {
+                            "key": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "key": "start",
+                            "label": "Top"
+                        },
+                        {
+                            "key": "end",
+                            "label": "Bottom"
+                        }
+                    ]
+                },
+                "defaultValue": [
+                    "center"
+                ]
+            },
+            {
+                "name": "horizontalAlign",
+                "type": "SelectableString",
+                "required": false,
+                "multiple": false,
+                "presentation": {
+                    "caption": "Horizontal Text Container  Alignment",
+                    "hint": "",
+                    "layoutColumn": 1,
+                    "displayType": "Dropdown",
+                    "sortOrder": null,
+                    "sortBy": null,
+                    "showDefault": null
+                },
+                "validations": {
+                    "inResourceBundle": null,
+                    "inValues": [
+                        {
+                            "key": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "key": "start",
+                            "label": "Left"
+                        },
+                        {
+                            "key": "end",
+                            "label": "Right"
+                        }
+                    ]
+                },
+                "defaultValue": [
+                    "center"
+                ]
             }
-        ]
+        ],
+        "system": {
+            "createdBy": "ksimpson@bjs.com",
+            "createdAt": "2023-06-29T23:49:58.453+02:00",
+            "updatedBy": "ksimpson@bjs.com",
+            "updatedAt": "2023-07-03T13:44:03.548-04:00",
+            "id": "ckSt2xQJqW"
+        }
     }
     // 
     // 
@@ -1218,39 +1380,6 @@
         },
         "fields": [
             {
-                "name": "titleText",
-                "type": "FieldGroup",
-                "required": false,
-                "multiple": false,
-                "presentation": {
-                    "caption": "Title and Text",
-                    "hint": "",
-                    "layoutColumn": 1
-                },
-                "validations": {},
-                "defaultValue": [
-                    {
-                        "fields": {
-                            "subcopySize": [
-                                "Medium"
-                            ],
-                            "textAlignment": [
-                                "center"
-                            ],
-                            "headlineSize": [
-                                "Medium"
-                            ],
-                            "text": [],
-                            "title": [],
-                            "textColor": [
-                                "Red"
-                            ]
-                        }
-                    }
-                ],
-                "fieldGroupType": "TitleandTextField"
-            },
-            {
                 "name": "cta",
                 "type": "FieldGroup",
                 "required": false,
@@ -1261,16 +1390,7 @@
                     "layoutColumn": 2
                 },
                 "validations": {},
-                "defaultValue": [
-                    {
-                        "fields": {
-                            "cta": [
-                                ""
-                            ],
-                            "style": []
-                        }
-                    }
-                ],
+                "defaultValue": [],
                 "fieldGroupType": "CTA"
             },
             {
@@ -1314,6 +1434,20 @@
                 "fieldGroupType": "Link"
             },
             {
+                "name": "titleText",
+                "type": "FieldGroup",
+                "required": false,
+                "multiple": false,
+                "presentation": {
+                    "caption": "Title and Text",
+                    "hint": "",
+                    "layoutColumn": 1
+                },
+                "validations": {},
+                "defaultValue": [],
+                "fieldGroupType": "TitleandTextField"
+            },
+            {
                 "name": "image",
                 "type": "FieldGroup",
                 "required": false,
@@ -1343,50 +1477,12 @@
                 "fieldGroupType": "Image"
             },
             {
-                "name": "disclaimer",
-                "type": "RichText",
-                "required": false,
-                "multiple": false,
-                "presentation": {
-                    "caption": "Disclaimer",
-                    "hint": "",
-                    "layoutColumn": 1,
-                    "ckEditorAppendedJson": null,
-                    "ckEditorOverlayedJson": null,
-                    "imagepickerBasePath": null,
-                    "imagepickerType": "images",
-                    "imagepickerNodetypes": null,
-                    "imagepickerLastVisitedEnabled": null,
-                    "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
-                    "imagepickerLastVisitedNodetypes": [
-                        "gallery"
-                    ],
-                    "imagepickerPreferredImageVariant": "original",
-                    "linkpickerBasePath": null,
-                    "linkpickerType": "documents",
-                    "linkpickerNodetypes": null,
-                    "linkpickerLastVisitedEnabled": null,
-                    "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
-                    "linkpickerLastVisitedNodetypes": [
-                        "folder"
-                    ],
-                    "linkPickerLanguageContextAware": null,
-                    "linkPickerOpenInNewWindowEnabled": true,
-                    "includeImageVariants": null,
-                    "excludeImageVariants": null
-                },
-                "validations": {},
-                "defaultValue": [
-                    ""
-                ]
-            },
-            {
                 "name": "verticalAlign",
                 "type": "SelectableString",
                 "required": false,
                 "multiple": false,
                 "presentation": {
-                    "caption": "Vertical Alignment",
+                    "caption": "Vertical Text Container Alignment",
                     "hint": "",
                     "layoutColumn": 1,
                     "displayType": "Dropdown",
@@ -1411,7 +1507,9 @@
                         }
                     ]
                 },
-                "defaultValue": []
+                "defaultValue": [
+                    "center"
+                ]
             },
             {
                 "name": "horizontalAlign",
@@ -1419,7 +1517,7 @@
                 "required": false,
                 "multiple": false,
                 "presentation": {
-                    "caption": "Horizontal Alignment",
+                    "caption": "Horizontal Text Container  Alignment",
                     "hint": "",
                     "layoutColumn": 1,
                     "displayType": "Dropdown",
@@ -1444,7 +1542,9 @@
                         }
                     ]
                 },
-                "defaultValue": []
+                "defaultValue": [
+                    "center"
+                ]
             }
         ]
     }
@@ -1472,16 +1572,7 @@
                     "layoutColumn": 2
                 },
                 "validations": {},
-                "defaultValue": [
-                    {
-                        "fields": {
-                            "cta": [
-                                ""
-                            ],
-                            "style": []
-                        }
-                    }
-                ],
+                "defaultValue": [],
                 "fieldGroupType": "CTA"
             },
             {
@@ -1535,26 +1626,7 @@
                     "layoutColumn": 1
                 },
                 "validations": {},
-                "defaultValue": [
-                    {
-                        "fields": {
-                            "subcopySize": [
-                                "Medium"
-                            ],
-                            "textAlignment": [
-                                "center"
-                            ],
-                            "headlineSize": [
-                                "Medium"
-                            ],
-                            "text": [],
-                            "title": [],
-                            "textColor": [
-                                "Red"
-                            ]
-                        }
-                    }
-                ],
+                "defaultValue": [],
                 "fieldGroupType": "TitleandTextField"
             },
             {
@@ -1585,6 +1657,45 @@
                     }
                 ],
                 "fieldGroupType": "Image"
+            },
+            {
+                "name": "layout",
+                "type": "SelectableString",
+                "required": false,
+                "multiple": false,
+                "presentation": {
+                    "caption": "Content Layout",
+                    "hint": "",
+                    "layoutColumn": 1,
+                    "displayType": "Dropdown",
+                    "sortOrder": null,
+                    "sortBy": null,
+                    "showDefault": null
+                },
+                "validations": {
+                    "inResourceBundle": null,
+                    "inValues": [
+                        {
+                            "key": "column",
+                            "label": "Text Bottom"
+                        },
+                        {
+                            "key": "column-reverse",
+                            "label": "Text Top"
+                        },
+                        {
+                            "key": "row",
+                            "label": "Text Right"
+                        },
+                        {
+                            "key": "row-reverse",
+                            "label": "Text Left"
+                        }
+                    ]
+                },
+                "defaultValue": [
+                    "column"
+                ]
             }
         ]
     }
