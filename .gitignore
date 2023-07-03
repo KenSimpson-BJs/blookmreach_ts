@@ -24,4 +24,4 @@ yarn-error.log*
 
 
 # environment folders
-dev.env
+*.env
