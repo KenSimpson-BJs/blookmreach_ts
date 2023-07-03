@@ -34,9 +34,6 @@ function App() {
     Footer,
   };
 
-  console.log(process.env.NODE_ENV);
-  console.log(process.env.REACT_APP_CHANNEL_ENDPOINT);
-
   return (
     <div className="App pb-3">
       <header className="App-header">
@@ -46,7 +43,7 @@ function App() {
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
-          endpoint: process.env.REACT_APP_CHANNEL_ENDPOINT,
+          endpoint: process.env.REACT_APP_CHANNEL_ENDPOINT_P,
           httpClient: axios as any,
         }}
         mapping={mapping}

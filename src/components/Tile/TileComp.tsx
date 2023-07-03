@@ -11,7 +11,7 @@ import { setSelectionValue } from "../../utils/general";
 interface TileComp {
   titleText: titleTextFG;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   variant: string;
   image?: image;
   shadow?: boolean;
@@ -28,7 +28,7 @@ export function TileComp({
     return null;
   }
 
-  const { titleText, cta, image, analytics } =
+  const { titleText, cta, image, link } =
     getContainerItemContent<TileComp>(component, page) ?? {};
   const { maxWidth, imageFormat, shadow, textAlignment } =
     component.getParameters<TileComp>();
@@ -43,7 +43,7 @@ export function TileComp({
       titleText={titleText}
       cta={cta}
       image={image}
-      analytics={analytics}
+      link={link}
       imageFormat={imageFormat}
       shadow={shadow}
       maxWidth={maxWidth}

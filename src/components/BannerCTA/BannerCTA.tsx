@@ -18,7 +18,7 @@ interface BannerCTA {
   background?: string;
   titleText?: titleTextFG;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   imageFormat: string;
   icon?: boolean;
@@ -40,7 +40,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     disclaimer,
     image,
     imageFormat,
-    analytics: link,
+    link: link,
     shadow,
     textAlignment,
     verticalAlign,
@@ -52,11 +52,8 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
 
   const bannerOutput = () => {
     const titleOutput = () => {
-      if (!titleText || !titleText.titleText?.title) return <></>;
-      const {
-        titleText: { title },
-        headlineSize,
-      } = titleText;
+      if (!titleText || !titleText.title) return <></>;
+      const { title, headlineSize } = titleText;
 
       const headlineArg = globalHeadlineSize
         ? globalHeadlineSize
@@ -157,11 +154,11 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
             >
               <div>
                 {titleOutput()}
-                {titleText?.titleText?.text && (
+                {titleText?.text && (
                   <div
                     className={subcopyClass()}
                     dangerouslySetInnerHTML={{
-                      __html: titleText?.titleText?.text?.value,
+                      __html: titleText?.text?.value,
                     }}
                   ></div>
                 )}

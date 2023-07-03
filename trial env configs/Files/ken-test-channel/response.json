@@ -1426,13 +1426,7 @@
     ],
     "name": "bannergrid1",
     "displayName": "BannerGrid1",
-    "path": "/content/documents/ken-test-channel/content/bannergrid-docs/bannergrid1",
-    "system": {
-        "createdBy": "ksimpson@bjs.com",
-        "createdAt": "2023-06-06T19:11:00.314+02:00",
-        "updatedBy": "ksimpsonbjsbrtrialenv@gmail.com",
-        "updatedAt": "2023-06-27T22:32:04.33+02:00"
-    }
+    "path": "/content/documents/prototypes/content/bannergrid-docs/bannergrid1"
 }
 // 
 // 
@@ -2213,13 +2207,7 @@
     ],
     "name": "bannergrid2",
     "displayName": "BannerGrid2",
-    "path": "/content/documents/ken-test-channel/content/bannergrid-docs/bannergrid2",
-    "system": {
-        "createdBy": "rhormaza@bjs.com",
-        "createdAt": "2023-06-22T21:47:01.183+02:00",
-        "updatedBy": "ksimpsonbjsbrtrialenv@gmail.com",
-        "updatedAt": "2023-06-26T23:19:36.066+02:00"
-    }
+    "path": "/content/documents/prototypes/content/bannergrid-docs/bannergrid2"
 }
 // 
 // 
@@ -3000,11 +2988,5 @@
     ],
     "name": "bannergrid3",
     "displayName": "BannerGrid3",
-    "path": "/content/documents/ken-test-channel/content/bannergrid-docs/bannergrid3",
-    "system": {
-        "createdBy": "rhormaza@bjs.com",
-        "createdAt": "2023-06-23T21:16:35.083+02:00",
-        "updatedBy": "ksimpsonbjsbrtrialenv@gmail.com",
-        "updatedAt": "2023-06-26T23:17:12.515+02:00"
-    }
+    "path": "/content/documents/prototypes/content/bannergrid-docs/bannergrid3"
 }

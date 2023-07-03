@@ -9,7 +9,7 @@ interface BannerCTAComp {
   background?: string;
   titleText: titleTextFG;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   imageFormat: string;
   shadow?: boolean;
@@ -32,7 +32,7 @@ export function BannerCTAComp({
     titleText,
     cta,
     image,
-    analytics,
+    link,
     verticalAlign,
     horizontalAlign,
     disclaimer,
@@ -47,7 +47,7 @@ export function BannerCTAComp({
       cta={cta}
       image={image}
       imageFormat={imageFormat}
-      analytics={analytics}
+      link={link}
       shadow={shadow}
       verticalAlign={verticalAlign}
       horizontalAlign={horizontalAlign}

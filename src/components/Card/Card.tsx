@@ -19,7 +19,7 @@ interface Card {
   titleText?: titleTextFG;
   layout?: SelectionType;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   icon?: boolean;
   shadow?: boolean;
@@ -40,7 +40,7 @@ export function Card(props: Card): React.ReactElement | null {
     cta,
     image,
     imageFormat,
-    analytics: link,
+    link: link,
     shadow,
     horizontalAlign,
     verticalAlign,
@@ -53,11 +53,8 @@ export function Card(props: Card): React.ReactElement | null {
   const flexDirection = layout ? layout.selectionValues[0].key : "column";
 
   const titleOutput = () => {
-    if (!titleText || !titleText.titleText?.title) return <></>;
-    const {
-      titleText: { title },
-      headlineSize,
-    } = titleText;
+    if (!titleText || !titleText.title) return <></>;
+    const { title, headlineSize } = titleText;
 
     const headlineArg = globalHeadlineSize
       ? globalHeadlineSize
@@ -192,11 +189,11 @@ export function Card(props: Card): React.ReactElement | null {
           >
             <div>
               {titleOutput()}
-              {titleText?.titleText?.text && (
+              {titleText?.text && (
                 <div
                   className={subcopyClass()}
                   dangerouslySetInnerHTML={{
-                    __html: titleText?.titleText?.text?.value,
+                    __html: titleText?.text?.value,
                   }}
                 ></div>
               )}
