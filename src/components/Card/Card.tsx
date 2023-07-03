@@ -19,7 +19,7 @@ interface Card {
   titleText?: titleTextFG;
   layout?: SelectionType;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   icon?: boolean;
   shadow?: boolean;
@@ -40,7 +40,7 @@ export function Card(props: Card): React.ReactElement | null {
     cta,
     image,
     imageFormat,
-    analytics: link,
+    link: link,
     shadow,
     horizontalAlign,
     verticalAlign,

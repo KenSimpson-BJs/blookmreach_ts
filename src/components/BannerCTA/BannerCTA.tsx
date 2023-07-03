@@ -18,7 +18,7 @@ interface BannerCTA {
   background?: string;
   titleText?: titleTextFG;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   imageFormat: string;
   icon?: boolean;
@@ -40,7 +40,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     disclaimer,
     image,
     imageFormat,
-    analytics: link,
+    link: link,
     shadow,
     textAlignment,
     verticalAlign,

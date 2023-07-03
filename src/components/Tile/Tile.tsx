@@ -17,7 +17,7 @@ import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 interface Tile {
   titleText?: titleTextFG;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   shadow?: boolean;
   imageFormat: string;
@@ -32,7 +32,7 @@ export function Tile(props: Tile): React.ReactElement | null {
     titleText,
     cta,
     image,
-    analytics: link,
+    link: link,
     imageFormat,
     shadow,
     textAlignment,
