@@ -1,0 +1,1490 @@
+// 
+// 
+// 
+// BannerGrid1
+// 
+// 
+// 
+// BannerGrid2
+{
+    "contentType": "BannerCardTile",
+    "fields": [
+        {
+            "name": "bannerCardTile",
+            "value": [
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Produce"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://bjs.scene7.com/is/image/bjs/SummerHP_Produce"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Produce"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "NotFound01"
+                                    ],
+                                    "hpPlacement": [
+                                        true
+                                    ],
+                                    "data_gtm_creative": [
+                                        "Produce"
+                                    ],
+                                    "data_gtm_id": [
+                                        "NF01"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/fresh-and-refrigerated-food/produce/3000000000000117249?source=headeribbon"
+                                    ],
+                                    "data_gtm_name": [
+                                        "Produce"
+                                    ],
+                                    "newTab": [
+                                        true
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Frozen Food"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/230116_GameDayFoods_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Frozen Food"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/frozen-food/3000000000000117306?source=headeribbon"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Vitamins & Supplements"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/SummerHP_VitaminsSupplements"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Vitamins & Supplements"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/health-and-beauty/vitamins-and-supplements/3000000000000117214"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Bakery"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/221128_Bakery_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Bakery"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/fresh-and-refrigerated-food/3000000000000117224"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Furniture"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/220823_Patio"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Furniture"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/furniture/3000000000000117040?source=megamenu&template=clp"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "TV & Electronics"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/230116_TVsHomeTheatre_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "TV & Electronics"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/tv-and-electronics/3000000000000144985?source=headeribbon"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Small Appliances"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/221027_SmallAppliances_HP_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Small Appliances"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/appliances/small-kitchen-appliances/610?source=megamenu&template=clp"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Grills"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/220823_Grilling"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Grills"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/patio-and-outdoor-living/grilling/29504"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "name": "bannergrid2",
+    "displayName": "BannerGrid2",
+    "path": "/content/documents/prototypes/content/bannergrid-docs/bannergrid2",
+    "system": {
+        "createdBy": "ksimpson@bjs.com",
+        "createdAt": "2023-07-03T13:20:33.303-04:00",
+        "updatedBy": "ksimpson@bjs.com",
+        "updatedAt": "2023-07-03T13:20:34.193-04:00"
+    }
+}
+// 
+// 
+// 
+// BannerGrid3
+{
+    "contentType": "BannerCardTile",
+    "fields": [
+        {
+            "name": "bannerCardTile",
+            "value": [
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Produce"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://bjs.scene7.com/is/image/bjs/SummerHP_Produce"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Produce"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "NotFound01"
+                                    ],
+                                    "hpPlacement": [
+                                        true
+                                    ],
+                                    "data_gtm_creative": [
+                                        "Produce"
+                                    ],
+                                    "data_gtm_id": [
+                                        "NF01"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/fresh-and-refrigerated-food/produce/3000000000000117249?source=headeribbon"
+                                    ],
+                                    "data_gtm_name": [
+                                        "Produce"
+                                    ],
+                                    "newTab": [
+                                        true
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Frozen Food"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/230116_GameDayFoods_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Frozen Food"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/frozen-food/3000000000000117306?source=headeribbon"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Vitamins & Supplements"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/SummerHP_VitaminsSupplements"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Vitamins & Supplements"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/health-and-beauty/vitamins-and-supplements/3000000000000117214"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Bakery"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/221128_Bakery_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Bakery"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/grocery-household-and-pet/fresh-and-refrigerated-food/3000000000000117224"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Furniture"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/220823_Patio"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Furniture"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/furniture/3000000000000117040?source=megamenu&template=clp"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "TV & Electronics"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/230116_TVsHomeTheatre_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "TV & Electronics"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/tv-and-electronics/3000000000000144985?source=headeribbon"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Small Appliances"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/221027_SmallAppliances_HP_Cat"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Small Appliances"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/appliances/small-kitchen-appliances/610?source=megamenu&template=clp"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "fields": {
+                        "layout": [
+                            ""
+                        ],
+                        "cta": [
+                            {
+                                "fields": {
+                                    "cta": [
+                                        "Grills"
+                                    ],
+                                    "style": [
+                                        "link_drk"
+                                    ]
+                                }
+                            }
+                        ],
+                        "image": [
+                            {
+                                "fields": {
+                                    "imageMobile": [
+                                        "https://s7d6.scene7.com/is/image/bjs/220823_Grilling"
+                                    ],
+                                    "imgfit": [
+                                        ""
+                                    ],
+                                    "alt": [
+                                        "Grills"
+                                    ],
+                                    "imageDesktop": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        ],
+                        "verticalAlign": [
+                            ""
+                        ],
+                        "horizontalAlign": [
+                            ""
+                        ],
+                        "titleText": [
+                            {
+                                "fields": {
+                                    "subcopySize": [
+                                        "Medium"
+                                    ],
+                                    "textAlignment": [
+                                        "center"
+                                    ],
+                                    "headlineSize": [
+                                        "Medium"
+                                    ],
+                                    "text": [],
+                                    "title": [],
+                                    "textColor": [
+                                        "GrayBlack"
+                                    ]
+                                }
+                            }
+                        ],
+                        "link": [
+                            {
+                                "fields": {
+                                    "data_gtm_position": [
+                                        "1"
+                                    ],
+                                    "hpPlacement": [
+                                        false
+                                    ],
+                                    "data_gtm_creative": [
+                                        "4"
+                                    ],
+                                    "data_gtm_id": [
+                                        "2"
+                                    ],
+                                    "href": [
+                                        "https://www.bjs.com/category/patio-and-outdoor-living/grilling/29504"
+                                    ],
+                                    "data_gtm_name": [
+                                        "3"
+                                    ],
+                                    "newTab": [
+                                        false
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "name": "bannergrid3",
+    "displayName": "BannerGrid3",
+    "path": "/content/documents/prototypes/content/bannergrid-docs/bannergrid3",
+    "system": {
+        "createdBy": "ksimpson@bjs.com",
+        "createdAt": "2023-07-03T13:22:11.365-04:00",
+        "updatedBy": "ksimpson@bjs.com",
+        "updatedAt": "2023-07-03T13:22:12.245-04:00"
+    }
+}
