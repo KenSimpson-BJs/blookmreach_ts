@@ -72,7 +72,8 @@ interface titleText {
 }
 
 interface titleTextFG {
-  titleText?: titleText;
+  title?: Content;
+  text?: Content;
   textAlignment: SelectionType;
   headlineSize: SelectionType;
   subcopySize: SelectionType;

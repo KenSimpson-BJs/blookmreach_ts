@@ -74,12 +74,9 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   const titleOutput = () => {
-    if (!titleText || !titleText.titleText?.title?.value) return;
+    if (!titleText || !titleText?.title?.value) return;
 
-    const {
-      titleText: { title },
-      headlineSize,
-    } = titleText;
+    const { title, headlineSize } = titleText;
 
     const headlineArg = globalHeadlineSize
       ? globalHeadlineSize
@@ -153,14 +150,14 @@ export function Tile(props: Tile): React.ReactElement | null {
     titleNode?: React.ReactNode,
     ctaNode?: React.ReactNode
   ) => {
-    if (!titleNode && !titleText?.titleText?.text && !ctaNode) return;
+    if (!titleNode && !titleText?.text && !ctaNode) return;
     return (
       <div className={`${styles["tile-text-cont"]} ${textAlign()} col-12 py-3`}>
         {titleNode}
-        {titleText?.titleText?.text && (
+        {titleText?.text && (
           <div
             className={subcopyClass()}
-            dangerouslySetInnerHTML={{ __html: titleText.titleText.text.value }}
+            dangerouslySetInnerHTML={{ __html: titleText.text.value }}
           ></div>
         )}
         {ctaNode}
@@ -170,7 +167,7 @@ export function Tile(props: Tile): React.ReactElement | null {
 
   const tileOutput = () => {
     if (link?.href) {
-      if (titleText?.titleText?.text?.value.includes("<a"))
+      if (titleText?.text?.value.includes("<a"))
         return (
           <>
             <Link
