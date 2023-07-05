@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 
 // internal
-import { Link } from "../Link";
+import { Link } from "../Link/Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
