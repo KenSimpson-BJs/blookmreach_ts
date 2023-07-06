@@ -11,7 +11,7 @@ interface CardComp {
   layout?: SelectionType;
   textAlignment?: SelectionType;
   cta?: Cta;
-  analytics?: Anchor;
+  link?: Anchor;
   image?: image;
   icon?: boolean;
   shadow?: boolean;
@@ -35,7 +35,7 @@ export function CardComp({
     layout,
     cta,
     image,
-    analytics,
+    link,
     horizontalAlign,
     verticalAlign,
   } = getContainerItemContent<CardComp>(component, page) ?? {};
@@ -49,7 +49,7 @@ export function CardComp({
       cta={cta}
       image={image}
       imageFormat={imageFormat}
-      analytics={analytics}
+      link={link}
       shadow={shadow}
       horizontalAlign={horizontalAlign}
       verticalAlign={verticalAlign}
