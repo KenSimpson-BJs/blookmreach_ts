@@ -7,7 +7,7 @@ Banner CTA is used for displaying a large central or hero image, and can display
 ## Component Properties
 
 - ### Max Width – required
-  Used to control the max width of the banner container. The outermost element of BannerCTA spans full width regardless of the size selected by the dropdown
+  Required dropdown field used to control the max width of the banner container. The outermost element of BannerCTA spans full width regardless of the size selected by the dropdown
   - maxWidth [dropdown: string] {default: “1280px”}
     - Values: [“900px”¸ “1280px”, “Full”]
 - ### Image Format – required

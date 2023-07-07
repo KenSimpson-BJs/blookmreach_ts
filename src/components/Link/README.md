@@ -17,17 +17,11 @@ Link is an application component that can be used wherever links are required. I
 
   - [Link: Anchor]
 
-  - ### className - optional
-    Optional property for passing classnames to the link component. Not currently restricted
-  - [string]
+- ### className - optional
 
-  - ### background - optional
-    Optional property for passing a background color to the link component. Can be hex, rgb, rgba, hsl, hsla or a generic color name (ex: blue, red, chartreuse)
-  - [string]
+  Optional property for passing classnames to the link component. Not currently restricted
 
-  - ### children - required
-    Required property for passing the children of the link component. This has to be either another React component, HTML, or a string
-  - [React.ReactNode | string]
+  - [string]
 
 ## Linked Content Type:
 
