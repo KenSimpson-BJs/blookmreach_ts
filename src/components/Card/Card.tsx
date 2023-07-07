@@ -50,7 +50,10 @@ export function Card(props: Card): React.ReactElement | null {
     maxWidth,
   } = props;
 
-  const flexDirection = layout ? layout.selectionValues[0].key : "column";
+  const flexDirection =
+    layout && layout.selectionValues[0].key.length > 0
+      ? layout.selectionValues[0].key
+      : "column";
 
   const titleOutput = () => {
     if (!titleText || !titleText.title) return <></>;
