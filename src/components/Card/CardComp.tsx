@@ -30,7 +30,6 @@ export function CardComp({
   }
 
   const {
-    background,
     titleText,
     layout,
     cta,
@@ -39,7 +38,8 @@ export function CardComp({
     horizontalAlign,
     verticalAlign,
   } = getContainerItemContent<CardComp>(component, page) ?? {};
-  const { shadow, imageFormat, maxWidth } = component.getParameters<CardComp>();
+  const { shadow, imageFormat, maxWidth, background } =
+    component.getParameters<CardComp>();
 
   return (
     <Card

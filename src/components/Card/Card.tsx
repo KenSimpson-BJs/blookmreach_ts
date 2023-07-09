@@ -143,7 +143,7 @@ export function Card(props: Card): React.ReactElement | null {
           }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
             shadow ? ` ${styles.shadow}` : ""
           }`}
-          background={background ? background : "#fff"}
+          background={background ?? "#fff"}
         >
           {image && (
             <div
