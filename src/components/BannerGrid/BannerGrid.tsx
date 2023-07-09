@@ -192,7 +192,7 @@ export function BannerGrid({
           : num > 4
           ? "col-md-3 col-lg-5c"
           : num === 4
-          ? "col-md-4 col-lg-3"
+          ? "col-md-3 col-lg-3"
           : "col-md-4"
       }`;
     }
