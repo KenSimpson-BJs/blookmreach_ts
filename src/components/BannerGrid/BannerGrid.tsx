@@ -15,7 +15,7 @@
  */
 
 import React, { useMemo } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import {
   Reference,
   ContainerItem,
@@ -28,9 +28,9 @@ import { BannerCTA, Tile, Card } from "..";
 import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils";
 
 // styles
-import styles from "./BannerGrid.module.scss";
 import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
+import styles from "./BannerGrid.module.scss";
 
 const MAX_DOCUMENTS = 1;
 const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
@@ -201,7 +201,7 @@ export function BannerGrid({
 
   return (
     <div
-      className={`${styles["banner-grid"]} mx-auto py-3`}
+      className={`${styles["banner-grid"]} d-flex justify-content-center mx-auto py-3`}
       style={
         backgroundColor
           ? {
@@ -212,34 +212,33 @@ export function BannerGrid({
       }
     >
       {titleOutput()}
-      <Row
-        className={`${
-          widthStyles["w-" + maxWidth]
-        } justify-content-center align-items-stretch pt-3`}
-      >
-        {bannerCardTile &&
-          bannerCardTile.map((item: BannerCardTile, key) => {
-            const props = {
-              imageFormat,
-              shadow,
-              textAlignment,
-              headlineSize,
-              subcopySize,
-              ...item,
-            };
-
-            return (
-              <Col
-                key={key}
-                className={`${rowLength ? returnColClass(rowLength) : ""} ${
-                  variant !== "Tile" ? "px-0" : ""
-                }`}
-              >
-                {variant ? returnVariant(variant, { ...props }) : ""}
-              </Col>
-            );
-          })}
-      </Row>
+      <Container className={`${widthStyles["w-" + maxWidth]} p-0`}>
+        <Row
+          className={`${styles["row-adjustment"]} justify-content-center align-items-stretch pt-3`}
+        >
+          {bannerCardTile &&
+            bannerCardTile.map((item: BannerCardTile, key) => {
+              const props = {
+                imageFormat,
+                shadow,
+                textAlignment,
+                headlineSize,
+                subcopySize,
+                ...item,
+              };
+              return (
+                <Col
+                  key={key}
+                  className={`${rowLength ? returnColClass(rowLength) : ""} ${
+                    variant !== "Tile" ? "px-0" : ""
+                  }`}
+                >
+                  {variant ? returnVariant(variant, { ...props }) : ""}
+                </Col>
+              );
+            })}
+        </Row>
+      </Container>
     </div>
   );
 }
