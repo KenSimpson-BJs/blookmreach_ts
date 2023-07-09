@@ -140,15 +140,17 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
               imageFormat={imageFormat === "Rounded" ? imageFormat : "Default"}
             ></Image>
             <div
-              className={`${styles["banner-text-cont"]}${textColorClass} text-${
+              className={`${
+                styles["banner-text-cont"]
+              }${textColorClass()} text-${
                 textAlignment
                   ? textAlignment.toLowerCase()
                   : titleText?.textAlignment
                   ? getSelectionValue(titleText?.textAlignment)
                   : "center"
-              } d-flex flex-column justify-content-${
+              } d-flex flex-column justify-content-start justify-content-md-${
                 verticalAlign ? `${getSelectionValue(verticalAlign)}` : "center"
-              } ${textAlignmentClass} py-3`}
+              } ${textAlignmentClass()} py-3`}
             >
               <div>
                 {titleOutput()}
