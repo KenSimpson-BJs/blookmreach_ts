@@ -1,4 +1,7 @@
 .banner-grid {
+  .row-adjustment {
+    margin: 0 -15px;
+  }
   :global [class^="col-"] {
     .container {
       height: 100%;

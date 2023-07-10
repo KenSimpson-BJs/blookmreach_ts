@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 
 // internal
-import { Link } from "../Link";
+import { Link } from "../Link/Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
@@ -50,7 +50,10 @@ export function Card(props: Card): React.ReactElement | null {
     maxWidth,
   } = props;
 
-  const flexDirection = layout ? layout.selectionValues[0].key : "column";
+  const flexDirection =
+    layout && layout.selectionValues[0].key.length > 0
+      ? layout.selectionValues[0].key
+      : "column";
 
   const titleOutput = () => {
     if (!titleText || !titleText.title) return <></>;
@@ -140,7 +143,7 @@ export function Card(props: Card): React.ReactElement | null {
           }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
             shadow ? ` ${styles.shadow}` : ""
           }`}
-          background={background ? background : "#fff"}
+          background={background ?? "#fff"}
         >
           {image && (
             <div

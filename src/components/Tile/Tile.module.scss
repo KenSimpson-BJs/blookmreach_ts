@@ -47,7 +47,7 @@
   }
 
   &:hover {
-    .tile-image-cont {
+    .tile-image-cont.shadow {
       box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.4);
     }
     .tile-image-cont.tile-icon {

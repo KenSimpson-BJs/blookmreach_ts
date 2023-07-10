@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 
 // internal
-import { Link } from "../Link";
+import { Link } from "../Link/Link";
 import { Image } from "../Image/Image";
 import { CTA } from "../CTA/CTA";
 
@@ -50,75 +50,87 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     subcopySize: globalSubcopySize,
   } = props;
 
+  const titleOutput = () => {
+    if (!titleText || !titleText.title) return <></>;
+    const { title, headlineSize } = titleText;
+
+    const headlineArg = globalHeadlineSize
+      ? globalHeadlineSize
+      : getSelectionValue(headlineSize);
+
+    const headlineClass = (headlineSize: SelectionType | string) => {
+      return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
+    };
+
+    switch (headlineArg) {
+      case "Small":
+        return (
+          <h4
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title.value,
+            }}
+          ></h4>
+        );
+      case "Medium":
+        return (
+          <h3
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title.value,
+            }}
+          ></h3>
+        );
+      case "Large":
+        return (
+          <h2
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title.value,
+            }}
+          ></h2>
+        );
+      case "Huge":
+        return (
+          <h1
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title.value,
+            }}
+          ></h1>
+        );
+      default:
+        return (
+          <h1
+            className={headlineClass(headlineArg)}
+            dangerouslySetInnerHTML={{
+              __html: title.value,
+            }}
+          ></h1>
+        );
+    }
+  };
+
+  const subcopyClass = () => {
+    const subcopyArg = globalSubcopySize
+      ? globalSubcopySize
+      : titleText && getSelectionValue(titleText?.subcopySize);
+    return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
+  };
+
+  const textColorClass = () =>
+    titleText?.textColor
+      ? ` ${titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]}`
+      : ` ${titleStyles["bjsTextGrayBlack"]}`;
+
+  const textAlignmentClass = () =>
+    textAlignment
+      ? "align-items-" + textAlignment.toLowerCase()
+      : titleText?.textAlignment
+      ? "align-items-" + getSelectionValue(titleText?.textAlignment)
+      : "align-items-center";
+
   const bannerOutput = () => {
-    const titleOutput = () => {
-      if (!titleText || !titleText.title) return <></>;
-      const { title, headlineSize } = titleText;
-
-      const headlineArg = globalHeadlineSize
-        ? globalHeadlineSize
-        : getSelectionValue(headlineSize);
-
-      const headlineClass = (headlineSize: SelectionType | string) => {
-        return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
-      };
-
-      switch (headlineArg) {
-        case "Small":
-          return (
-            <h4
-              className={headlineClass(headlineArg)}
-              dangerouslySetInnerHTML={{
-                __html: title.value,
-              }}
-            ></h4>
-          );
-        case "Medium":
-          return (
-            <h3
-              className={headlineClass(headlineArg)}
-              dangerouslySetInnerHTML={{
-                __html: title.value,
-              }}
-            ></h3>
-          );
-        case "Large":
-          return (
-            <h2
-              className={headlineClass(headlineArg)}
-              dangerouslySetInnerHTML={{
-                __html: title.value,
-              }}
-            ></h2>
-          );
-        case "Huge":
-          return (
-            <h1
-              className={headlineClass(headlineArg)}
-              dangerouslySetInnerHTML={{
-                __html: title.value,
-              }}
-            ></h1>
-          );
-        default:
-          return (
-            <h1
-              className={headlineClass(headlineArg)}
-              dangerouslySetInnerHTML={{
-                __html: title.value,
-              }}
-            ></h1>
-          );
-      }
-    };
-
-    const subcopyClass = () => {
-      const subcopyArg = globalSubcopySize
-        ? globalSubcopySize
-        : titleText && getSelectionValue(titleText?.subcopySize);
-      return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
-    };
-
     return (
       <>
         {image && (
@@ -128,29 +140,17 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
               imageFormat={imageFormat === "Rounded" ? imageFormat : "Default"}
             ></Image>
             <div
-              className={`${styles["banner-text-cont"]}${
-                titleText?.textColor
-                  ? ` ${
-                      titleStyles[
-                        "bjsText" + getSelectionValue(titleText?.textColor)
-                      ]
-                    }`
-                  : ` ${titleStyles["bjsTextGrayBlack"]}`
-              } text-${
+              className={`${
+                styles["banner-text-cont"]
+              }${textColorClass()} text-${
                 textAlignment
                   ? textAlignment.toLowerCase()
                   : titleText?.textAlignment
                   ? getSelectionValue(titleText?.textAlignment)
                   : "center"
-              } d-flex flex-column justify-content-${
+              } d-flex flex-column justify-content-start justify-content-md-${
                 verticalAlign ? `${getSelectionValue(verticalAlign)}` : "center"
-              } align-items-${
-                textAlignment
-                  ? textToHorizontalFlex(textAlignment)
-                  : horizontalAlign
-                  ? `${getSelectionValue(horizontalAlign)}`
-                  : "center"
-              } py-3`}
+              } ${textAlignmentClass()} py-3`}
             >
               <div>
                 {titleOutput()}
