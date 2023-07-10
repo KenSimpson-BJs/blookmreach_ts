@@ -50,6 +50,8 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     subcopySize: globalSubcopySize,
   } = props;
 
+  console.log(horizontalAlign);
+
   const titleOutput = () => {
     if (!titleText || !titleText.title) return <></>;
     const { title, headlineSize } = titleText;
@@ -125,10 +127,10 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
 
   const textAlignmentClass = () =>
     textAlignment
-      ? "align-items-" + textAlignment.toLowerCase()
-      : titleText?.textAlignment
-      ? "align-items-" + getSelectionValue(titleText?.textAlignment)
-      : "align-items-center";
+      ? "align-items-md-" + textAlignment.toLowerCase()
+      : horizontalAlign
+      ? "align-items-md-" + getSelectionValue(horizontalAlign)
+      : "align-items-md-center";
 
   const bannerOutput = () => {
     return (
@@ -150,7 +152,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
                   : "center"
               } d-flex flex-column justify-content-start justify-content-md-${
                 verticalAlign ? `${getSelectionValue(verticalAlign)}` : "center"
-              } ${textAlignmentClass()} py-3`}
+              } align-items-center ${textAlignmentClass()} py-3`}
             >
               <div>
                 {titleOutput()}
