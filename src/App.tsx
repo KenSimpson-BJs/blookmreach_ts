@@ -1,5 +1,5 @@
 // external
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { BrComponent, BrPage, BrPageContext } from "@bloomreach/react-sdk";
@@ -32,7 +32,37 @@ function App() {
     Footer,
   };
 
-  const BUILD_ENV = process.env.REACT_APP_ENV_P || "";
+
+  const [endp, setEndp] = useState(process.env.REACT_APP_P ?? "");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const temp: string = message;
+    setEndp(temp);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target) return;
+    setMessage(event.target.value);
+  };
+
+  if (endp.length === 0) {
+    return (
+      <div className="App p-3">
+        <form onSubmit={handleSubmit} className="mx-auto text-center">
+          <input
+            type="text"
+            className="d-block mx-auto"
+            onChange={handleChange}
+          />
+          <button className="d-block mt-3 px-3 py-1 mx-auto" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div className="App pb-3">
@@ -43,7 +73,7 @@ function App() {
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
-          endpoint: BUILD_ENV,
+          endpoint: endp,
           httpClient: axios as any,
         }}
         mapping={mapping}
