@@ -20,8 +20,6 @@ import {
 import logo from "./logo.svg";
 import "./App.css";
 
-const kenTestToken = "d393d9a9-caac-4b3b-b173-014c36b250d7";
-
 function App() {
   const mapping = {
     NewComponent,
@@ -34,6 +32,8 @@ function App() {
     Footer,
   };
 
+  const BUILD_ENV = process.env.REACT_APP_ENV_P || "";
+
   return (
     <div className="App pb-3">
       <header className="App-header">
@@ -43,7 +43,7 @@ function App() {
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
-          endpoint: process.env.REACT_APP_CHANNEL_ENDPOINT_P,
+          endpoint: BUILD_ENV,
           httpClient: axios as any,
         }}
         mapping={mapping}
