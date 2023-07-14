@@ -201,7 +201,7 @@ export function BannerGrid({
 
   return (
     <div
-      className={`${styles["banner-grid"]} d-flex justify-content-center mx-auto py-3`}
+      className={`${styles["banner-grid"]} mx-auto p-3`}
       style={
         backgroundColor
           ? {
@@ -212,7 +212,7 @@ export function BannerGrid({
       }
     >
       {titleOutput()}
-      <Container className={`${widthStyles["w-" + maxWidth]} p-0`}>
+      <Container className={`${widthStyles["w-" + maxWidth]} p-0 mx-auto`}>
         <Row
           className={`${styles["row-adjustment"]} justify-content-center align-items-stretch pt-3`}
         >
