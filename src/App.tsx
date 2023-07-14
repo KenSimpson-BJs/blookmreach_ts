@@ -32,13 +32,15 @@ function App() {
     Footer,
   };
 
-
-  const [endp, setEndp] = useState(process.env.REACT_APP_P ?? "");
+  const [endp, setEndp] = useState(
+    process.env.REACT_APP_P ?? window.sessionStorage.getItem("token")
+  );
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const temp: string = message;
+    window.sessionStorage.setItem("token", temp);
     setEndp(temp);
   };
 
@@ -47,7 +49,7 @@ function App() {
     setMessage(event.target.value);
   };
 
-  if (endp.length === 0) {
+  if (!endp || endp.length === 0) {
     return (
       <div className="App p-3">
         <form onSubmit={handleSubmit} className="mx-auto text-center">
