@@ -1,5 +1,5 @@
 // external
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { BrComponent, BrPage, BrPageContext } from "@bloomreach/react-sdk";
@@ -20,8 +20,6 @@ import {
 import logo from "./logo.svg";
 import "./App.css";
 
-const kenTestToken = "d393d9a9-caac-4b3b-b173-014c36b250d7";
-
 function App() {
   const mapping = {
     NewComponent,
@@ -34,6 +32,37 @@ function App() {
     Footer,
   };
 
+  const [endp, setEndp] = useState(process.env.REACT_APP_P ?? "");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const temp: string = message;
+    setEndp(temp);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target) return;
+    setMessage(event.target.value);
+  };
+
+  if (endp.length === 0) {
+    return (
+      <div className="App p-3">
+        <form onSubmit={handleSubmit} className="mx-auto text-center">
+          <input
+            type="text"
+            className="d-block mx-auto"
+            onChange={handleChange}
+          />
+          <button className="d-block mt-3 px-3 py-1 mx-auto" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  }
+
   return (
     <div className="App pb-3">
       <header className="App-header">
@@ -43,7 +72,7 @@ function App() {
       <BrPage
         configuration={{
           path: `${window.location.pathname}${window.location.search}`,
-          endpoint: process.env.REACT_APP_CHANNEL_ENDPOINT_P,
+          endpoint: endp,
           httpClient: axios as any,
         }}
         mapping={mapping}
