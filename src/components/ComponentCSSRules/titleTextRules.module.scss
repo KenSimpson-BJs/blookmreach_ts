@@ -117,13 +117,14 @@
 
 .bjsTextWhite {
   color: var(--bjsWhite);
+  &:hover {
+    color: var(--bjsWhite);
+  }
 }
 
-:global a {
-  [class*="bjsTextRed"],
-  [class*="bjsTextGrayBlack"] {
-    :hover {
-      color: var(--bjsRedHover);
-    }
+.bjsTextRed,
+.bjsTextGrayBlack {
+  &:hover {
+    color: inherit;
   }
 }

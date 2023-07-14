@@ -54,6 +54,10 @@ export function Card(props: Card): React.ReactElement | null {
     layout && layout.selectionValues[0].key.length > 0
       ? layout.selectionValues[0].key
       : "column";
+  const fontColor = () =>
+    titleText?.textColor
+      ? ` ${titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]}`
+      : ` ${titleStyles["bjsTextGrayBlack"]}`;
 
   const titleOutput = () => {
     if (!titleText || !titleText.title) return <></>;
@@ -136,7 +140,7 @@ export function Card(props: Card): React.ReactElement | null {
       {link && (
         <Link
           link={link}
-          className={`${
+          className={`${fontColor()} ${
             maxWidth ? widthStyles["w-" + maxWidth] : ""
           } d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
@@ -167,14 +171,6 @@ export function Card(props: Card): React.ReactElement | null {
           )}
           <div
             className={`${styles["card-text-cont"]}${
-              titleText?.textColor
-                ? ` ${
-                    titleStyles[
-                      "bjsText" + getSelectionValue(titleText?.textColor)
-                    ]
-                  }`
-                : ` ${titleStyles["bjsTextGrayBlack"]}`
-            }${
               flexDirection.includes("row")
                 ? ` col-12 col-sm-5 d-flex flex-column justify-content-${
                     verticalAlign

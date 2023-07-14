@@ -61,6 +61,11 @@ export function Tile(props: Tile): React.ReactElement | null {
         : "center"
     }`;
 
+  const fontColor = () =>
+    titleText?.textColor
+      ? ` ${titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]}`
+      : ` ${titleStyles["bjsTextGrayBlack"]}`;
+
   const imageContainer = () => {
     return image ? (
       <div
@@ -172,7 +177,7 @@ export function Tile(props: Tile): React.ReactElement | null {
           <>
             <Link
               link={link}
-              className={`${
+              className={`${fontColor()} ${
                 maxWidth ? widthStyles["w-" + maxWidth] : ""
               } d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
             >
@@ -187,7 +192,7 @@ export function Tile(props: Tile): React.ReactElement | null {
       return (
         <Link
           link={link}
-          className={`${
+          className={`${fontColor()} ${
             maxWidth ? widthStyles["w-" + maxWidth] : ""
           } d-flex flex-wrap text-decoration-none mt-2 ${styles.tile}`}
         >
@@ -198,7 +203,11 @@ export function Tile(props: Tile): React.ReactElement | null {
     }
 
     return (
-      <div className={maxWidth ? widthStyles["w-" + maxWidth] : ""}>
+      <div
+        className={`${fontColor()} ${
+          maxWidth ? widthStyles["w-" + maxWidth] : ""
+        }`}
+      >
         {imageContainer()}
         {textContainer(titleOutput())}
       </div>
@@ -206,15 +215,7 @@ export function Tile(props: Tile): React.ReactElement | null {
   };
 
   return (
-    <Container
-      className={`tile  ${widthStyles.unsetContainerWidth} ${
-        titleText?.textColor
-          ? ` ${
-              titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]
-            }`
-          : ` ${titleStyles["bjsTextGrayBlack"]}`
-      } pt-3`}
-    >
+    <Container className={`tile  ${widthStyles.unsetContainerWidth} pt-3`}>
       {tileOutput()}
     </Container>
   );

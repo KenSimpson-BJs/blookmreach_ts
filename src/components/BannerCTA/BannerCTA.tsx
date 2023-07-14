@@ -120,7 +120,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
     return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
   };
 
-  const textColorClass = () =>
+  const fontColor = () =>
     titleText?.textColor
       ? ` ${titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]}`
       : ` ${titleStyles["bjsTextGrayBlack"]}`;
@@ -142,9 +142,7 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
               imageFormat={imageFormat === "Rounded" ? imageFormat : "Default"}
             ></Image>
             <div
-              className={`${
-                styles["banner-text-cont"]
-              }${textColorClass()} text-${
+              className={`${styles["banner-text-cont"]} text-${
                 textAlignment
                   ? textAlignment.toLowerCase()
                   : titleText?.textAlignment
@@ -188,22 +186,22 @@ export function BannerCTA(props: BannerCTA): React.ReactElement | null {
       {link && link.href ? (
         <Link
           link={link}
-          className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
-            styles.banner
-          }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
-            shadow ? ` ${styles.shadow}` : ""
-          }`}
+          className={`${fontColor()} ${
+            maxWidth ? widthStyles["w-" + maxWidth] : ""
+          } ${styles.banner}${
+            imageFormat === "Rounded" ? ` ${styles.rounded}` : ""
+          }${shadow ? ` ${styles.shadow}` : ""}`}
           background={background ? background : "#fff"}
         >
           {bannerOutput()}
         </Link>
       ) : (
         <div
-          className={`${maxWidth ? widthStyles["w-" + maxWidth] : ""} ${
-            styles.banner
-          }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
-            shadow ? ` ${styles.shadow}` : ""
-          }`}
+          className={`${fontColor()} ${
+            maxWidth ? widthStyles["w-" + maxWidth] : ""
+          } ${styles.banner}${
+            imageFormat === "Rounded" ? ` ${styles.rounded}` : ""
+          }${shadow ? ` ${styles.shadow}` : ""}`}
         >
           {bannerOutput()}
         </div>
