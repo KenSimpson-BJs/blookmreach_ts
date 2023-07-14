@@ -6,6 +6,7 @@ frontend:
         - yarn install
     build:
       commands:
+        - REACT_APP_ENV_P=${REACT_APP_ENV_P}
         - yarn run build
   artifacts:
     baseDirectory: build
