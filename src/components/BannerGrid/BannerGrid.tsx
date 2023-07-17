@@ -103,7 +103,7 @@ export function BannerGrid({
     if (!title) return null;
 
     const titleClass = () =>
-      ` pb-3 pb-md-4 ${titleStyles["bjsHeadline" + titleSize]}`;
+      ` pb-3 pb-md-4 text-center ${titleStyles["bjsHeadline" + titleSize]}`;
 
     switch (titleSize) {
       case "Small":
