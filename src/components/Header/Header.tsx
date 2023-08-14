@@ -14,6 +14,7 @@ export function Header({
 }: BrProps<ContainerItem>): React.ReactElement | null {
   const models = component?.getModels<HeaderModels>();
   console.log(models);
+  console.log(!models);
 
   if (!component || !page) {
     return null;
