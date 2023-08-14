@@ -14,6 +14,7 @@ import {
   BannerGrid,
   Header,
   Footer,
+  MultiBannerCarousel,
 } from "./components";
 
 // styles
@@ -30,11 +31,10 @@ function App() {
     BannerGrid,
     Header,
     Footer,
+    MultiBannerCarousel,
   };
 
-  const [endp, setEndp] = useState(
-    process.env.REACT_APP_P ?? window.sessionStorage.getItem("token")
-  );
+  const [endp, setEndp] = useState(process.env.REACT_APP_P ?? window.sessionStorage.getItem("token"));
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

@@ -6,3 +6,4 @@ export * from "./BannerCTA";
 export * from "./BannerGrid";
 export * from "./Header";
 export * from "./Footer";
+export * from "./Slider";

@@ -21,21 +21,33 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { ContainerItem, getContainerItemContent } from "@bloomreach/spa-sdk";
+
+import {
+  Reference,
+  ContainerItem,
+  getContainerItemContent,
+} from "@bloomreach/spa-sdk";
 import { BrProps } from "@bloomreach/react-sdk";
 
-import { Banner } from "./Banner";
-import styles from "./MultiBannerCarousel.module.scss";
+import { BannerCTA, Tile, Card } from "..";
+import styles from "./Slider.module.scss";
+import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils";
 
-const DOCUMENTS_PER_SLIDE = 4;
+const DOCUMENTS_PER_SLIDE = 1;
 
 interface MultiBannerCarouselParameters {
   interval?: number;
 }
 
+interface SliderModels {
+  document1: Reference;
+}
+interface SliderCompound {
+  banners: BannerCardTile[];
+}
+
 interface MultiBannerCarouselCompound {
   title: string;
-  banners: BannerDocument[];
 }
 
 export function MultiBannerCarousel({
@@ -48,14 +60,25 @@ export function MultiBannerCarousel({
 
   const { interval = 0 } =
     component.getParameters<MultiBannerCarouselParameters>();
-  const { title, banners } =
+  const { title } =
     getContainerItemContent<MultiBannerCarouselCompound>(component, page) ?? {};
-  const slides = [];
+  const slides: Array<string> = [""];
+
+  const returnVariant = (variant: string, props?: any) => {
+    if (variant === "Tile") return <Tile {...props}></Tile>;
+    if (variant === "Card") return <Card {...props}></Card>;
+    return <BannerCTA {...props}></BannerCTA>;
+  };
+  const models = component?.getModels<SliderModels>();
+  const docParams = getEffectiveMultipleDocumentParameters(page, models, 1);
+  const { bannerCardTile: banners } =
+    docParams[0].document.getData<SliderCompound>();
+  console.log(banners);
 
   // Because the props object is used in both SSR and CSR, we should avoid mutating it.
-  for (let i = 0; i < (banners?.length ?? 0); i += DOCUMENTS_PER_SLIDE) {
-    slides.push(banners!.slice(i, i + DOCUMENTS_PER_SLIDE));
-  }
+  // for (let i = 0; i < (banners?.length ?? 0); i += DOCUMENTS_PER_SLIDE) {
+  //   slides.push(banners!.slice(i, i + DOCUMENTS_PER_SLIDE));
+  // }
 
   return (
     <div className="mw-container mx-auto my-4">
@@ -84,15 +107,16 @@ export function MultiBannerCarousel({
           // eslint-disable-next-line react/no-array-index-key
           <Carousel.Item key={index}>
             <Row>
-              {slide.map((banner, internalIndex) => (
-                // eslint-disable-next-line react/no-array-index-key
+              {/* {slide.map((slide, index) => (
+                // eslint-disable-next-line react/no-array-index-index
                 <Col
-                  key={`${index}-${internalIndex}`}
-                  as={Banner}
+                  key={`${index}-${index}`}
                   xs={12 / DOCUMENTS_PER_SLIDE}
-                  document={banner}
-                />
-              ))}
+                >
+                  {returnVariant("Banner")}
+                </Col>
+              ))} */}
+              Hello World!
             </Row>
           </Carousel.Item>
         ))}

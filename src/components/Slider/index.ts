@@ -1,0 +1,1 @@
+export { MultiBannerCarousel } from "./Slider";
