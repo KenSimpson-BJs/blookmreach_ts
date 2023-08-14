@@ -1,0 +1,68 @@
+.errorText {
+  margin-bottom: 30px;
+}
+
+.link_pencil {
+  font-weight: 400;
+  text-decoration: underline;
+}
+.sidebar-link {
+  font-weight: 400;
+  text-decoration: underline;
+}
+.pencil-banner-wrap {
+  font-family: "roboto", sans-serif;
+  font-size: 14px;
+  position: relative;
+  padding: 0 150px 0 20px;
+  min-height: 42px;
+  margin: 0;
+  padding: 0;
+}
+.pb-main-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: inherit;
+  font-size: 14px;
+  margin: 0;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+
+    :global .accessibility_button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1.5rem;
+      background-color: inherit;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  [auto-data="pencilBanner_Text"] p {
+    display: inline;
+  }
+}
+
+.sidebar-link {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  margin: 0;
+  font-size: 13px;
+  text-decoration: underline;
+  font-weight: 400;
+}
+.title {
+  font-size: 13px;
+  font-weight: 400;
+}

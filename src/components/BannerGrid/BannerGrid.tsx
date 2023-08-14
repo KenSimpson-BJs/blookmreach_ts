@@ -37,10 +37,6 @@ const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
   (n) => `document${n + 1}`
 );
 
-interface BannerGridModels {
-  document1?: Reference;
-}
-
 interface BannerGridParameters {
   maxWidth: string;
   backgroundColor?: string;
@@ -52,6 +48,10 @@ interface BannerGridParameters {
   textAlignment: string;
   headlineSize: string;
   subcopySize: string;
+}
+
+interface BannerGridModels {
+  document1?: Reference;
 }
 
 interface BannerGridCompound {
@@ -103,7 +103,7 @@ export function BannerGrid({
     if (!title) return null;
 
     const titleClass = () =>
-      ` pb-3 pb-md-4 ${titleStyles["bjsHeadline" + titleSize]}`;
+      ` pb-3 pb-md-4 text-center ${titleStyles["bjsHeadline" + titleSize]}`;
 
     switch (titleSize) {
       case "Small":

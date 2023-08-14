@@ -14,6 +14,8 @@ import {
   BannerGrid,
   Header,
   Footer,
+  MultiBannerCarousel,
+  TitleAndText,
 } from "./components";
 
 // styles
@@ -30,6 +32,8 @@ function App() {
     BannerGrid,
     Header,
     Footer,
+    MultiBannerCarousel,
+    TitleAndText,
   };
 
   const [endp, setEndp] = useState(
@@ -81,7 +85,7 @@ function App() {
         mapping={mapping}
       >
         <BrComponent path="header">
-          <div className="mr-3 mr-lg-0">
+          <div>
             <BrComponent />
           </div>
         </BrComponent>
