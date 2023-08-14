@@ -41,14 +41,14 @@ function sanitize(arg: string) {
 
 const TitleAndTextContainer = styled.div<StyledInterface>(
   ({ backgroundcolor = "#fff", fontcolor = "#000" }) => `
-background-color: ${backgroundcolor};
-color: ${fontcolor};
-  font-family: "roboto", sans-serif;
-  
-  .pb-link-wrap,
-  .UsableNetAssistive .title, .pencil-text {
+    background-color: ${backgroundcolor};
     color: ${fontcolor};
-  }
+    font-family: "roboto", sans-serif;
+  
+    .pb-link-wrap,
+    .UsableNetAssistive, .pencil-text {
+      color: ${fontcolor};
+    }
 `
 );
 
