@@ -15,6 +15,7 @@ import {
   Header,
   Footer,
   MultiBannerCarousel,
+  TitleAndText,
 } from "./components";
 
 // styles
@@ -32,9 +33,12 @@ function App() {
     Header,
     Footer,
     MultiBannerCarousel,
+    TitleAndText,
   };
 
-  const [endp, setEndp] = useState(process.env.REACT_APP_P ?? window.sessionStorage.getItem("token"));
+  const [endp, setEndp] = useState(
+    process.env.REACT_APP_P ?? window.sessionStorage.getItem("token")
+  );
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -81,7 +85,7 @@ function App() {
         mapping={mapping}
       >
         <BrComponent path="header">
-          <div className="mr-3 mr-lg-0">
+          <div>
             <BrComponent />
           </div>
         </BrComponent>

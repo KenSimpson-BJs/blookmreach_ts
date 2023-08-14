@@ -1,3 +1,5 @@
+export * from "./CTA";
+export * from "./Link";
 export * from "./NewComponent";
 export * from "./OpenHTML";
 export * from "./Tile";
@@ -7,3 +9,4 @@ export * from "./BannerGrid";
 export * from "./Header";
 export * from "./Footer";
 export * from "./Slider";
+export * from "./TitleAndText";
