@@ -22,16 +22,13 @@ export const Title: React.FC<TitleOutputProps> = ({
     Huge: 1,
   }[titleSize]!;
 
-  const TitleTag = (
-    { children }: React.PropsWithChildren<{}>,
-    className = ""
-  ) => {
+  const TitleTag = ({ children }: React.PropsWithChildren<{}>) => {
     const titleClass = titleStyles["bjsHeadline" + titleSize];
 
     return React.createElement(
       `h${tagNum}`,
       {
-        className: `${titleClass} ${className}`,
+        className: titleClass + className,
         dangerouslySetInnerHTML: { __html: sanitize(title.value) },
       },
       children
