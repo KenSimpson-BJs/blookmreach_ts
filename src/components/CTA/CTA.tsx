@@ -13,35 +13,35 @@ export function CTA(props: CTA): React.ReactElement | null {
     variant,
   } = props ?? {};
 
-  const returnStyle = (value: string) => {
-    switch (value) {
-      case "Pencil Banner":
-        return `${styles.link_pencil}`;
-      case "primary":
-        return `btn btn-primary`;
-      case "secondary":
-        return `btn btn-secondary`;
-      case "link_red":
-        return `${styles.link_red}`;
-      case "link_drk":
-        return `${styles.link_drk}`;
-      default:
-        return `${styles.link}`;
-    }
+  const getCTAClass = (styleValue: string) => {
+    type StyleMapping = {
+      [key: string]: string;
+      "Pencil Banner": string;
+      primary: string;
+      secondary: string;
+      link_red: string;
+      link_drk: string;
+    };
+    const styleMapping: StyleMapping = {
+      "Pencil Banner": styles.link_pencil,
+      primary: `btn btn-primary`,
+      secondary: `btn btn-secondary`,
+      link_red: styles.link_red,
+      link_drk: styles.link_drk,
+    };
+    return styleMapping[styleValue] || styles.link;
   };
+
+  const ctaStyle = variant
+    ? getCTAClass(variant)
+    : style
+    ? getCTAClass(getSelectionValue(style))
+    : styles.link;
 
   return (
     <>
       {cta && (
-        <span
-          className={
-            variant
-              ? returnStyle(variant)
-              : style
-              ? returnStyle(getSelectionValue(style))
-              : styles.link
-          }
-        >
+        <span className={ctaStyle}>
           <b>{cta}</b>
         </span>
       )}

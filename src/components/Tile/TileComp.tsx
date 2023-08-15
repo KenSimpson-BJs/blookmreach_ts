@@ -9,7 +9,7 @@ import { Tile } from "./Tile";
 import { setSelectionValue } from "../../utils/general";
 
 interface TileComp {
-  titleText: titleTextFG;
+  titleText: TitleTextFG;
   cta?: Cta;
   link?: Anchor;
   variant: string;

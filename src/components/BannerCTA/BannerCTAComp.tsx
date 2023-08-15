@@ -7,7 +7,7 @@ import { BannerCTA } from "./BannerCTA";
 
 interface BannerCTAComp {
   background?: string;
-  titleText: titleTextFG;
+  titleText: TitleTextFG;
   cta?: Cta;
   link?: Anchor;
   image?: image;
@@ -42,17 +42,19 @@ export function BannerCTAComp({
 
   return (
     <BannerCTA
-      background={background}
-      titleText={titleText}
-      cta={cta}
-      image={image}
-      imageFormat={imageFormat}
-      link={link}
-      shadow={shadow}
-      verticalAlign={verticalAlign}
-      horizontalAlign={horizontalAlign}
-      disclaimer={disclaimer}
-      maxWidth={maxWidth}
+      {...{
+        background,
+        titleText,
+        cta,
+        image,
+        imageFormat,
+        link,
+        shadow,
+        verticalAlign,
+        horizontalAlign,
+        disclaimer,
+        maxWidth,
+      }}
     ></BannerCTA>
   );
 }

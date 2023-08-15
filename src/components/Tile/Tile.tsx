@@ -15,7 +15,7 @@ import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Tile {
-  titleText?: titleTextFG;
+  titleText?: TitleTextFG;
   cta?: Cta;
   link?: Anchor;
   image?: image;

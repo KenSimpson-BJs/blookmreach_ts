@@ -20,6 +20,16 @@ export function Link(props: Link): React.ReactElement | null {
     data_gtm_creative,
   } = link;
 
+  const linkClassName = !hpPlacement
+    ? "plp-espot-gtm-tag plp-espot-gtm-view"
+    : "hp-espot-gtm-tag hp-espot-gtm-view";
+
+  const computedClassName = className
+    ? `${linkClassName} ${className}`
+    : linkClassName;
+
+  const linkStyle = { backgroundColor: background ? background : "inherit" };
+
   return (
     <a
       href={href}
@@ -28,12 +38,8 @@ export function Link(props: Link): React.ReactElement | null {
       data-gtm-position={data_gtm_position}
       data-gtm-name={data_gtm_name}
       data-gtm-creative={data_gtm_creative}
-      className={`${
-        !hpPlacement
-          ? "plp-espot-gtm-tag plp-espot-gtm-view"
-          : "hp-espot-gtm-tag hp-espot-gtm-view"
-      }${className ? ` ${className}` : ""}`}
-      style={{ backgroundColor: background ? background : "inherit" }}
+      className={computedClassName}
+      style={linkStyle}
     >
       {children}
     </a>

@@ -66,12 +66,12 @@ interface BannerCardTile {
   horizontalAlign: SelectionType;
 }
 
-interface titleText {
+interface TitleText {
   title?: Content;
   text?: Content;
 }
 
-interface titleTextFG {
+interface TitleTextFG {
   title?: Content;
   text?: Content;
   textAlignment: SelectionType;

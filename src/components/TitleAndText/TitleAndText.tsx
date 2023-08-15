@@ -8,7 +8,7 @@ import styled from "styled-components";
 // import { sanitize } from "../../../../utils/helper";
 
 // internal components
-import { Link, CTA } from "..";
+import { Link, CTA, Title, Subcopy } from "..";
 
 // styles
 import styles from "./TitleAndText.module.scss";
@@ -28,7 +28,7 @@ interface TitleTextModels {
 interface TitleTextCompound {
   cta: Cta;
   link?: Anchor;
-  titleText: titleTextFG;
+  titleText: TitleTextFG;
   disclaimer: Content;
 }
 interface StyledInterface {
@@ -108,51 +108,6 @@ export function TitleAndText({
     }, 60);
   });
 
-  const titleOutput = (title: Content, titleSize: string) => {
-    if (!title) return null;
-
-    const tagNum: number = {
-      Small: 4,
-      Medium: 3,
-      Large: 2,
-      Huge: 1,
-    }[titleSize]!;
-    const TitleTag = ({ children }: React.PropsWithChildren<{}>) => {
-      const titleClass = titleStyles["bjsHeadline" + titleSize];
-      return React.createElement(
-        `h${tagNum}`,
-        {
-          className: titleClass,
-          dangerouslySetInnerHTML: { __html: sanitize(title.value) },
-        },
-        children
-      );
-    };
-    return <TitleTag />;
-  };
-  const subcopyOutput = (pencil: boolean) => {
-    if (!text) return null;
-
-    const subcopyClass: string | undefined = {
-      Large: titleStyles["bjsSubcopyLarge"],
-      Medium: titleStyles["bjsSubcopyMedium"],
-      Small: titleStyles["bjsSubcopySmall"],
-    }[subcopySize];
-
-    return pencil ? (
-      <span
-        auto-data="pencilBanner_Text"
-        dangerouslySetInnerHTML={{ __html: sanitize(text?.value) }}
-      ></span>
-    ) : (
-      <div
-        className={`${subcopyClass} mb-0`}
-        dangerouslySetInnerHTML={{
-          __html: sanitize(text?.value),
-        }}
-      ></div>
-    );
-  };
   const ctaOutput = (classes: string = "", variant?: string) =>
     cta && link?.href ? (
       <Link link={link} className={classes}>
@@ -187,7 +142,7 @@ export function TitleAndText({
                   : {}),
               }}
             >
-              {subcopyOutput(true)}
+              <Subcopy text={text} subcopySize={subcopySize} pencil={true} />
               {ctaOutput("pencil-text", variant)}
             </div>
             <div
@@ -201,8 +156,12 @@ export function TitleAndText({
           </>
         ) : (
           <>
-            {titleOutput(title ?? { value: "" }, headlineSize)}
-            {subcopyOutput(false)}
+            <Title
+              title={title ?? { value: "" }}
+              titleSize={headlineSize}
+              className="custom-class"
+            />
+            <Subcopy text={text} subcopySize={subcopySize} />
             {disclaimer && (
               <div
                 dangerouslySetInnerHTML={{
