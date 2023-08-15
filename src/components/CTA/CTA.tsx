@@ -1,5 +1,5 @@
 import React from "react";
-import { getSelectionValue } from "../../utils/general";
+import { getSelectionValue, sanitize } from "../../utils/general";
 import styles from "./CTA.module.scss";
 
 interface CTA {
@@ -42,7 +42,7 @@ export function CTA(props: CTA): React.ReactElement | null {
     <>
       {cta && (
         <span className={ctaStyle}>
-          <b>{cta}</b>
+          <b dangerouslySetInnerHTML={{ __html: sanitize(cta) }} />
         </span>
       )}
     </>
