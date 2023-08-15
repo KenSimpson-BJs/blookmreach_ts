@@ -28,7 +28,7 @@ export const Title: React.FC<TitleOutputProps> = ({
     return React.createElement(
       `h${tagNum}`,
       {
-        className: titleClass + className,
+        className: `${titleClass} ${className}`,
         dangerouslySetInnerHTML: { __html: sanitize(title.value) },
       },
       children
