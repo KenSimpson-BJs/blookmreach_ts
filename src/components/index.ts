@@ -10,3 +10,4 @@ export * from "./Header";
 export * from "./Footer";
 export * from "./Slider";
 export * from "./TitleAndText";
+export * from "./Outputs";
