@@ -7,7 +7,7 @@ import { Card } from "./Card";
 
 interface CardComp {
   background?: string;
-  titleText: titleTextFG;
+  titleText: TitleTextFG;
   layout?: SelectionType;
   textAlignment?: SelectionType;
   cta?: Cta;

@@ -28,7 +28,7 @@ interface TitleTextModels {
 interface TitleTextCompound {
   cta: Cta;
   link?: Anchor;
-  titleText: titleTextFG;
+  titleText: TitleTextFG;
   disclaimer: Content;
 }
 interface StyledInterface {

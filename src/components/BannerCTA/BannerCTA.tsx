@@ -16,7 +16,7 @@ import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 
 interface BannerCTA {
   background?: string;
-  titleText?: titleTextFG;
+  titleText?: TitleTextFG;
   cta?: Cta;
   link?: Anchor;
   image?: image;

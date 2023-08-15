@@ -16,7 +16,7 @@ import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface Card {
   background?: string;
-  titleText?: titleTextFG;
+  titleText?: TitleTextFG;
   layout?: SelectionType;
   cta?: Cta;
   link?: Anchor;

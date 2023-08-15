@@ -7,7 +7,7 @@ import { BannerCTA } from "./BannerCTA";
 
 interface BannerCTAComp {
   background?: string;
-  titleText: titleTextFG;
+  titleText: TitleTextFG;
   cta?: Cta;
   link?: Anchor;
   image?: image;
