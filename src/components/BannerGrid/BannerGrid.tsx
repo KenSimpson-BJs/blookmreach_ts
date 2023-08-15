@@ -22,15 +22,14 @@ import {
   getContainerItemContent,
 } from "@bloomreach/spa-sdk";
 import { BrManageContentButton, BrProps } from "@bloomreach/react-sdk";
-import { BannerCTA, Tile, Card } from "..";
+import { BannerCTA, Tile, Card, Title } from "..";
 
 // utils
 import { getEffectiveMultipleDocumentParameters } from "../../utils/param-utils";
 
 // styles
-import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
-import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 import styles from "./BannerGrid.module.scss";
+import widthStyles from "../ComponentCSSRules/widthStyles.module.scss";
 
 const MAX_DOCUMENTS = 1;
 const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
@@ -93,71 +92,6 @@ export function BannerGrid({
     );
   }, [docParams.length, params]);
 
-  if (!component || !page) {
-    return null;
-  }
-  const { title, text } =
-    getContainerItemContent<titleText>(component, page) ?? {};
-
-  const titleOutput = () => {
-    if (!title) return null;
-
-    const titleClass = () =>
-      ` pb-3 pb-md-4 text-center ${titleStyles["bjsHeadline" + titleSize]}`;
-
-    switch (titleSize) {
-      case "Small":
-        return (
-          <h4
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h4>
-        );
-      case "Medium":
-        return (
-          <h3
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h3>
-        );
-      case "Large":
-        return (
-          <h2
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h2>
-        );
-      case "Huge":
-        return (
-          <h1
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h1>
-        );
-      default:
-        return (
-          <h1
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h1>
-        );
-    }
-  };
-
-  if (!component || !page) {
-    return null;
-  }
-
   if (!docParams.length && !error) {
     return page?.isPreview() ? (
       <div className="has-edit-button">
@@ -172,29 +106,33 @@ export function BannerGrid({
     ) : null;
   }
 
-  if (docParams.length < 1) return null;
+  if (!component || !page || docParams.length < 1) return null;
+
+  const { title } = getContainerItemContent<TitleText>(component, page) ?? {};
 
   const { bannerCardTile } =
     docParams[0].document.getData<BannerGridCompound>();
 
   const returnVariant = (variant: string, props: any) => {
-    if (variant === "Tile") return <Tile {...props}></Tile>;
-    if (variant === "Card") return <Card {...props}></Card>;
-    return <BannerCTA {...props}></BannerCTA>;
+    const variants: Record<string, React.ReactElement> = {
+      Tile: <Tile {...props} />,
+      Card: <Card {...props} />,
+      default: <BannerCTA {...props} />,
+    };
+
+    return variants[variant] || variants.default;
   };
 
   const returnColClass = (rowLength: string) => {
     const num = parseInt(rowLength);
     if (num >= 3) {
-      return `col-6 col-sm-4 ${
-        num > 5
-          ? "col-md-3 col-lg-2"
-          : num > 4
-          ? "col-md-3 col-lg-5c"
-          : num === 4
-          ? "col-md-3 col-lg-3"
-          : "col-md-4"
-      }`;
+      const colMapping: Record<number, string> = {
+        3: "col-6 col-sm-4",
+        4: "col-md-3 col-lg-3",
+        5: "col-md-3 col-lg-5c",
+        6: "col-md-3 col-lg-2",
+      };
+      return colMapping[num] || "col-md-4";
     }
     return "col-6";
   };
@@ -211,7 +149,11 @@ export function BannerGrid({
           : {}
       }
     >
-      {titleOutput()}
+      <Title
+        title={title ?? { value: "" }}
+        titleSize={titleSize ?? ""}
+        className="pb-3 pb-md-4 text-center"
+      />
       <Container className={`${widthStyles["w-" + maxWidth]} p-0 mx-auto`}>
         <Row
           className={`${styles["row-adjustment"]} justify-content-center align-items-stretch pt-3`}
@@ -233,7 +175,7 @@ export function BannerGrid({
                     variant !== "Tile" ? "px-0" : ""
                   }`}
                 >
-                  {variant ? returnVariant(variant, { ...props }) : ""}
+                  {variant ? returnVariant(variant, { ...props }) : null}
                 </Col>
               );
             })}
