@@ -1,14 +1,16 @@
-import React, { useRef } from "react";
-import {
-  Document,
-  ContainerItem,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
+// external
+import React, { useRef, ReactElement } from "react";
+import { ContainerItem, Reference } from "@bloomreach/spa-sdk";
 import { BrProps } from "@bloomreach/react-sdk";
 import styled from "styled-components";
-import { Link, CTA } from "..";
+
+// utils
 // import { sanitize } from "../../../../utils/helper";
+
+// internal components
+import { Link, CTA } from "..";
+
+// styles
 import styles from "./TitleAndText.module.scss";
 import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
@@ -29,7 +31,6 @@ interface TitleTextCompound {
   titleText: titleTextFG;
   disclaimer: Content;
 }
-
 interface StyledInterface {
   backgroundcolor: string;
   fontcolor: string;
@@ -69,14 +70,11 @@ function throttle(func: Function, limit: number) {
 export function TitleAndText({
   component,
   page,
-}: BrProps<ContainerItem>): React.ReactElement | null {
-  const a11yEl = React.useRef<HTMLDivElement>(null);
-  const pencilEl = React.useRef<HTMLDivElement>(null);
-  if (!component || !page) {
-    return null;
-  }
-  const { textLink } = component.getModels<TitleTextModels>();
-  if (!textLink) return null;
+}: BrProps<ContainerItem>): ReactElement | null {
+  const a11yEl = useRef<HTMLDivElement>(null);
+  const pencilEl = useRef<HTMLDivElement>(null);
+  const models = component?.getModels<TitleTextModels>();
+  if (!component || !page || !models?.textLink) return null;
 
   const {
     backgroundColor,
@@ -87,7 +85,7 @@ export function TitleAndText({
     variant,
   } = component.getParameters<TitleTextParameters>();
   const titleAndTextData = page
-    .getContent(textLink)!
+    .getContent(models.textLink)!
     .getData<TitleTextCompound>();
   const {
     cta,
@@ -95,9 +93,6 @@ export function TitleAndText({
     titleText: { title, text },
     disclaimer,
   } = titleAndTextData;
-  if (!component || !page) {
-    return null;
-  }
 
   if (component.isHidden()) {
     return page.isPreview() ? <div /> : null;
@@ -105,110 +100,65 @@ export function TitleAndText({
 
   window.addEventListener("resize", () => {
     throttle(() => {
-      if (pencilEl.current !== null && a11yEl.current !== null) {
-        let offsetWidth;
-        if (window.innerWidth >= 768) {
-          offsetWidth = `${a11yEl.current.offsetWidth}px`;
-        } else {
-          offsetWidth = `1rem`;
-        }
-
-        pencilEl.current.style.paddingLeft = offsetWidth;
-        pencilEl.current.style.paddingRight = offsetWidth;
-      }
+      if (!pencilEl.current || !a11yEl.current) return;
+      const offsetWidth =
+        window.innerWidth >= 768 ? `${a11yEl.current.offsetWidth}px` : `1rem`;
+      pencilEl.current.style.paddingLeft = offsetWidth;
+      pencilEl.current.style.paddingRight = offsetWidth;
     }, 60);
   });
 
   const titleOutput = (title: Content, titleSize: string) => {
     if (!title) return null;
-    const titleClass = () => `${titleStyles["bjsHeadline" + titleSize]}`;
 
-    switch (titleSize) {
-      case "Small":
-        return (
-          <h4
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: sanitize(title.value),
-            }}
-          ></h4>
-        );
-      case "Medium":
-        return (
-          <h3
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: sanitize(title.value),
-            }}
-          ></h3>
-        );
-      case "Large":
-        return (
-          <h2
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: sanitize(title.value),
-            }}
-          ></h2>
-        );
-      case "Huge":
-        return (
-          <h1
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: sanitize(title.value),
-            }}
-          ></h1>
-        );
-      default:
-        return (
-          <h1
-            className={titleClass()}
-            dangerouslySetInnerHTML={{
-              __html: sanitize(title.value),
-            }}
-          ></h1>
-        );
-    }
+    const tagNum: number = {
+      Small: 4,
+      Medium: 3,
+      Large: 2,
+      Huge: 1,
+    }[titleSize]!;
+    const TitleTag = ({ children }: React.PropsWithChildren<{}>) => {
+      const titleClass = titleStyles["bjsHeadline" + titleSize];
+      return React.createElement(
+        `h${tagNum}`,
+        {
+          className: titleClass,
+          dangerouslySetInnerHTML: { __html: sanitize(title.value) },
+        },
+        children
+      );
+    };
+    return <TitleTag />;
   };
   const subcopyOutput = (pencil: boolean) => {
     if (!text) return null;
-    const subcopyStyle = (value: string) => {
-      switch (value) {
-        case "Large":
-          return titleStyles["bjsSubcopyLarge"];
-        case "Medium":
-          return titleStyles["bjsSubcopyMedium"];
-        case "Small":
-          return titleStyles["bjsSubcopySmall"];
-      }
-    };
+
+    const subcopyClass: string | undefined = {
+      Large: titleStyles["bjsSubcopyLarge"],
+      Medium: titleStyles["bjsSubcopyMedium"],
+      Small: titleStyles["bjsSubcopySmall"],
+    }[subcopySize];
+
     return pencil ? (
-      <>
-        <span
-          auto-data="pencilBanner_Text"
-          dangerouslySetInnerHTML={{ __html: sanitize(text?.value) }}
-        ></span>
-        {ctaOutput("pencil-text", variant)}
-      </>
+      <span
+        auto-data="pencilBanner_Text"
+        dangerouslySetInnerHTML={{ __html: sanitize(text?.value) }}
+      ></span>
     ) : (
       <div
-        className={`${subcopyStyle(subcopySize)} mb-0`}
+        className={`${subcopyClass} mb-0`}
         dangerouslySetInnerHTML={{
           __html: sanitize(text?.value),
         }}
       ></div>
     );
   };
-  const ctaOutput = (classes: string = "", variant?: string) => {
-    if (!cta || !link?.href) return null;
-    return (
+  const ctaOutput = (classes: string = "", variant?: string) =>
+    cta && link?.href ? (
       <Link link={link} className={classes}>
         <CTA cta={cta} variant={variant} />
       </Link>
-    );
-  };
-
+    ) : null;
   return (
     <TitleAndTextContainer
       backgroundcolor={backgroundColor}
@@ -222,32 +172,34 @@ export function TitleAndText({
       <section
         className={`text-${textAlignment.toLowerCase()} ${
           styles["pb-main-section"]
-        } ${variant != "Pencil Banner" && "errorText"}`}
+        } ${variant !== "Pencil Banner" && "errorText"}`}
       >
-        {variant === "Pencil Banner" && (
+        {variant === "Pencil Banner" ? (
           <>
             <div
               ref={pencilEl}
-              style={
-                a11yEl.current && window.innerWidth >= 768
+              style={{
+                ...(a11yEl.current && window.innerWidth >= 768
                   ? {
                       paddingLeft: `${a11yEl.current.offsetWidth}px`,
                       paddingRight: `${a11yEl.current.offsetWidth}px`,
                     }
-                  : {}
-              }
+                  : {}),
+              }}
             >
               {subcopyOutput(true)}
+              {ctaOutput("pencil-text", variant)}
             </div>
-            <div className="accessibility_button text-center" ref={a11yEl}>
+            <div
+              className="accessibility_button text-center pt-2 pt-md-0"
+              ref={a11yEl}
+            >
               <a href="#" className="UsableNetAssistive" onClick={clickHandler}>
                 Enable Accessibility
               </a>
             </div>
           </>
-        )}
-
-        {variant !== "Pencil Banner" && (
+        ) : (
           <>
             {titleOutput(title ?? { value: "" }, headlineSize)}
             {subcopyOutput(false)}
