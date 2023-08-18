@@ -12,3 +12,4 @@ export * from "./BannerCTA";
 export * from "./BannerGrid";
 export * from "./Slider";
 export * from "./TitleAndText";
+export * from "./Navigation";
