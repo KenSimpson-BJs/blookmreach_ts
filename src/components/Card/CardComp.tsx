@@ -25,9 +25,7 @@ export function CardComp({
   component,
   page,
 }: BrProps<ContainerItem>): React.ReactElement | null {
-  if (!component || !page) {
-    return null;
-  }
+  if (!component || !page) return null;
 
   const {
     titleText,
@@ -43,17 +41,19 @@ export function CardComp({
 
   return (
     <Card
-      background={background}
-      titleText={titleText}
-      layout={layout}
-      cta={cta}
-      image={image}
-      imageFormat={imageFormat}
-      link={link}
-      shadow={shadow}
-      horizontalAlign={horizontalAlign}
-      verticalAlign={verticalAlign}
-      maxWidth={maxWidth}
-    ></Card>
+      {...{
+        background,
+        titleText,
+        layout,
+        cta,
+        image,
+        imageFormat,
+        link,
+        shadow,
+        horizontalAlign,
+        verticalAlign,
+        maxWidth,
+      }}
+    />
   );
 }
