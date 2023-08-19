@@ -1,3 +1,5 @@
+import widthStyles from "../components/ComponentCSSRules/widthStyles.module.scss";
+
 export const getSelectionValue = (arg: SelectionType) => {
   return arg.selectionValues[0].key;
 };
@@ -15,3 +17,6 @@ export const textToHorizontalFlex = (alignment: string) => {
 export function sanitize(arg: string) {
   return arg;
 }
+
+export const getMaxWidth = (maxWidth: MaxWidthValue) =>
+  widthStyles[`w-${maxWidth}`] ?? "w-75";
