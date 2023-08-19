@@ -1,26 +1,33 @@
 import styled from 'styled-components';
+import widthStyles from "../bloomreach-components/ComponentCSSRules/widthStyles.module.scss";
 
-export const NavigationContainer = styled.div`
+interface NavigationWrapper {
+  version: string;
+  fontColor: string;
+  buttonBackground: string;
+  buttonBackgroundHover: string;
+}
+
+const buttonVersion = (version: string) => version.includes("Button");
+
+export const NavigationContainer = styled.div<NavigationWrapper>(
+  ({version, buttonBackground = "#fff", fontColor = "#000", buttonBackgroundHover = "#f1f1f1"}) => `
   .list-item {
-    max-width: ${props => props.maxWidth};
     margin: 1px;
   }
   .link {
-    background-color: ${props =>
-      props.version == 'Rounded Button' || props.version == 'Button'
-        ? props.buttonBackground
-        : ''} !important;
-    border-radius: ${props => (props.version == 'Rounded Button' ? '4px' : '0')};
-    color: ${props => props.fontColor};
+    ${buttonVersion(version) && `background-color: ${buttonBackground}!important;`} 
+    border-radius: ${version == 'Rounded Button' ? '4px' : '0'};
+    color: ${fontColor};
     width: 100%;
     display: block;
     text-align: center;
-    &:hover {
-      background-color: ${props =>
-        props.version == 'Rounded Button' || props.version == 'Button'
-          ? props.buttonBackgroundHover
-          : ''} !important;
-    }
+    transition: var(--transitionLinear);
+    
+    ${buttonVersion(version) && `
+      &:hover {
+        background-color: ${buttonBackgroundHover}!important;
+      }`}
   }
   .bjsSubcopySmall {
     font-size: 14px;
@@ -34,29 +41,29 @@ export const NavigationContainer = styled.div`
     font-size: 18px;
     line-height: 24px;
   }
-  .noSpacing {
+  .noSpacing > * {
     padding: 0px;
   }
-  .mediumSpacing {
-    padding: 8px;
-  }
-  .smallSpacing {
+  .smallSpacing > * {
     padding: 4px;
   }
-  .largeSpacing {
+  .mediumSpacing > * {
+    padding: 8px;
+  }
+  .largeSpacing > * {
     padding: 16px;
   }
   .noGap {
     gap: 0px;
   }
-  .mediumGap {
+  .smallGap {
     gap: 8px;
   }
-  .smallGap {
-    gap: 4px;
+  .mediumGap {
+    gap: 16px;
   }
   .largeGap {
-    gap: 16px;
+    gap: 32px;
   }
 
   .fit-content-btn {
@@ -64,9 +71,12 @@ export const NavigationContainer = styled.div`
     width: fit-content;
     max-width: fit-content;
   }
+  .fit-content-btn > *, .fill-btn > * {
+    padding: 0.5rem 0.5rem;
+  }
 
   .fill-btn {
     flex-grow: 1;
     max-width: none;
   }
-`;
+`);

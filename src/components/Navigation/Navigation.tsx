@@ -1,41 +1,46 @@
-import React, { useMemo } from "react";
-import { Nav, Alert, Row, Col } from "react-bootstrap";
-import {
-  ContainerItem,
-  Document,
-  getContainerItemContent,
-  Reference,
-} from "@bloomreach/spa-sdk";
+// external
+import React from "react";
+import { Row, Col } from "react-bootstrap";
+import { ContainerItem, getContainerItemContent } from "@bloomreach/spa-sdk";
 import { BrProps } from "@bloomreach/react-sdk";
-import widthStyles from "../bloomreach-components/ComponentCSSRules/widthStyles.module.scss";
-import { Link } from "../../bloomreach-components/Link";
+
+// internal
+import { Link } from "./Link";
 import { NavigationContainer } from "./Navigation.style";
+import { getMaxWidth } from "../../utils/general";
 
-const MAX_DOCUMENTS = 5;
-
-const DOCUMENT_PARAMS = [...Array(MAX_DOCUMENTS).keys()].map(
-  (n) => `document${n + 1}`
-);
+// styles
+import titleStyles from "../ComponentCSSRules/titleTextRules.module.scss";
 
 interface NavigationComp {
-  buttonBackgroundHover?: string;
-  buttonBackground?: string;
-  fontColor?: string;
+  maxWidth: MaxWidthValue;
+  version: string;
+  spacing: string;
+  textSize: string;
   buttonSize: string;
-  edgeAlign?: boolean;
-  spacing?: string;
-  textSize?: string;
-  version?: string;
-  maxWidth: string;
-  links: any;
+  fontColor: string;
+  buttonBackground?: string;
+  buttonBackgroundHover?: string;
+  edgeAlign: boolean;
+}
+
+interface NavigationContent {
+  links: Links[];
+}
+
+interface Links {
+  label: string;
+  link: Anchor;
 }
 
 export function Navigation({
   component,
   page,
 }: BrProps<ContainerItem>): React.ReactElement | null {
+  if (!component || !page) return null;
   const { links } =
-    getContainerItemContent<NavigationComp>(component, page) ?? {};
+    getContainerItemContent<NavigationContent>(component, page) ?? {};
+  if (!links) return null;
   const {
     maxWidth,
     textSize,
@@ -47,76 +52,52 @@ export function Navigation({
     buttonBackground,
     buttonBackgroundHover,
   } = component.getParameters<NavigationComp>() ?? {};
-  const subcopyStyle = (value: string) => {
-    switch (value) {
-      case "Large":
-        return "bjsSubcopyLarge";
-      case "Medium":
-        return "bjsSubcopyMedium";
-      case "Small":
-        return "bjsSubcopySmall";
-    }
-  };
-  const getSpacing = (value: string) => {
-    switch (value) {
-      case "None":
-        return "noSpacing";
-      case "Medium":
-        return "mediumSpacing";
-      case "Small":
-        return "smallSpacing";
-      case "Large":
-        return "largeSpacing";
-    }
-  };
-  const getGap = (value: string) => {
-    switch (value) {
-      case "None":
-        return "noGap";
-      case "Medium":
-        return "mediumGap";
-      case "Small":
-        return "smallGap";
-      case "Large":
-        return "largeGap";
-    }
-  };
+
+  const getSubcopyClass: string | undefined = {
+    Large: titleStyles["bjsSubcopyLarge"],
+    Medium: titleStyles["bjsSubcopyMedium"],
+    Small: titleStyles["bjsSubcopySmall"],
+  }[textSize];
+
+  const getSize: string | undefined = {
+    None: "noSpacing fit-content-btn",
+    Medium: "mediumSpacing fit-content-btn",
+    Small: "smallSpacing fit-content-btn",
+    Large: "largeSpacing fit-content-btn",
+    Fill: "fill-btn",
+    "Fit Content": "fit-content-btn",
+  }[buttonSize];
+
+  const getGap: string | undefined = {
+    None: "noGap",
+    Medium: "mediumGap",
+    Small: "smallGap",
+    Large: "largeGap",
+  }[spacing];
+
+  const edgeAlignClass = edgeAlign
+    ? "justify-content-between"
+    : "justify-content-center";
   return (
     <NavigationContainer
-      maxWidth={maxWidth}
-      textSize={textSize}
-      spacing={spacing}
-      buttonSize={buttonSize}
-      fontColor={fontColor}
       version={version}
-      edgeAlign={edgeAlign}
-      buttonBackground={buttonBackground}
-      buttonBackgroundHover={buttonBackgroundHover}
+      fontColor={fontColor}
+      buttonBackground={buttonBackground || "#fff"}
+      buttonBackgroundHover={buttonBackgroundHover || "#f1f1f1"}
     >
       <Row
-        className={`${
-          edgeAlign
-            ? "justify-content-between"
-            : `justify-content-center ${getSpacing(spacing)}`
-        } ${getGap(spacing)} m-0 py-4`}
+        className={`${edgeAlignClass} ${getGap} ${getMaxWidth(
+          maxWidth
+        )} my-0 mx-auto py-4 px-3`}
       >
-        {links.map((linkData, index) => (
-          <Col
-            key={index}
-            className={`list-item p-0 ${
-              buttonSize == "Fit Content" ? "fit-content-btn" : "fill-btn"
-            }`}
-          >
-            <Link
-              link={linkData?.link}
-              className={`link ${getSpacing(spacing)} ${subcopyStyle(
-                textSize
-              )}`}
-            >
-              {linkData?.label}
-            </Link>
-          </Col>
-        ))}
+        {links &&
+          links.map((linkData, index) => (
+            <Col key={index} className={`list-item px-0 ${getSize}`}>
+              <Link link={linkData.link} className={`link ${getSubcopyClass}`}>
+                {linkData.label}
+              </Link>
+            </Col>
+          ))}
       </Row>
     </NavigationContainer>
   );
