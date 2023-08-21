@@ -16,6 +16,7 @@ import {
   Footer,
   MultiBannerCarousel,
   TitleAndText,
+  Navigation,
 } from "./components";
 
 // styles
@@ -34,6 +35,7 @@ function App() {
     Footer,
     MultiBannerCarousel,
     TitleAndText,
+    Navigation,
   };
 
   const [endp, setEndp] = useState(

@@ -71,6 +71,7 @@ export function MultiBannerCarousel({
   };
   const models = component?.getModels<SliderModels>();
   const docParams = getEffectiveMultipleDocumentParameters(page, models, 1);
+  if (!docParams[0]) return null;
   const { bannerCardTile: banners } =
     docParams[0].document.getData<SliderCompound>();
   console.log(banners);

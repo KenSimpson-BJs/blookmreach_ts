@@ -2,9 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 
 // internal
-import { Link } from "../Link/Link";
-import { Image } from "../Image/Image";
-import { CTA } from "../CTA/CTA";
+import { Link, Image, CTA, Title, Subcopy } from "..";
 
 // utils
 import { getSelectionValue, textToHorizontalFlex } from "../../utils/general";
@@ -59,107 +57,50 @@ export function Card(props: Card): React.ReactElement | null {
       ? ` ${titleStyles["bjsText" + getSelectionValue(titleText?.textColor)]}`
       : ` ${titleStyles["bjsTextGrayBlack"]}`;
 
-  const titleOutput = () => {
-    if (!titleText || !titleText.title) return <></>;
-    const { title, headlineSize } = titleText;
-
-    const headlineArg = globalHeadlineSize
-      ? globalHeadlineSize
-      : getSelectionValue(headlineSize);
-
-    const headlineClass = (headlineSize: SelectionType | string) => {
-      return ` ${titleStyles["bjsHeadline" + headlineSize]}`;
-    };
-
-    switch (headlineArg) {
-      case "Small":
-        return (
-          <h4
-            className={headlineClass(headlineArg)}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h4>
-        );
-      case "Medium":
-        return (
-          <h3
-            className={headlineClass(headlineArg)}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h3>
-        );
-      case "Large":
-        return (
-          <h2
-            className={headlineClass(headlineArg)}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h2>
-        );
-      case "Huge":
-        return (
-          <h1
-            className={headlineClass(headlineArg)}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h1>
-        );
-      default:
-        return (
-          <h1
-            className={headlineClass(headlineArg)}
-            dangerouslySetInnerHTML={{
-              __html: title.value,
-            }}
-          ></h1>
-        );
-    }
-  };
-
-  const subcopyClass = () => {
-    const subcopyArg = globalSubcopySize
-      ? globalSubcopySize
-      : titleText && getSelectionValue(titleText?.subcopySize);
-    return ` ${titleStyles["bjsSubcopy" + subcopyArg]}`;
-  };
+  const titleClass =
+    globalHeadlineSize ??
+    (titleText?.headlineSize && getSelectionValue(titleText.headlineSize));
+  const subcopyClass =
+    globalSubcopySize ??
+    (titleText?.subcopySize && getSelectionValue(titleText?.subcopySize));
+  const verticalAlignClass = verticalAlign
+    ? `${getSelectionValue(verticalAlign)}`
+    : "center";
+  const horitonzalAlignClass = textAlignment
+    ? textToHorizontalFlex(textAlignment)
+    : horizontalAlign
+    ? `${getSelectionValue(horizontalAlign)}`
+    : "center";
+  const textAlignClass =
+    textAlignment?.toLowerCase() ??
+    (titleText?.textAlignment
+      ? getSelectionValue(titleText?.textAlignment)
+      : "center");
+  const maxWidthClass = maxWidth ? widthStyles["w-" + maxWidth] : "";
+  const imageFormatClassRounded =
+    imageFormat === "Rounded" ? ` ${styles.rounded}` : "";
+  const imageFormatClass =
+    imageFormat === "Circular" || imageFormat === "Icon"
+      ? ` px-3 ${textAlignment ? "pt-3" : "py-3 d-flex align-items-center"}`
+      : "";
 
   return (
     <Container
-      className={`${widthStyles.unsetContainerWidth} text-${
-        textAlignment
-          ? textAlignment.toLowerCase()
-          : titleText?.textAlignment
-          ? getSelectionValue(titleText?.textAlignment)
-          : "center"
-      } pt-2 py-3`}
+      className={`${widthStyles.unsetContainerWidth} text-${textAlignClass} pt-2 py-3`}
     >
       {link && (
         <Link
           link={link}
-          className={`${fontColor()} ${
-            maxWidth ? widthStyles["w-" + maxWidth] : ""
-          } d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
+          className={`${fontColor()} ${maxWidthClass} d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
-          }${imageFormat === "Rounded" ? ` ${styles.rounded}` : ""}${
-            shadow ? ` ${styles.shadow}` : ""
-          }`}
+          } ${imageFormatClassRounded} ${shadow && (styles.shadow ?? "")}`}
           background={background ?? "#fff"}
         >
           {image && (
             <div
               className={`px-0 ${styles["card-image-cont"]}${
                 flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
-              }${
-                imageFormat === "Circular" || imageFormat === "Icon"
-                  ? ` px-3 ${
-                      textAlignment ? "pt-3" : "py-3 d-flex align-items-center"
-                    }`
-                  : ""
-              }`}
+              }${imageFormatClass}`}
             >
               <Image
                 image={image}
@@ -172,30 +113,17 @@ export function Card(props: Card): React.ReactElement | null {
           <div
             className={`${styles["card-text-cont"]}${
               flexDirection.includes("row")
-                ? ` col-12 col-sm-5 d-flex flex-column justify-content-${
-                    verticalAlign
-                      ? `${getSelectionValue(verticalAlign)}`
-                      : "center"
-                  } align-items-${
-                    textAlignment
-                      ? textToHorizontalFlex(textAlignment)
-                      : horizontalAlign
-                      ? `${getSelectionValue(horizontalAlign)}`
-                      : "center"
-                  }`
+                ? ` col-12 col-sm-5 d-flex flex-column justify-content-${verticalAlignClass} align-items-${horitonzalAlignClass}`
                 : ""
             }`}
           >
             <div>
-              {titleOutput()}
-              {titleText?.text && (
-                <div
-                  className={subcopyClass()}
-                  dangerouslySetInnerHTML={{
-                    __html: titleText?.text?.value,
-                  }}
-                ></div>
-              )}
+              <Title title={titleText?.title} titleSize={titleClass ?? ""} />
+              <Subcopy
+                text={titleText?.text}
+                subcopySize={subcopyClass ?? ""}
+              />
+
               {cta && cta?.cta?.length > 0 && <CTA cta={cta}></CTA>}
             </div>
           </div>
