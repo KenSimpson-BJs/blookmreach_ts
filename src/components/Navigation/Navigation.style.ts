@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import widthStyles from "../bloomreach-components/ComponentCSSRules/widthStyles.module.scss";
 
 interface NavigationWrapper {
@@ -11,36 +11,41 @@ interface NavigationWrapper {
 const buttonVersion = (version: string) => version.includes("Button");
 
 export const NavigationContainer = styled.div<NavigationWrapper>(
-  ({version, buttonBackground = "#fff", fontColor = "#000", buttonBackgroundHover = "#f1f1f1"}) => `
+  ({
+    version,
+    buttonBackground = "#fff",
+    fontColor = "#000",
+    buttonBackgroundHover = "#f1f1f1",
+  }) => `
   .list-item {
-    margin: 1px;
+    padding: 1px;
   }
   .link {
-    ${buttonVersion(version) && `background-color: ${buttonBackground}!important;`} 
-    border-radius: ${version == 'Rounded Button' ? '4px' : '0'};
+    ${
+      buttonVersion(version) &&
+      `background-color: ${buttonBackground}!important;`
+    } 
+    border-radius: ${version == "Rounded Button" ? "4px" : "0"};
     color: ${fontColor};
     width: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
     text-align: center;
     transition: var(--transitionLinear);
+    height: 100%;
     
-    ${buttonVersion(version) && `
+    ${
+      buttonVersion(version) &&
+      `
       &:hover {
         background-color: ${buttonBackgroundHover}!important;
-      }`}
+      }`
+    }
+
+    
   }
-  .bjsSubcopySmall {
-    font-size: 14px;
-    line-height: 18px;
-  }
-  .bjsSubcopyMedium {
-    font-size: 16px;
-    line-height: 20px;
-  }
-  .bjsSubcopyLarge {
-    font-size: 18px;
-    line-height: 24px;
-  }
+  
   .noSpacing > * {
     padding: 0px;
   }
@@ -52,6 +57,9 @@ export const NavigationContainer = styled.div<NavigationWrapper>(
   }
   .largeSpacing > * {
     padding: 16px;
+  }
+  .smallSpacing, .mediumSpacing, .largeSpacing {
+    
   }
   .noGap {
     gap: 0px;
@@ -70,13 +78,16 @@ export const NavigationContainer = styled.div<NavigationWrapper>(
     flex-basis: auto;
     width: fit-content;
     max-width: fit-content;
+    white-space: nowrap;
   }
-  .fit-content-btn > *, .fill-btn > * {
+  .fit-content-btn-size > *, .fill-btn > * {
     padding: 0.5rem 0.5rem;
   }
 
   .fill-btn {
     flex-grow: 1;
+    flex-shrink: 1;
     max-width: none;
   }
-`);
+`
+);
