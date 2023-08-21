@@ -59,14 +59,31 @@ export function Navigation({
     Small: titleStyles["bjsSubcopySmall"],
   }[textSize];
 
-  const getSize: string | undefined = {
-    None: "noSpacing fit-content-btn",
-    Medium: "mediumSpacing fit-content-btn",
-    Small: "smallSpacing fit-content-btn",
-    Large: "largeSpacing fit-content-btn",
-    Fill: "fill-btn",
-    "Fit Content": "fit-content-btn",
-  }[buttonSize];
+  const getSize = (links: Links[]) => {
+    const sizeClass: string = {
+      None: "noSpacing",
+      Medium: "mediumSpacing fit-content-btn",
+      Small: "smallSpacing fit-content-btn",
+      Large: "largeSpacing fit-content-btn",
+      Fill: "fill-btn",
+      "Fit Content": "fit-content-btn fit-content-btn-size",
+    }[buttonSize]!;
+
+    const colMapping = (length: string | number) => {
+      const cols: Record<number, string> = {
+        2: "col-12 col-sm-6",
+        3: "col-12 col-sm-6 col-md-4",
+        4: "col-12 col-sm-6 col-md-3 col-lg-3",
+        5: "col-12 col-sm-6 col-md-3 col-lg-5c",
+        6: "col-12 col-sm-6 col-md-3 col-lg-2",
+      }[length]!;
+      return cols || "col-12";
+    };
+
+    return `${sizeClass} ${
+      links.length >= 2 && buttonSize === "Fill" && colMapping(links.length)
+    }`;
+  };
 
   const getGap: string | undefined = {
     None: "noGap",
@@ -92,7 +109,7 @@ export function Navigation({
       >
         {links &&
           links.map((linkData, index) => (
-            <Col key={index} className={`list-item px-0 ${getSize}`}>
+            <Col key={index} className={`list-item ${getSize(links)}`}>
               <Link link={linkData.link} className={`link ${getSubcopyClass}`}>
                 {linkData.label}
               </Link>
