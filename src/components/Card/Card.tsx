@@ -91,8 +91,9 @@ export function Card(props: Card): React.ReactElement | null {
       {link && (
         <Link
           link={link}
-          className={`${fontColor()} ${maxWidthClass} d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none 
-          ${styles.card}${imageFormatClassRounded}${styles.shadow ?? ""}`}
+          className={`${fontColor()} ${maxWidthClass} d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
+            styles.card
+          } ${imageFormatClassRounded} ${shadow && (styles.shadow ?? "")}`}
           background={background ?? "#fff"}
         >
           {image && (
