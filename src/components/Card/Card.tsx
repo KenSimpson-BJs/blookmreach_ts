@@ -28,6 +28,7 @@ interface Card {
   headlineSize?: string;
   subcopySize?: string;
   maxWidth?: string;
+  gridFlex?: boolean;
 }
 
 export function Card(props: Card): React.ReactElement | null {
@@ -46,6 +47,7 @@ export function Card(props: Card): React.ReactElement | null {
     headlineSize: globalHeadlineSize,
     subcopySize: globalSubcopySize,
     maxWidth,
+    gridFlex,
   } = props;
 
   const flexDirection =
@@ -78,10 +80,10 @@ export function Card(props: Card): React.ReactElement | null {
       : "center");
   const maxWidthClass = maxWidth ? widthStyles["w-" + maxWidth] : "";
   const imageFormatClassRounded =
-    imageFormat === "Rounded" ? ` ${styles.rounded}` : "";
+    imageFormat !== "Default" ? `${styles.rounded}` : "";
   const imageFormatClass =
     imageFormat === "Circular" || imageFormat === "Icon"
-      ? ` px-3 ${textAlignment ? "pt-3" : "py-3 d-flex align-items-center"}`
+      ? `px-3 ${textAlignment ? "pt-3" : "py-3 d-flex align-items-center"}`
       : "";
 
   return (
@@ -93,14 +95,16 @@ export function Card(props: Card): React.ReactElement | null {
           link={link}
           className={`${fontColor()} ${maxWidthClass} d-flex flex-${flexDirection} flex-wrap h-100 text-decoration-none ${
             styles.card
-          } ${imageFormatClassRounded} ${shadow && (styles.shadow ?? "")}`}
+          } ${imageFormatClassRounded} ${
+            !imageFormat.includes("Icon") ? "" : "py-3"
+          } ${shadow && (styles.shadow ?? "")}`}
           background={background ?? "#fff"}
         >
           {image && (
             <div
-              className={`px-0 ${styles["card-image-cont"]}${
-                flexDirection.includes("row") ? " col-12 col-sm-7" : " w-100"
-              }${imageFormatClass}`}
+              className={`px-0 ${styles["card-image-cont"]} ${
+                flexDirection.includes("row") ? "col-12 col-sm-7" : "w-100"
+              } ${imageFormatClass}`}
             >
               <Image
                 image={image}
@@ -111,17 +115,29 @@ export function Card(props: Card): React.ReactElement | null {
             </div>
           )}
           <div
-            className={`${styles["card-text-cont"]}${
+            className={`${styles["card-text-cont"]} ${
               flexDirection.includes("row")
-                ? ` col-12 col-sm-5 d-flex flex-column justify-content-${verticalAlignClass} align-items-${horitonzalAlignClass}`
+                ? `col-12 col-sm-5 d-flex flex-column justify-content-${verticalAlignClass} align-items-${horitonzalAlignClass}`
                 : ""
             }`}
           >
-            <div>
-              <Title title={titleText?.title} titleSize={titleClass ?? ""} />
+            <div
+              className={`${
+                !imageFormat.includes("Icon") ? "p-3 p-md-4" : ""
+              } ${
+                gridFlex &&
+                `d-flex flex-column justify-content-between align-items-${horitonzalAlignClass}`
+              }`}
+            >
+              <Title
+                title={titleText?.title}
+                titleSize={titleClass ?? ""}
+                className={!imageFormat.includes("Icon") ? "" : "mb-1"}
+              />
               <Subcopy
                 text={titleText?.text}
                 subcopySize={subcopyClass ?? ""}
+                className={!imageFormat.includes("Icon") ? "mb-3" : "mb-2"}
               />
 
               {cta && cta?.cta?.length > 0 && <CTA cta={cta}></CTA>}
