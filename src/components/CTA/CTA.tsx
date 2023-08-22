@@ -42,7 +42,14 @@ export function CTA(props: CTA): React.ReactElement | null {
     <>
       {cta && (
         <span className={ctaStyle}>
-          <b dangerouslySetInnerHTML={{ __html: sanitize(cta) }} />
+          {ctaStyle.includes("btn") ? (
+            <b dangerouslySetInnerHTML={{ __html: sanitize(cta) }} />
+          ) : (
+            <p
+              className="mb-0"
+              dangerouslySetInnerHTML={{ __html: sanitize(cta) }}
+            />
+          )}
         </span>
       )}
     </>
