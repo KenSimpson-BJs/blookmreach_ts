@@ -130,9 +130,9 @@ export function BannerGrid({
     if (num >= 3) {
       const colMapping: Record<number, string> = {
         3: "col-6 col-sm-4",
-        4: "col-md-3 col-lg-3",
-        5: "col-md-3 col-lg-5c",
-        6: "col-md-3 col-lg-2",
+        4: "col-6 col-sm-4 col-md-3 col-lg-3",
+        5: "col-6 col-sm-4 col-md-3 col-lg-5c",
+        6: "col-6 col-sm-4 col-md-3 col-lg-2",
       };
       return colMapping[num] || "col-md-4";
     }
