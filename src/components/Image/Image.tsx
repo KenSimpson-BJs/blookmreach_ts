@@ -12,37 +12,38 @@ export function Image(props: Image): React.ReactElement | null {
 
   const { imageDesktop, imageMobile, alt, imgfit } = image;
 
-  const imgOutput = () => {
-    return (
-      <img
-        src={imageMobile}
-        alt={alt}
-        className={`d-block w-100 h-100 ${
-          imgfit && getSelectionValue(imgfit) !== "default"
-            ? ` ${styles.imgfit} ${
-                styles[`imgfit-${getSelectionValue(imgfit)}`]
-              }`
-            : ""
-        }`}
-      />
+  const imgOutput = () => (
+    <img
+      src={imageMobile}
+      alt={alt}
+      className={`d-block w-100 h-100 ${
+        imgfit && getSelectionValue(imgfit) !== "default"
+          ? ` ${styles.imgfit} ${styles[`imgfit-${getSelectionValue(imgfit)}`]}`
+          : ""
+      }`}
+    />
+  );
+  const imgWrapper = () =>
+    imageDesktop ? (
+      <picture>
+        <source media="(min-width: 768px)" srcSet={imageDesktop} />
+        {imgOutput()}
+      </picture>
+    ) : (
+      imgOutput()
     );
-  };
-  const imgWrapper = () => {
-    if (imageDesktop)
-      return (
-        <picture>
-          <source media="(min-width: 768px)" srcSet={imageDesktop} />
-          {imgOutput()}
-        </picture>
-      );
-    return imgOutput();
-  };
+
+  const getClassNames = (classNames: string) =>
+    classNames
+      .split(" ")
+      .map((className) => styles[className.toLowerCase()])
+      .join(" ");
 
   return (
     <div
       className={`${styles.imgwrap}${
         imageFormat !== "Default"
-          ? " mx-auto " + styles[imageFormat.toLowerCase()]
+          ? " mx-auto " + getClassNames(imageFormat)
           : ""
       }`}
     >
