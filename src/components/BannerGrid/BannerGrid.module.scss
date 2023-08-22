@@ -25,38 +25,4 @@
       max-width: 100%;
     }
   }
-  :global .col-5c {
-    flex: 0 0 20%;
-    max-width: 20%;
-  }
-  @media screen and (max-width: 575px) {
-    :global .col-xs-5c {
-      flex: 0 0 20%;
-      max-width: 20%;
-    }
-  }
-  @media screen and (min-width: 576px) {
-    :global .col-sm-5c {
-      flex: 0 0 20%;
-      max-width: 20%;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    :global .col-md-5c {
-      flex: 0 0 20%;
-      max-width: 20%;
-    }
-  }
-  @media screen and (min-width: 992px) {
-    :global .col-lg-5c {
-      flex: 0 0 20%;
-      max-width: 20%;
-    }
-  }
-  @media screen and (min-width: 1200px) {
-    :global .col-xl-5c {
-      flex: 0 0 20%;
-      max-width: 20%;
-    }
-  }
 }
