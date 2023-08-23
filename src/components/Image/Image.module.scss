@@ -19,6 +19,19 @@
 .icon {
   height: 40px;
   width: 40px;
+
+  &.medium {
+    height: 50px;
+    width: 50px;
+  }
+  &.large {
+    height: 75px;
+    width: 75px;
+  }
+  &.title {
+    height: auto;
+    width: 175px;
+  }
 }
 
 .rounded {

@@ -51,3 +51,38 @@
     transform: rotate(360deg);
   }
 }
+
+.col-5c {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+@media screen and (max-width: 575px) {
+  .col-xs-5c {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media screen and (min-width: 576px) {
+  .col-sm-5c {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .col-md-5c {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .col-lg-5c {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .col-xl-5c {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}

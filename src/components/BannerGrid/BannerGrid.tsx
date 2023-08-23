@@ -47,6 +47,7 @@ interface BannerGridParameters {
   textAlignment: string;
   headlineSize: string;
   subcopySize: string;
+  borderTop: boolean;
 }
 
 interface BannerGridModels {
@@ -72,6 +73,7 @@ export function BannerGrid({
     headlineSize,
     subcopySize,
     backgroundColor,
+    borderTop,
     ...params
   } =
     component?.getParameters<BannerGridParameters & Record<string, any>>() ||
@@ -128,9 +130,9 @@ export function BannerGrid({
     if (num >= 3) {
       const colMapping: Record<number, string> = {
         3: "col-6 col-sm-4",
-        4: "col-md-3 col-lg-3",
-        5: "col-md-3 col-lg-5c",
-        6: "col-md-3 col-lg-2",
+        4: "col-6 col-sm-4 col-md-3 col-lg-3",
+        5: "col-6 col-sm-4 col-md-3 col-lg-5c",
+        6: "col-6 col-sm-4 col-md-3 col-lg-2",
       };
       return colMapping[num] || "col-md-4";
     }
@@ -139,24 +141,26 @@ export function BannerGrid({
 
   return (
     <div
-      className={`${styles["banner-grid"]} mx-auto p-3`}
+      className={`${styles["banner-grid"]} mx-auto px-3 py-4`}
       style={
         backgroundColor
           ? {
-              borderTop: "1px solid #ccc",
+              borderTop: borderTop ? "1px solid #ccc" : "",
               backgroundColor: backgroundColor,
             }
           : {}
       }
     >
-      <Title
-        title={title ?? { value: "" }}
-        titleSize={titleSize ?? ""}
-        className="pb-3 pb-md-4 text-center"
-      />
+      {title?.value && title?.value.length > 0 && (
+        <Title
+          title={title ?? { value: "" }}
+          titleSize={titleSize ?? ""}
+          className="pb-3 text-center"
+        />
+      )}
       <Container className={`${widthStyles["w-" + maxWidth]} p-0 mx-auto`}>
         <Row
-          className={`${styles["row-adjustment"]} justify-content-center align-items-stretch pt-3`}
+          className={`${styles["row-adjustment"]} justify-content-center align-items-stretch pt-2 pb-3`}
         >
           {bannerCardTile &&
             bannerCardTile.map((item: BannerCardTile, key) => {
@@ -166,6 +170,7 @@ export function BannerGrid({
                 textAlignment,
                 headlineSize,
                 subcopySize,
+                gridFlex: true,
                 ...item,
               };
               return (
